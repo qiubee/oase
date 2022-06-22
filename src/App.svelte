@@ -1,29 +1,18 @@
 <script lang="ts">
+  import Start from "./lib/pages/Start.svelte"
+  import Login from "./lib/pages/Login.svelte"
 </script>
 
 <main>
-  <h1>Oase</h1>
+  <!-- <Start></Start> -->
+  <Login></Login>
 </main>
 
 <style>
-  :root {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-
   main {
-    text-align: center;
-    padding: 1em;
-    margin: 0 auto;
-  }
-
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4rem;
-    font-weight: 100;
-    line-height: 1.1;
-    margin: 2rem auto;
-    max-width: 14rem;
+    position: absolute;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
   }
 </style>
