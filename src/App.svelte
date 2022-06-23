@@ -1,15 +1,23 @@
 <script lang="ts">
-  import Start from "./lib/pages/Start.svelte"
-  import Login from "./lib/pages/Login.svelte"
+  import Router from "svelte-spa-router"
+  import routes from "./routes"
+  import { replace } from "svelte-spa-router"
+  import { loggedIn } from "./store";
+
+  // check login state
+  if ($loggedIn) {
+    replace("/home")
+  } else {
+    replace("/login")
+  }
 </script>
 
-<main>
-  <!-- <Start></Start> -->
-  <Login></Login>
-</main>
+<div>
+  <Router {routes}/>
+</div>
 
 <style>
-  main {
+  div {
     position: absolute;
     overflow: hidden;
     height: 100%;
