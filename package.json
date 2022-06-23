@@ -9,6 +9,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
+    "predev": "npm run lint && npm run format",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
