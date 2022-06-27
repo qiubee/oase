@@ -3,15 +3,16 @@
     import { Writable, writable } from "svelte/store";
     import Button from "../lib/components/Button.svelte";
     import ProgressBar from "../lib/components/ProgressBar.svelte";
-    import { subjects } from "../store";
+    import { interestedSubjects, subjects, theme } from "../store";
 
     type Theme = {
         name: string,
+        nameVisible: boolean,
         thumbnail: string,
         backgroundColor: string
     }
 
-    const currentStep : Writable<number> = writable(1);
+    const currentStep : Writable<number> = writable(2);
     setContext("step", {
         currentStep,
         previous: function () {
@@ -26,33 +27,53 @@
     const themes:Theme[] = [
         {
             name: "Oase",
-            thumbnail: "",
-            backgroundColor: "#"
+            nameVisible: true,
+            thumbnail: "src/assets/themes/palms.svg",
+            backgroundColor: "#FBF0BC"
         },
         {
             name: "Sterrennacht",
-            thumbnail: "",
-            backgroundColor: "#"
+            nameVisible: true,
+            thumbnail: "src/assets/themes/stars.svg",
+            backgroundColor: "#37333B"
         },
         {
             name: "CMD",
-            thumbnail: "../assets/themes/cmd.png",
-            backgroundColor: "#"
+            nameVisible: false,
+            thumbnail: "src/assets/themes/cmd.png",
+            backgroundColor: "#FFF021"
         },
         {
-            name: "CO+CB",
-            thumbnail: "",
-            backgroundColor: "#"
+            name: "CO-CB",
+            nameVisible: false,
+            thumbnail: "src/assets/themes/cocb.svg",
+            backgroundColor: "white"
         },
         {
             name: "HBO-ICT",
-            thumbnail: "../assets/themes/hbo-ict.png",
-            backgroundColor: "#"
+            nameVisible: false,
+            thumbnail: "src/assets/themes/hbo-ict.png",
+            backgroundColor: "white"
         }
     ];
 
     function setTheme():void {
+        theme.update(() => this.dataset.theme);
+        currentStep.update((n) => ++n)
+    }
 
+    function toggleSaveSubject():void {
+        this.classList.toggle("selected");
+        const subject = this.textContent;
+        interestedSubjects.update(function (list) {
+            if (list.includes(subject)) {
+                return [...list].filter(function (val:string):string[] {
+                    return val !== subject;
+                })
+            } else {
+                return [...list, subject];
+            }
+        })
     }
 </script>
 
@@ -74,33 +95,37 @@
         {#if $currentStep === 1}
             <ul class="themes">
                 {#each themes as theme}
-                    <li>
-
+                    <li data-theme={theme.name} style="background-image: url({theme.thumbnail}); background-color: {theme.backgroundColor};" on:click={setTheme}>
+                        {#if theme.nameVisible}
+                            <span>{theme.name}</span>
+                        {/if}
                     </li>
                 {/each}
             </ul>
             {:else if $currentStep === 2}
                 <ul class="subjects">
                     {#each $subjects as subject}
-                        <li on:click={setTheme}>
-                            <h2>{subject}</h2>
+                        <li on:click={toggleSaveSubject}>
+                            {subject}
                         </li>
                     {/each}
                 </ul>
             {:else}
             <!-- profile setup -->
         {/if}
-        {#if $currentStep === 3}
+        <div>
+            {#if $currentStep === 3}
             <Button type={"rectangle"} text={"Klaar"}/>
-            {:else}
+            {:else if $currentStep > 1}
             <Button type={"rectangle"} icon={"next"}/>
-        {/if}
+            {/if}
+        </div>
     </main>
 </div>
 
 <style>
     .setup {
-        background: url("../assets/sand.svg") center bottom var(--std-bg-color);
+        background: url("src/assets/sand.svg") center bottom var(--std-bg-color);
         height: 100%;
     }
 
@@ -136,6 +161,12 @@
         margin-bottom: 3rem;
     }
 
+    main > div {
+        display: flex;
+        justify-content: center;
+        margin: 1.5rem 0 1rem 0;
+    }
+
     ul {
         padding-left: 0;
         margin-bottom: 0;
@@ -146,25 +177,55 @@
     }
 
     .themes li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         list-style: none;
         width: 100%;
-        height: 2rem;
+        height: 4rem;
         border: solid white;
-        border-width: 0.2rem 0;
+        border-width: 0.25rem 0;
+        text-align: center;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .themes li[data-theme="Sterrennacht"] {
+        color: white;
+    }
+
+    .themes li:not(:last-child) {
+        margin-bottom: 0.5rem;
+    }
+
+    .themes li:hover, .subjects li:hover, .subjects label:hover {
+        cursor: pointer;
     }
 
     .subjects {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        column-gap: 1rem;
+        row-gap: 1.5rem;
+        margin: 0.5rem;
     }
 
     .subjects li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: white;
+        border-radius: 10vw;
+        height: 2rem;
+        font-family: "Pauschal";
+        font-size: 0.85rem;
+        text-align: center;
+        text-transform: capitalize;
     }
 
-    .subjects li h2 {
-        font-family: "Pauschal";
-        font-size: 1rem;
-        text-transform: capitalize;
+    .subjects li:global(.selected) {
+        background-color: black;
+        color: white;
     }
 </style>
