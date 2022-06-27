@@ -64,10 +64,10 @@
 
     function toggleSaveSubject():void {
         this.classList.toggle("selected");
-        const subject = this.textContent;
-        interestedSubjects.update(function (list) {
+        const subject:string = this.textContent;
+        interestedSubjects.update(function (list:string[]) {
             if (list.includes(subject)) {
-                return [...list].filter(function (val:string):string[] {
+                return [...list].filter(function (val:string) {
                     return val !== subject;
                 })
             } else {
@@ -199,7 +199,7 @@
         margin-bottom: 0.5rem;
     }
 
-    .themes li:hover, .subjects li:hover, .subjects label:hover {
+    .themes li:hover, .subjects li:hover {
         cursor: pointer;
     }
 
