@@ -2,11 +2,15 @@
   import Router from "svelte-spa-router"
   import routes from "./routes"
   import { replace } from "svelte-spa-router"
-  import { loggedIn } from "./store";
+  import { loggedIn, onboard } from "./store";
 
   // check login state
   if ($loggedIn) {
-    replace("/home")
+    if ($onboard) {
+      replace("/account-instellen")
+    } else {
+      replace("/home")
+    }
   } else {
     replace("/login")
   }
