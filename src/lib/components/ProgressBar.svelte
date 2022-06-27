@@ -1,33 +1,23 @@
 <script lang="ts">
-    export let currentStep:number = 1;
-    const stages:string[] = ["incomplete", "active", "complete"];
-    const steps = [
-        {
-            stage: stages[1]
-        },
-        {   
-            stage: stages[0]
-        },
-        {
-            stage: stages[0]
-        }
-    ]
-
-    steps.map(function (step, index) {
-        if (index < currentStep - 1) {
-            step.stage = stages[2]
-        } else if (index === currentStep - 1) {
-            step.stage = stages[1]
+    import { getContext } from "svelte";
+    const { currentStep } = getContext("step");
+    const status:string[] = ["incomplete", "active", "complete"];
+    const defaultState:string[] = [status[1], status[0], status[0]];
+    $: steps = defaultState.map(function (_, index) {
+        if (index < $currentStep - 1) {
+            return status[2]
+        } else if (index === $currentStep - 1) {
+            return status[1];
         } else {
-            step.stage = stages[0]
+            return status[0];
         }
     })
 </script>
 
 <div class="progressbar">
     {#each steps as step}     
-        <div class="step {step.stage}">
-            {#if step.stage === stages[2]}
+        <div class="step {step}">
+            {#if step === status[2]}
                 <svg xmlns="http://www.w3.org/2000/svg" width="10.607" height="10.607" viewBox="0 0 10.607 10.607">
                     <path id="Union_3" data-name="Union 3" d="M2,6H0V0H2V4H9V6Z" transform="translate(0 6) rotate(-45)" fill="#18161a"/>
                 </svg>          
