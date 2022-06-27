@@ -1,19 +1,17 @@
 <script lang="ts">
     import { loggedIn } from "../../store";
     import { replace } from "svelte-spa-router";
+    import { getContext } from "svelte";
+
     export let icon : string = "back";
-    export let step : number = 0;
     export let type : string = "round";
-    export let text:string = "volgende";
-    export let arrowLeft:boolean = false;
+    export let text : string = "volgende";
+
+    const {previous, next} = getContext("step");
 
     function logout():void {
-        loggedIn.update(():boolean => false)
-        replace("/login")
-    }
-
-    function goBack():void {
-        step--
+        loggedIn.update(():boolean => false);
+        replace("/login");
     }
 </script>
 
@@ -28,7 +26,7 @@
             </svg>
         </button>
         {:else}
-        <button class="round" on:click={goBack}>
+        <button class="round" on:click={previous}>
             <svg class="backtranslate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="14" viewBox="0 0 17 14" transform="translate(0 1)">
                 <defs>
                 <clipPath id="clip-path">
@@ -45,9 +43,9 @@
         </button>
     {/if}
 {:else if type === "rectangle"}
-    <button class="rectangle">
+    <button class="rectangle" on:click={next}>
         <span>{text}</span>
-        {#if arrowLeft}    
+        {#if icon === "next"}    
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="14" viewBox="0 0 17 14">
             <defs>
             <clipPath id="clip-path">
@@ -93,5 +91,9 @@
 
     .logout-icon {
         transform: translate(0.5px, 1px);
+    }
+
+    button span {
+        font-family: "Pauschal";
     }
 </style>
