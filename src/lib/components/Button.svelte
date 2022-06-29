@@ -83,6 +83,7 @@
         border-radius: 0.25rem;
         text-transform: capitalize;
         margin: 0.5rem 0;
+        min-width: 6rem;
     }
 
     button:hover {
