@@ -46,19 +46,19 @@
     <button class="rectangle" on:click={next}>
         <span>{text}</span>
         {#if icon === "next"}    
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="14" viewBox="0 0 17 14">
-            <defs>
-            <clipPath id="clip-path">
-                <path id="Path_8" data-name="Path 8" d="M.2,12.918a.6.6,0,0,0,0,.891.666.666,0,0,0,.933,0L7.8,7.445a.6.6,0,0,0,0-.891L1.133.191A.666.666,0,0,0,.2.191a.6.6,0,0,0,0,.891L6.4,7,.2,12.918Z" fill="#fff"/>
-            </clipPath>
-            </defs>
-            <g id="ico" transform="translate(0 0)">
-            <g id="arr" transform="translate(8 14)" clip-path="url(#clip-path)">
-                <rect id="Rectangle_12" data-name="Rectangle 12" width="11.333" height="17.182" transform="translate(-1.667 -1.591)" fill="#fff"/>
-            </g>
-            <rect id="line" width="16" height="1.2" rx="0.6" transform="translate(1 6.4)" fill="#fff"/>
-            </g>
-        </svg>
+            <svg class="backtranslate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="14" viewBox="0 0 17 14" transform="translate(0 2) rotate(180) scale(0.75)">
+                <defs>
+                <clipPath id="clip-path">
+                    <path id="Path_8" data-name="Path 8" d="M.2,12.918a.6.6,0,0,0,0,.891.666.666,0,0,0,.933,0L7.8,7.445a.6.6,0,0,0,0-.891L1.133.191A.666.666,0,0,0,.2.191a.6.6,0,0,0,0,.891L6.4,7,.2,12.918Z" fill="#fff"/>
+                </clipPath>
+                </defs>
+                <g id="ico" transform="translate(0 0)">
+                <g id="arr" transform="translate(8 14) rotate(180)" clip-path="url(#clip-path)">
+                    <rect id="Rectangle_12" data-name="Rectangle 12" width="11.333" height="17.182" transform="translate(-1.667 -1.591)" fill="#fff"/>
+                </g>
+                <rect id="line" width="16" height="1.2" rx="0.6" transform="translate(1 6.4)" fill="#fff"/>
+                </g>
+            </svg>          
         {/if}
     </button>
 {/if}
