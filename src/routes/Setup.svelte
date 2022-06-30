@@ -349,9 +349,6 @@
     }
 
     .photo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         font-size: 0.5rem;
         background-color: white;
         border: 0.1rem solid black;
@@ -366,6 +363,13 @@
         width: 100%;
         height: 100%;
         border-radius: 3.5rem;
+    }
+
+    .photo img::before {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .preview .name {
