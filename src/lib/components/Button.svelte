@@ -2,12 +2,15 @@
     import { loggedIn } from "../../store";
     import { replace } from "svelte-spa-router";
     import { getContext } from "svelte";
+    const { previous, next } = getContext("step");
 
     export let icon : string = "back";
-    export let type : string = "round";
+    export let shape : string = "round";
     export let text : string = "volgende";
+    export let action = function () {
+        next();
+    }
 
-    const {previous, next} = getContext("step");
 
     function logout():void {
         loggedIn.update(():boolean => false);
@@ -15,7 +18,7 @@
     }
 </script>
 
-{#if type === "round"}
+{#if shape === "round"}
     {#if icon === "logout"}
         <button class="round" on:click={logout}>
             <svg class="logout-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
@@ -42,8 +45,8 @@
             </svg>          
         </button>
     {/if}
-{:else if type === "rectangle"}
-    <button class="rectangle" on:click={next}>
+{:else if shape === "rectangle"}
+    <button class="rectangle" on:click={action}>
         <span>{text}</span>
         {#if icon === "next"}    
             <svg class="backtranslate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="14" viewBox="0 0 17 14" transform="translate(0 2) rotate(180) scale(0.75)">
