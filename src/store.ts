@@ -19,4 +19,20 @@ export const subjects = readable([
   "studieadvies",
   "online",
 ]);
-export const interestedSubjects = writable([])
+export const interestedSubjects = writable([]);
+export const statusOptions = readable([
+  "Online",
+  "Bezig",
+  "Aan het werk",
+  "Niet storen",
+]);
+export const user = writable({
+  firstName: "Jaimy",
+  lastName: "Vaals",
+  lastNameVisible: true,
+  photoURL: "",
+  status: "Online",
+  statusVisible: true,
+  programmOfStudy: "Communication & Multimedia Design",
+  posAbbreviation: "CMD",
+});
