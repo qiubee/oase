@@ -5,7 +5,7 @@
     import Button from "../lib/components/Button.svelte";
     import Toggle from "../lib/components/Toggle.svelte";
     import ProgressBar from "../lib/components/ProgressBar.svelte";
-    import { interestedSubjects, subjects, theme, user, statusOptions } from "../store";
+    import { interestedSubjects, subjects, theme, user, statusOptions, onboard } from "../store";
 
     type Theme = {
         name: string,
@@ -18,10 +18,10 @@
     setContext("step", {
         currentStep,
         previous: function () {
-            currentStep.update((n):number => n -1)
+            currentStep.update((n) => n -1)
         },
         next: function () {
-            currentStep.update((n):number => n + 1)
+            currentStep.update((n) => n + 1)
         }
     })
 
@@ -120,6 +120,10 @@
 
     function goHome(): void {
         replace("/");
+        onboard.update(function (onboard) {
+            onboard = false;
+            return onboard;
+        })
     }
 </script>
 
