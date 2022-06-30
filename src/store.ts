@@ -1,13 +1,24 @@
 import { readable, writable } from "svelte/store";
 
-// test
-export const loggedIn = writable(true);
-export const onboard = writable(true);
+type User = {
+  firstName: string,
+  lastName: string,
+  lastNameVisible: boolean,
+  photoURL: string,
+  status: string,
+  statusVisible: boolean,
+  programmOfStudy: string,
+  posAbbreviation: string
+}
 
-// export const loggedIn = writable(false);
-// export const onboard = writable(true);
-export const theme = writable("Oase");
-export const subjects = readable([
+// test
+export const loggedIn = writable<boolean>(true);
+export const onboard = writable<boolean>(true);
+
+// export const loggedIn = writable<boolean>(false);
+// export const onboard = writable<boolean>(true);
+export const theme = writable<string>("Oase");
+export const subjects = readable<string[]>([
   "studiedruk",
   "studiebegeleiding",
   "communicatie",
@@ -19,14 +30,14 @@ export const subjects = readable([
   "studieadvies",
   "online",
 ]);
-export const interestedSubjects = writable([]);
-export const statusOptions = readable([
+export const interestedSubjects = writable<string[]>([]);
+export const statusOptions = readable<string[]>([
   "Online",
   "Bezig",
   "Aan het werk",
   "Niet storen",
 ]);
-export const user = writable({
+export const user = writable<User>({
   firstName: "Jaimy",
   lastName: "Vaals",
   lastNameVisible: true,
