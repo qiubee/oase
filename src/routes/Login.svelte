@@ -1,5 +1,26 @@
-<script>
+<script lang="ts">
+  import { replace, link } from "svelte-spa-router";
+  import { loggedIn, onboard } from "../store";
 
+  function login(): void {
+    if (!$loggedIn) {
+      loggedIn.update((): boolean => true)
+    }
+
+    checkLogin();
+  }
+
+  function checkLogin(): void {
+    if ($loggedIn) {
+      if ($onboard) {
+        replace("/account-instellen")
+      } else {
+        replace("/")
+      }
+    }
+  }
+
+  checkLogin();
 </script>
 
 <div>
@@ -447,8 +468,8 @@
     <label>
       <input type="password" placeholder="Wachtwoord">
     </label>
-    <input type="submit" value="Login">
-    <a href="/">Wachtwoord vergeten?</a>
+    <input on:click|preventDefault={login} type="submit" value="Login">
+    <a href="/wachtwoord-vergeten" use:link>Wachtwoord vergeten?</a>
   </form>
 </main>
 
@@ -510,6 +531,11 @@
     margin-bottom: 1.75rem;
   }
 
+  input:not([type="submit"]):focus,
+  input:not([type="submit"]):focus-visible {
+    outline: 2px solid black;
+  }
+
   input[type="submit"] {
     font-family: "Pauschal";
     font-size: 1.25rem;
@@ -520,6 +546,10 @@
     border-radius: 0.25rem;
     width: 15rem;
     margin-bottom: 0.75rem;
+  }
+
+  input[type="submit"]:hover {
+    cursor: pointer;
   }
 
   a {
