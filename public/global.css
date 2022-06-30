@@ -3,6 +3,8 @@
     background-color: #fefae2;
     --std-bg-color: #fbf0bc;
     --std-btn-bg-color: #a7aa85;
+    --std-active-color: #a093e5;
+    --std-gray: #b9b9b9;
 }
 
 @font-face {
