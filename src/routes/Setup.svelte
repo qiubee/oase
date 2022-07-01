@@ -265,15 +265,6 @@
         margin: 2.5rem 0 1rem 0;
     }
 
-    ul {
-        padding-left: 0;
-        margin-bottom: 0;
-    }
-
-    ul li {
-        list-style: none;
-    }
-
     .themes li {
         display: flex;
         justify-content: center;
