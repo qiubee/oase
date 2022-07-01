@@ -9,7 +9,7 @@
     if ($onboard) {
       replace("/account-instellen")
     } else {
-      replace("/home")
+      replace("/")
     }
   } else {
     replace("/login")
