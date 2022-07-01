@@ -119,11 +119,11 @@
     }
 
     function goHome(): void {
-        replace("/");
         onboard.update(function (onboard) {
             onboard = false;
             return onboard;
         })
+        replace("/");
     }
 </script>
 
