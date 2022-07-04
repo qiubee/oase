@@ -129,7 +129,7 @@ export const routes = readable<Route[]>([
   },
   {
     name: "search",
-    location: "/zoeken",
+    location: "/zoek",
     iconUrl: "src/assets/routes/search.png",
     iconAlt: "Zoek",
   },
