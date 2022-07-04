@@ -1,0 +1,82 @@
+[
+  {
+    "id": 0,
+    "firstName": "Vera",
+    "lastName": "Langeveld",
+    "lastNameVisible": true,
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "lessons": []
+  },
+  {
+    "id": 1,
+    "firstName": "Jochem",
+    "lastName": "Craaien",
+    "lastNameVisible": false,
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "lessons": []
+  },
+  {
+    "id": 2,
+    "firstName": "Jurre",
+    "lastName": "van Welen",
+    "lastNameVisible": true,
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "lessons": []
+  },
+  {
+    "id": 3,
+    "firstName": "Aisha",
+    "lastName": "Yenogun",
+    "lastNameVisible": false,
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "lessons": []
+  },
+  {
+    "id": 4,
+    "firstName": "Emma",
+    "lastName": "Reboden",
+    "lastNameVisible": true,
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "lessons": []
+  }
+]

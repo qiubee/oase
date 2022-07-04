@@ -1,0 +1,64 @@
+[
+  {
+    "id": 0,
+    "type": "idee",
+    "author": 0,
+    "title": "Meer studieplekken in het TTH om samen te kunnen werken",
+    "description": "Het wordt steeds drukker in het TTH en daarmee zijn de studieplekken steeds vaker bezet. Ik zou graag op de campus willen studeren met mijn groepje maar we moeten telkens naar het KSH of WBH om nog een plek te kunnen vinden.",
+    "timestamp": "1655706600000",
+    "category": "studieplekken",
+    "upvotes": 154,
+    "status": "discussie",
+    "reactions": [
+      {
+        "userID": 4,
+        "userType": "student",
+        "timestamp": "1655706840000",
+        "message": "Dat zou ik ook heel fijn vinden. Nu heb ik dat ik soms nergens kan zitten met mijn groep."
+      },
+      {
+        "userID": 1,
+        "userType": "representative",
+        "timestamp": "1655708160000",
+        "message": "Goed idee! Waar in het gebouw hebben jullie het meest last van het tekort aan plekken?"
+      },
+      {
+        "userID": 7,
+        "userType": "student",
+        "timestamp": "1655708160000",
+        "message": "Jaa, hier moeten ze echt iets aan doen. Nu moeten we al het hele gebouw door willen we een plek zien te vinden."
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "type": "probleem",
+    "author": 3,
+    "title": "Te weinig tijd voor opdracht HCI",
+    "description": "Met het maken van de opdracht van HCI komen we tijd tekort. Ik hoor van andere in mijn klas dat ze graag nog een dag extra willen hebben voor de opdracht.",
+    "timestamp": "1656676680000",
+    "category": "studiedruk",
+    "upvotes": 12,
+    "status": "discussie",
+    "reactions": [
+      {
+        "userID": 8,
+        "userType": "student",
+        "timestamp": "1656683040000",
+        "message": "Ik heb ook te weinig tijd. Ik ben nog bezig met de laatste pagina. Als ik nog een extra dag had zou dat mij veel rust geven."
+      },
+      {
+        "userID": 4,
+        "userType": "student",
+        "timestamp": "1656683260000",
+        "message": "Ja, ik heb ook dit probleem. Te weinig tijd voor een grote opdracht."
+      },
+      {
+        "userID": 12,
+        "userType": "student",
+        "timestamp": "1656690771000",
+        "message": "Same."
+      }
+    ]
+  }
+]
