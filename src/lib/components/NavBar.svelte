@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { push } from "svelte-spa-router";
     import { routes } from "../../store";
     export let location: string = $routes[0].name;
     export let node: HTMLElement;
@@ -7,7 +8,8 @@
 <div bind:this={node}>
     <ul>
         {#each $routes as route}
-            <li class="{route.name.toLowerCase()} {location === route.name ? "selected" : ""}" style="background-image: {route.iconUrl};">
+            <li on:click={push(route.location)} class="{route.name} {location === route.name ? "selected" : ""}">
+                <img src="{route.iconUrl}" alt="{route.iconAlt}">
             </li>
         {/each}
     </ul>
@@ -30,8 +32,15 @@
     }
 
     li {
-        height: 3.5rem;
-        width: 20vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 3.25rem;
+        width: 20%;
+    }
+
+    li img {
+        height: 1.85rem;
     }
 
     li.selected {
