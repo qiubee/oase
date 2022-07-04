@@ -1,4 +1,6 @@
 import { readable, writable } from "svelte/store";
+import allStudents from "./assets/db/students.json";
+import allPosts from "./assets/db/posts.json";
 
 type Lesson = {
   name: string;
@@ -10,20 +12,47 @@ type Lesson = {
   image: string;
 };
 
+type Reaction = {
+  userID: number;
+  userType: string;
+  timestamp: string;
+  message: string;
+};
+
+type Post = {
+  id: number;
+  type: string;
+  author: number;
+  title: string;
+  description: string;
+  timestamp: string;
+  category: string;
+  upvotes: number;
+  status: string;
+  reactions: Reaction[];
+};
+
 type Route = {
   name: string;
+  location: string;
   iconUrl: string;
+  iconAlt: string;
 };
 
 type User = {
+  id: number;
   firstName: string;
   lastName: string;
   lastNameVisible: boolean;
   photoURL: string;
-  status: string;
-  statusVisible: boolean;
-  readonly programmOfStudy: string;
-  readonly posAbbreviation: string;
+  status: {
+    text: string;
+    visible: boolean;
+  };
+  readonly study: {
+    name: string;
+    abbreviation: string;
+  };
   readonly lessons: Array<Lesson>;
 };
 
@@ -59,14 +88,19 @@ export const statusOptions = readable<string[]>([
   "Niet storen",
 ]);
 export const user = writable<User>({
+  id: allStudents.length + 1,
   firstName: "Jaimy",
   lastName: "Vaals",
   lastNameVisible: true,
   photoURL: "",
-  status: "Online",
-  statusVisible: true,
-  programmOfStudy: "Communication & Multimedia Design",
-  posAbbreviation: "CMD",
+  status: {
+    text: "Online",
+    visible: true,
+  },
+  study: {
+    name: "Communication & Multimedia Design",
+    abbreviation: "CMD",
+  },
   lessons: [
     {
       name: "Vormgeving",
@@ -82,23 +116,35 @@ export const user = writable<User>({
 export const currentCategory = writable<string>("Alles");
 export const routes = readable<Route[]>([
   {
-    name: "Home",
+    name: "home",
+    location: "/",
     iconUrl: "src/assets/routes/house.png",
+    iconAlt: "Home",
   },
   {
-    name: "Forum",
+    name: "forum",
+    location: "/forum",
     iconUrl: "src/assets/routes/chat.png",
+    iconAlt: "Forum",
   },
   {
-    name: "Search",
+    name: "search",
+    location: "/zoeken",
     iconUrl: "src/assets/routes/search.png",
+    iconAlt: "Zoek",
   },
   {
-    name: "Notifications",
+    name: "notifications",
+    location: "/meldingen",
     iconUrl: "src/assets/routes/alert.png",
+    iconAlt: "Meldingen",
   },
   {
-    name: "Profile",
+    name: "profile",
+    location: "/profiel",
     iconUrl: "src/assets/routes/cthulhu.png",
+    iconAlt: "Profiel",
   },
 ]);
+export const students = readable<User[]>(allStudents);
+export const posts = writable<Post[]>(allPosts);
