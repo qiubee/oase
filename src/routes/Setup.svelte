@@ -83,7 +83,7 @@
         const status = this.textContent;
         const index = $statusOptions.indexOf(status);
         user.update(function (user) {
-            user.status = $statusOptions[index];
+            user.status.text = $statusOptions[index];
             return user;
         })
     }
@@ -111,9 +111,9 @@
     }
 
     function toggleOnlineStatus(): void {
-        const visibility = $user.statusVisible;
+        const visibility = $user.status.visible;
         user.update(function (user) {
-            user.statusVisible = !visibility ? true : false;
+            user.status.visible = !visibility ? true : false;
             return user;
         })
     }
@@ -172,8 +172,8 @@
                     <img src="{$user.photoURL}" alt="Profiel foto">
                 </div>
                 <span class="name">{$user.firstName} {$user.lastNameVisible ? $user.lastName : ""}</span>
-                <span class="study">#{$user.posAbbreviation}</span>
-                {#if $user.statusVisible}
+                <span class="study">#{$user.study.abbreviation}</span>
+                {#if $user.status.visible}
                     <div class="status">{$user.status}</div>
                 {/if}
             </div>
@@ -191,7 +191,7 @@
                         <span>Status</span>
                         <ul class="status">
                             {#each $statusOptions as statusName}
-                                {#if $user.status === statusName }
+                                {#if $user.status.text === statusName }
                                     <li class="selected">{statusName}</li>
                                 {:else}
                                     <li on:click={updateStatus}>{statusName}</li>
