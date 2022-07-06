@@ -1,9 +1,9 @@
 <script lang="ts">
     import NavBar from "../lib/components/NavBar.svelte";
     import LessonSlider from "../lib/components/LessonSlider.svelte";
+    import PostCompact from "../lib/components/PostCompact.svelte";
     import TopBar from "../lib/components/TopBar.svelte";
-    import { push } from "svelte-spa-router"
-    import { user, posts, students } from "../store";
+    import { user, posts } from "../store";
 
     let header: HTMLElement;
     let navigation: HTMLElement;
@@ -25,21 +25,6 @@
         }
     }
 
-    function timeDiff(start: Date, end: Date): string {
-        const diff = (+end - +start);
-        const days = Math.floor(diff / 1000 / 60 / 60 / 24)
-        const hours = Math.floor(diff / 1000 / 60 / 60);
-        const minutes = Math.floor(diff / 1000 / 60);
-        
-        if (days >= 1) {
-            return days + "d";
-        } else if (hours >= 1) {
-            return hours + "h";
-        } else {
-            return minutes + "min";
-        }
-    }
-
     function sortPosts(option: Sort): void {
         if (sortOption === option) {
             return;
@@ -52,12 +37,12 @@
                 }
             }
             if (option === Sort.TRENDING) {
-                if (a.upvotes < b.upvotes || a.reactions.length < b.reactions.length && a.timestamp < b.timestamp) {
+                if (a.upvotes.length < b.upvotes.length || a.reactions.length < b.reactions.length && a.timestamp < b.timestamp) {
                     return 1;
                 }
             }
             if (option === Sort.TOP) {
-                if (a.upvotes < b.upvotes) {
+                if (a.upvotes.length < b.upvotes.length) {
                     return 1;
                 }
             }
@@ -87,31 +72,8 @@
                 </g>
               </svg>Top</li>
         </ul>
-        {#each sortedPosts as post}
-            {@const student = $students.find(user => user.id === post.author)}
-            <article on:click={push("/post/" + post.id)}>
-                <header>
-                    <div class="votes">
-                        <img src="" alt="Aantal stemmen">
-                        <span>{post.upvotes}</span>
-                        <button></button>
-                    </div>
-                    <div>
-                        <div class="photo">
-                            <img src="{student.photoURL}" alt="Profiel foto {student.firstName} {student.lastNameVisible ? student.lastName : ""}">
-                        </div>
-                        <span class="name">{student.firstName} {student.lastNameVisible ? student.lastName : ""}</span>
-                        <span class="time">{timeDiff(new Date(parseInt(post.timestamp)), new Date())}</span>
-                    </div>
-                    <div>
-                        <span>#{post.type}</span>
-                        <img src="../assets/status/{post.status}.svg" alt="{post.status}">
-                    </div>
-                </header>
-                <section>
-                    <h2>{post.title}</h2>
-                </section>
-            </article>
+        {#each sortedPosts as post (post.id)}
+            <PostCompact postID={post.id} />
         {/each}
         </main>
         <NavBar bind:node={navigation}/>
@@ -119,8 +81,7 @@
 </div>
 
 <style>
-    .sort li:hover,
-    article:hover {
+    .sort li:hover{
         cursor: pointer;
     }
 
@@ -153,8 +114,8 @@
         display: flex;
         align-items: center;
         border: 2px solid black;
-        border-radius: 0.5rem;
-        padding: 0.4rem 0.4rem;
+        border-radius: 0.35rem;
+        padding: 0.3rem 0.5rem;
         font-weight: bold;
         font-size: 0.8rem;
         transition: background-color ease-in 0.1s, border-color ease-in 0.1s;
@@ -166,45 +127,5 @@
 
     .sort svg {
         margin-right: 0.5rem;
-    }
-
-    article {
-        background-color: var(--cmd-color-white);
-        margin-bottom: 0.25rem;
-    }
-
-    article div:nth-of-type(2) {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-
-    article section h2 {
-        font-weight: normal;
-        margin: 0;
-    }
-
-    .photo {
-        font-size: 0.5rem;
-        background-color: white;
-        border: 0.1rem solid black;
-        height: 1.75rem;
-        width: 1.75rem;
-        border-radius: 3.5rem;
-        text-align: center;
-        margin-bottom: 0.5rem;
-    }
-
-    .photo img {
-        width: 100%;
-        height: 100%;
-        border-radius: 3.5rem;
-    }
-
-    .photo img::before {
-        height: 100%;
-        display: flex; 
-        justify-content: center;
-        align-items: center;
     }
 </style>
