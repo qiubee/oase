@@ -59,6 +59,7 @@
         font-family: "Kotori Rose";
         font-weight: bold;
         text-transform: capitalize;
+        color: black;
     }
 
     button:hover,
@@ -76,11 +77,13 @@
 
     .categories {
         position: absolute;
+        z-index: 1;
         top: 2.5rem;
         left: -0.75rem;
         text-transform: capitalize;
         width: 100vw;
         background-color: var(--cmd-color-main);
+        filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.1));
     }
 
     .categories li {
@@ -88,10 +91,6 @@
         padding: 1rem 0 1rem 0.25rem;
         margin: 0 0.75rem;
         border-bottom: 2px solid var(--cmd-color-black);
-    }
-
-    .categories {
-        filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.1));
     }
 
     .categories .selected {
