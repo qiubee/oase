@@ -2,6 +2,28 @@ import { readable, writable } from "svelte/store";
 import allStudents from "./assets/db/students.json";
 import allPosts from "./assets/db/posts.json";
 
+const allSubjects = [
+  "studiedruk",
+  "studiebegeleiding",
+  "communicatie",
+  "diversiteit",
+  "studentenvereniging",
+  "informatievoorziening",
+  "studieplekken",
+  "evenementen",
+  "studieadvies",
+  "online",
+] as const;
+const allStatusOptions = [
+  "Online",
+  "Bezig",
+  "Aan het werk",
+  "Niet storen",
+] as const;
+
+type Subjects = typeof allSubjects[number];
+type StatusOptions = typeof allStatusOptions[number];
+
 type Lesson = {
   name: string;
   room: string;
@@ -14,7 +36,7 @@ type Lesson = {
 
 type Reaction = {
   userID: number;
-  userType: string;
+  userType: "student" | "representative";
   timestamp: string;
   message: string;
 };
@@ -26,8 +48,8 @@ type Post = {
   title: string;
   description: string;
   timestamp: string;
-  category: string;
-  upvotes: number;
+  category: Subjects;
+  upvotes: Array<User["id"]>;
   status: string;
   reactions: Reaction[];
 };
@@ -46,7 +68,7 @@ type User = {
   lastNameVisible: boolean;
   photoURL: string;
   status: {
-    text: string;
+    text: StatusOptions;
     visible: boolean;
   };
   readonly study: {
@@ -69,24 +91,8 @@ export const interestedSubjects = writable<string[]>([
 // export const onboard = writable<boolean>(true);
 // export const interestedSubjects = writable<string[]>([]);
 export const theme = writable<string>("Oase");
-export const subjects = readable<string[]>([
-  "studiedruk",
-  "studiebegeleiding",
-  "communicatie",
-  "diversiteit",
-  "studentenvereniging",
-  "informatievoorziening",
-  "studieplekken",
-  "evenementen",
-  "studieadvies",
-  "online",
-]);
-export const statusOptions = readable<string[]>([
-  "Online",
-  "Bezig",
-  "Aan het werk",
-  "Niet storen",
-]);
+export const subjects = readable<readonly string[]>(allSubjects);
+export const statusOptions = readable<readonly string[]>(allStatusOptions);
 export const user = writable<User>({
   id: allStudents.length + 1,
   firstName: "Jaimy",
