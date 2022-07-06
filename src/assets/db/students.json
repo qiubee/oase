@@ -78,5 +78,101 @@
       "abbreviation": "CMD"
     },
     "lessons": []
+  },
+  {
+    "id": 5,
+    "firstName": "Chris",
+    "lastName": "Aanter",
+    "lastNameVisible": false,
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "lessons": []
+  },
+  {
+    "id": 6,
+    "firstName": "Quinty",
+    "lastName": "Haleman",
+    "lastNameVisible": true,
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "lessons": []
+  },
+  {
+    "id": 7,
+    "firstName": "Sarah",
+    "lastName": "Zuyghim",
+    "lastNameVisible": false,
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "lessons": []
+  },
+  {
+    "id": 8,
+    "firstName": "Max",
+    "lastName": "van der Meer",
+    "lastNameVisible": true,
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "lessons": []
+  },
+  {
+    "id": 9,
+    "firstName": "Peter",
+    "lastName": "Luisdalen",
+    "lastNameVisible": true,
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "lessons": []
+  },
+  {
+    "id": 10,
+    "firstName": "Tim",
+    "lastName": "Vergooi",
+    "lastNameVisible": false,
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "lessons": []
   }
 ]
