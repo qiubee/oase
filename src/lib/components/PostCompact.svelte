@@ -48,7 +48,7 @@
 </script>
 
 <article>
-    <div class="votes" on:click={vote(postID)}>
+    <div class="votes" on:click={() => vote(postID)}>
         <div>
             <div class="amount">
                 <img src="src/assets/icons/upvote.png" alt="Aantal stemmen">
@@ -57,7 +57,7 @@
             <button><VoteButton active={voted}/></button>
         </div>
     </div>
-    <div class="content" on:click={push("/post/" + postID)}>
+    <div class="main" on:click={() => push("/post/" + postID)}>
         <header>
             <div class="metadata">
                 <div class="photo">
@@ -128,7 +128,7 @@
 <style>
     .votes:hover,
     button:hover,
-    .content:hover {
+    .main:hover {
         cursor: pointer;
     }
 
@@ -139,7 +139,7 @@
         margin-bottom: 0.25rem;
     }
 
-    .content {
+    .main {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
