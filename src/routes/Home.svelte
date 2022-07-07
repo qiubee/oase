@@ -3,7 +3,7 @@
     import LessonSlider from "../lib/components/LessonSlider.svelte";
     import PostCompact from "../lib/components/PostCompact.svelte";
     import TopBar from "../lib/components/TopBar.svelte";
-    import { user, posts } from "../store";
+    import { user, posts, currentCategory } from "../store";
 
     let header: HTMLElement;
     let navigation: HTMLElement;
@@ -13,8 +13,24 @@
         TRENDING,
         TOP,
     }
+
+    let hideSortOptions: boolean = false;
     let sortOption: Sort;
     let sortedPosts = $posts;
+
+    $: filteredPosts = sortedPosts.filter(function (post) {
+        hideSortOptions = false;
+        if ($currentCategory === "Alles") {
+            return post;
+        }
+        if ($currentCategory === "Populair") {
+            sortOption = Sort.TRENDING;
+            hideSortOptions = true;
+            return post.upvotes.length > 100 || post.reactions.length > 30;
+        } else {
+            return post.category === $currentCategory;
+        }
+    })
 
     function calcContentView(hd: HTMLElement, nv: HTMLElement): number | void {
         if (hd && nv) {
@@ -60,11 +76,11 @@
                 <LessonSlider/>
             {/if}
         <ul class="sort">
-            <li on:click={sortPosts(Sort.NEW)} class={sortOption === Sort.NEW ? "selected": ""}>Nieuw</li>
+            <li on:click={sortPosts(Sort.NEW)} class="{sortOption === Sort.NEW ? "selected": ""} {hideSortOptions ? "hide" : ""}">Nieuw</li>
             <li on:click={sortPosts(Sort.TRENDING)} class={sortOption === Sort.TRENDING ? "selected": ""}><svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 10.5 13">
                 <path id="Path_430" data-name="Path 430" d="M206.937,79.692a4.385,4.385,0,1,1-8.77,0c0-1.572,1.2-3.793,2.105-3.793.7,0,.766,2.575,1.357,2.836,1.114.492.539-5.568,1.862-5.568C205.684,73.167,206.937,77.27,206.937,79.692Z" transform="translate(-197.417 -72.417)" fill="none" stroke="#000" stroke-width="1.5"/>
               </svg>Trending</li>
-            <li on:click={sortPosts(Sort.TOP)} class={sortOption === Sort.TOP ? "selected": ""}><svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 10.5 12">
+            <li on:click={sortPosts(Sort.TOP)} class="{sortOption === Sort.TOP ? "selected": ""} {hideSortOptions ? "hide" : ""}"><svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 10.5 12">
                 <g id="Group_768" data-name="Group 768" transform="translate(-323.542 -83.375)">
                   <rect id="Rectangle_1827" data-name="Rectangle 1827" width="2.746" height="4.393" rx="0.5" transform="translate(330.419 89.844)" fill="none" stroke="#000" stroke-width="1.25"/>
                   <rect id="Rectangle_1828" data-name="Rectangle 1828" width="2.746" height="10.237" rx="0.5" transform="translate(324.167 84)" fill="none" stroke="#000" stroke-width="1.25"/>
@@ -72,7 +88,7 @@
                 </g>
               </svg>Top</li>
         </ul>
-        {#each sortedPosts as post (post.id)}
+        {#each filteredPosts as post (post.id)}
             <PostCompact postID={post.id} />
         {/each}
         </main>
@@ -119,6 +135,10 @@
         font-weight: bold;
         font-size: 0.8rem;
         transition: background-color ease-in 0.1s, border-color ease-in 0.1s;
+    }
+
+    .sort li.hide {
+        display: none;
     }
 
     .sort li:nth-last-of-type(n+2) {
