@@ -30,7 +30,7 @@
         </button>
         {:else}
         <button class="round" on:click={previous}>
-            <svg class="backtranslate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="14" viewBox="0 0 17 14" transform="translate(0 1)">
+            <svg class="back" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="14" viewBox="0 0 17 14" transform="translate(0 1)">
                 <defs>
                 <clipPath id="clip-path">
                     <path id="Path_8" data-name="Path 8" d="M.2,12.918a.6.6,0,0,0,0,.891.666.666,0,0,0,.933,0L7.8,7.445a.6.6,0,0,0,0-.891L1.133.191A.666.666,0,0,0,.2.191a.6.6,0,0,0,0,.891L6.4,7,.2,12.918Z" fill="#fff"/>
