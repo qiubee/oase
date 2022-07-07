@@ -1,7 +1,7 @@
 <script lang="ts">
     import { interestedSubjects, currentCategory } from "../../../store";
     const categories: string[] = ["Alles", "Populair", ...$interestedSubjects];
-    let dropdownHidden = true;
+    let dropdownHidden: boolean = true;
 
     function toggleCategoryDropdown(): void {
         dropdownHidden = dropdownHidden ? false : true;
@@ -78,7 +78,7 @@
     .categories {
         position: absolute;
         z-index: 1;
-        top: 2.5rem;
+        top: 2.35rem;
         left: -0.75rem;
         text-transform: capitalize;
         width: 100vw;
