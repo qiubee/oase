@@ -84,3 +84,13 @@ button:-moz-focusring,
 [type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
+
+.view {
+    height: 100%;
+    background-color: var(--cmd-color-main);
+}
+
+.content {
+    max-width: 30rem;
+    margin: auto;
+}
