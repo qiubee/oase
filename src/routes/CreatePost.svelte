@@ -1,19 +1,88 @@
 <script lang="ts">
-    import { pop } from "svelte-spa-router";
+    import type { FormData, FormError, Post } from "src/@types/main";
+    import { subjects, posts, userID } from "../store";
+    import { pop, replace } from "svelte-spa-router";
     import PostOptions from "../lib/components/topbar/PostOptions.svelte";
 
     const postTypes = ["idee", "probleem"] as const;
-    // let type: typeof postTypes[number];
+    const allSubjects = [...$subjects] as const;
 
-    // TEST
-    let type: typeof postTypes[number] = "idee";
+    let type: typeof postTypes[number];
+    let selectedSubject: typeof allSubjects[number] = "studiedruk";
+    let error: FormError = {
+        title: false,
+        details: false
+    }
 
     function toggleType(): void {
         type = type === "idee" ? "probleem" : "idee";
     }
 
-    function addPost(): void {
+    function updateSubject(subject: typeof allSubjects[number]): void {
+        selectedSubject = subject;
+    }
 
+    function checkForm(e: Event): void {
+        const form = <HTMLFormElement>e.target;
+        const formData = new FormData(form);
+        const data: FormData = {
+            title: "",
+            category: "studiedruk",
+            details: ""
+        };
+
+        for (const field of formData) {
+            const [key, val] = field;
+            if (val === "") {
+                showError(<"title" | "details">key);
+            }
+            data[key] = val;
+        }
+
+        if (!error.title && !error.details) {
+            addPost(data);
+        }
+    }
+
+    function showError(inputName: "title" | "details"): void {
+        if (inputName === "title") {
+            error.title = true;
+        }
+        if (inputName === "details") {
+            error.details = true;
+        }
+    }
+
+    function removeError(inputName: "title" | "details"): void {
+        if (inputName === "title") {
+            error.title = false;
+        }
+        if (inputName === "details") {
+            error.details = false;
+        }
+    }
+
+    function addPost(data: FormData): void {
+        const postID = $posts.length + 1;
+        const post: Post = {
+            id: postID,
+            type: type,
+            author: $userID,
+            title: data.title,
+            description: data.details,
+            timestamp: `${+new Date()}`,
+            category: data.category,
+            upvotes: [],
+            status: "In afwachting",
+            reactions: []
+        }
+
+        posts.update((posts) => {
+            posts.push(post);
+            return posts;
+        })
+
+        replace("/post/" + postID);
     }
 </script>
 
@@ -48,9 +117,33 @@
                 </button>
             </div>
         </header>
-        <form>
-            <input type="submit" on:click|preventDefault={addPost} value="{type.charAt(0).toUpperCase() + type.slice(1)} plaatsen"/>
-        </form>
+        <div class="new-post">
+            <div>
+                <h1>Mijn #{type}</h1>
+                <form on:submit|preventDefault={checkForm}>
+                    <div class="{error.title === true ? "error" : ""}">
+                        <input on:input={() => removeError("title")} type="text" name="title" placeholder="Titel">
+                    </div>
+                    <div>
+                        <h2>Categorie</h2>
+                        <ul>
+                            {#each $subjects as subject}
+                            <li on:click={() => updateSubject(subject)} class={selectedSubject === subject ? "selected" : ""}>
+                                <label>
+                                    <input type="radio" name="category" value={subject}>{subject}
+                                </label>
+                            </li>
+                            {/each}
+                        </ul>
+                    </div>
+                    <div class="{error.details === true ? "error" : ""}">
+                        <h2>Details</h2>
+                        <textarea on:input={() => removeError("details")} name="details" cols="30" rows="15"></textarea>
+                    </div>
+                    <input type="submit" value="{type.charAt(0).toUpperCase() + type.slice(1)} plaatsen"/>
+                </form>
+            </div>
+        </div>
         {:else}
         <header>
             <PostOptions right="close"/>
@@ -117,6 +210,96 @@
         margin: 0 0.75rem;
     }
 
+    .new-post {
+        height: calc(100% - 66px);
+        overflow-y: auto;
+    }
+
+    .content {
+        height: 100%;
+    }
+
+    form {
+        position: relative;
+        width: 100%;
+    }
+
+    form > div:first-of-type,
+    form > div h2 {
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+    }
+
+    .new-post h1 {
+        margin-bottom: 2rem;
+    }
+
+    form h2 {
+        font-size: 0.9rem;
+    }
+
+    form > div {
+        margin-bottom: 1.75rem;
+    }
+
+    form > div:last-of-type {
+        position: relative;
+    }
+
+    input[name="title"] {
+        width: calc(100% - 1rem);
+        border: none;
+        border-bottom: 2px solid black;
+        background-color: transparent;
+        color: var(--cmd-color-black);
+        padding: 0.75rem 0.5rem;
+        font-size: 1rem;
+    }
+
+    form ul {
+        display: flex;
+        flex-direction: row;
+        font-family: "Pauschal";
+        overflow-x: scroll;
+        scroll-snap-type: x proximity;
+        margin-left: 0.75rem;
+        padding-bottom: 0.75rem;
+        margin-bottom: -0.75rem;
+    }
+
+    form ul li {
+        display: block;
+        border-radius: 0.25rem;
+        margin-right: 0.5rem;
+        border: 2px solid black;
+        text-transform: capitalize;
+        scroll-snap-align: start;
+        transition: background-color ease 0.1s, border-color ease 0.1s;
+    }
+
+    form ul li label {
+        display: block;
+        padding: 0.25rem 0.75rem;
+    }
+
+    form ul li.selected {
+        background-color: white;
+        border-color: white;
+    }
+
+    form ul li input[type="radio"] {
+        display: none;
+    }
+
+    form textarea {
+        width: calc(100% - 1.5rem);
+        border: none;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+        font-family: "Kotori Rose";
+        font-weight: normal;
+    }
+
     input[type="submit"] {
         display: block;
         color: black;
@@ -125,6 +308,27 @@
         padding: 0.75rem 1.25rem;
         border-radius: 0.25rem;
         margin: auto;
+        margin-bottom: 1.75rem;
+        filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.1));
+    }
+
+    form > div:first-of-type.error::before,
+    form > div:last-of-type.error h2::before {
+        content: "dit veld is leeg";
+        position: absolute;
+        right: 0;
+        display: inline-block;
+        border-radius: 5rem;
+        color: white;
+        font-size: 0.75rem;
+        font-weight: normal;
+        padding: 0.25rem 0.75rem;
+        margin-right: 0.75rem;
+        background-color: var(--cmd-color-black);
+    }
+
+    form > div:first-of-type.error::before {
+        top: -1rem;
     }
 
     .main {
@@ -222,5 +426,13 @@
     .controls button {
         width: 2.5rem;
         height: 2.5rem;
+    }
+
+    @media (min-height: 41.875rem) {
+        .new-post {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
     }
 </style>
