@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { posts, students } from "../../store";
-    import TopBar from "./TopBar.svelte";
+    import { posts, students } from "../store";
+    import TopBar from "../lib/components/TopBar.svelte";
 
     type Params = {
         id?: string
