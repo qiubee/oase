@@ -1,6 +1,14 @@
 import { readable, writable } from "svelte/store";
-import allStudents from "./assets/db/students.json";
-import allPosts from "./assets/db/posts.json";
+import type {
+  User,
+  Subjects,
+  StatusOptions,
+  Route,
+  Post,
+  Theme,
+} from "src/@types/main";
+import allStudents from "./db/students.json";
+import allPosts from "./db/posts.json";
 
 const allSubjects = [
   "studiedruk",
@@ -14,69 +22,13 @@ const allSubjects = [
   "studieadvies",
   "online",
 ] as const;
+
 const allStatusOptions = [
   "Online",
   "Bezig",
   "Aan het werk",
   "Niet storen",
 ] as const;
-
-type Subjects = typeof allSubjects[number];
-type StatusOptions = typeof allStatusOptions[number];
-
-type Lesson = {
-  name: string;
-  room: string;
-  time: {
-    start: string;
-    end: string;
-  };
-  image: string;
-};
-
-type Reaction = {
-  userID: number;
-  userType: "student" | "representative";
-  timestamp: string;
-  message: string;
-};
-
-type Post = {
-  id: number;
-  type: string;
-  author: number;
-  title: string;
-  description: string;
-  timestamp: string;
-  category: Subjects;
-  upvotes: Array<User["id"]>;
-  status: string;
-  reactions: Reaction[];
-};
-
-type Route = {
-  name: string;
-  location: string;
-  iconUrl: string;
-  iconAlt: string;
-};
-
-type User = {
-  id: number;
-  firstName: string;
-  lastName: string;
-  lastNameVisible: boolean;
-  photoURL: string;
-  status: {
-    text: StatusOptions;
-    visible: boolean;
-  };
-  readonly study: {
-    name: string;
-    abbreviation: string;
-  };
-  readonly lessons: Array<Lesson>;
-};
 
 // test
 export const loggedIn = writable<boolean>(true);
@@ -90,35 +42,10 @@ export const interestedSubjects = writable<string[]>([
 // export const loggedIn = writable<boolean>(false);
 // export const onboard = writable<boolean>(true);
 // export const interestedSubjects = writable<string[]>([]);
-export const theme = writable<string>("Oase");
-export const subjects = readable<readonly string[]>(allSubjects);
-export const statusOptions = readable<readonly string[]>(allStatusOptions);
-export const user = writable<User>({
-  id: allStudents.length + 1,
-  firstName: "Jaimy",
-  lastName: "Vaals",
-  lastNameVisible: true,
-  photoURL: "",
-  status: {
-    text: "Online",
-    visible: true,
-  },
-  study: {
-    name: "Communication & Multimedia Design",
-    abbreviation: "CMD",
-  },
-  lessons: [
-    {
-      name: "Vormgeving",
-      room: "TTH 02B09",
-      time: {
-        start: "9:00",
-        end: "10:30",
-      },
-      image: "",
-    },
-  ],
-});
+export const currentTheme = writable<string>("Oase");
+export const subjects = readable<readonly Subjects[]>(allSubjects);
+export const statusOptions = readable<readonly StatusOptions[]>(allStatusOptions);
+export const userID = readable<User["id"]>(0);
 export const currentCategory = writable<string>("Alles");
 export const routes = readable<Route[]>([
   {
@@ -152,5 +79,38 @@ export const routes = readable<Route[]>([
     iconAlt: "Profiel",
   },
 ]);
-export const students = readable<User[]>(allStudents);
+export const themes = readable<Theme[]>([
+  {
+      name: "Oase",
+      nameVisible: true,
+      thumbnail: "src/assets/themes/palms.svg",
+      backgroundColor: "#FBF0BC"
+  },
+  {
+      name: "Sterrennacht",
+      nameVisible: true,
+      thumbnail: "src/assets/themes/stars.svg",
+      backgroundColor: "#37333B"
+  },
+  {
+      name: "CMD",
+      nameVisible: false,
+      thumbnail: "src/assets/themes/cmd.png",
+      backgroundColor: "#FFF021"
+  },
+  {
+      name: "CO-CB",
+      nameVisible: false,
+      thumbnail: "src/assets/themes/cocb.svg",
+      backgroundColor: "white"
+  },
+  {
+      name: "HBO-ICT",
+      nameVisible: false,
+      thumbnail: "src/assets/themes/hbo-ict.png",
+      backgroundColor: "white"
+  }
+])
+
+export const students = writable<User[]>(allStudents);
 export const posts = writable<Post[]>(allPosts);
