@@ -6,7 +6,7 @@ import Notifications from "./routes/Notifications.svelte";
 import Profile from "./routes/Profile.svelte";
 import Search from "./routes/Search.svelte";
 import CreatePost from "./routes/CreatePost.svelte";
-import Post from "./lib/components/Post.svelte";
+import Post from "./routes/Post.svelte";
 import Setup from "./routes/Setup.svelte";
 
 export default {
