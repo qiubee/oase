@@ -1,12 +1,13 @@
 <script lang="ts">
     import VoteButton from "./VoteButton.svelte";
     import { push } from "svelte-spa-router";
-    import { students, posts, user } from "../../store";
+    import { students, posts, userID } from "../../store";
 
     export let postID: number;
     let voted: boolean = false;
     let post = $posts.find(post => post.id === postID);
     const student = $students.find(user => user.id === post.author);
+    const user = $students.find(user => user.id === $userID);
     const verifiedReactions = post.reactions.filter(function (reaction) {
         return reaction.userType === "representative";
     }).length;
@@ -33,10 +34,10 @@
                 if (post.id === postID) {
                     if (!voted) {
                         post.upvotes = post.upvotes.filter(function (id) {
-                            return id !== $user.id;
+                            return id !== user.id;
                         });
                     } else {
-                        post.upvotes.push($user.id);
+                        post.upvotes.push(user.id);
                     }
                 }
                 return post;

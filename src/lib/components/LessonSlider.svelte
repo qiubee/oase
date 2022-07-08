@@ -1,11 +1,12 @@
 <script lang="ts">
-    import { user } from "../../store";
+    import { students, userID } from "../../store";
+    const user = $students.find(user => user.id === $userID);
 </script>
 
 <div class="lessons">
     <h2>Vandaag</h2>
     <ul>
-        {#each $user.lessons as lesson}
+        {#each user.lessons as lesson}
         <li style="background-color: {lesson.image};">
             <h3>{lesson.name}</h3>
             <span class="room">{lesson.room}</span>
