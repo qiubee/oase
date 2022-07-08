@@ -5,14 +5,7 @@
     import Button from "../lib/components/Button.svelte";
     import Toggle from "../lib/components/Toggle.svelte";
     import ProgressBar from "../lib/components/ProgressBar.svelte";
-    import { interestedSubjects, subjects, theme, user, statusOptions, onboard } from "../store";
-
-    type Theme = {
-        name: string,
-        nameVisible: boolean,
-        thumbnail: string,
-        backgroundColor: string
-    }
+    import { interestedSubjects, subjects, currentTheme, themes, students, userID, statusOptions, onboard } from "../store";
 
     const currentStep : Writable<number> = writable(1);
     setContext("step", {
@@ -25,43 +18,12 @@
         }
     })
 
+    const user = $students.find(user => user.id);
     const title: string[] = ["Kies thema", "Kies onderwerpen", "Profiel instellen"];
-    const themes: Theme[] = [
-        {
-            name: "Oase",
-            nameVisible: true,
-            thumbnail: "src/assets/themes/palms.svg",
-            backgroundColor: "#FBF0BC"
-        },
-        {
-            name: "Sterrennacht",
-            nameVisible: true,
-            thumbnail: "src/assets/themes/stars.svg",
-            backgroundColor: "#37333B"
-        },
-        {
-            name: "CMD",
-            nameVisible: false,
-            thumbnail: "src/assets/themes/cmd.png",
-            backgroundColor: "#FFF021"
-        },
-        {
-            name: "CO-CB",
-            nameVisible: false,
-            thumbnail: "src/assets/themes/cocb.svg",
-            backgroundColor: "white"
-        },
-        {
-            name: "HBO-ICT",
-            nameVisible: false,
-            thumbnail: "src/assets/themes/hbo-ict.png",
-            backgroundColor: "white"
-        }
-    ];
 
     function setTheme(e: Event): void {
         const el = <HTMLElement>e.target;
-        theme.update(() => el.dataset.theme);
+        currentTheme.update(() => el.dataset.theme);
         currentStep.update((n) => ++n);
     }
 
@@ -82,9 +44,9 @@
     function updateStatus(): void {
         const status = this.textContent;
         const index = $statusOptions.indexOf(status);
-        user.update(function (user) {
-            user.status.text = $statusOptions[index];
-            return user;
+        students.update(function (students) {
+            students[$userID].status.text = $statusOptions[index];
+            return students;
         })
     }
 
@@ -96,25 +58,25 @@
     function uploadImage(e: Event): void {
         const el = <HTMLInputElement>e.target;
         const files: FileList = el.files;
-        user.update(function (user) {
-            user.photoURL = URL.createObjectURL(files[0]);
-            return user;
+        students.update(function (students) {
+            students[$userID].photoURL = URL.createObjectURL(files[0]);
+            return students;
         })
     }
 
     function toggleLastName(): void {
-        const visibility = $user.lastNameVisible;
-        user.update(function (user) {
-            user.lastNameVisible = !visibility ? true : false;
-            return user;
+        const visibility = user.lastNameVisible;
+        students.update(function (students) {
+            students[$userID].lastNameVisible = !visibility ? true : false;
+            return students;
         })
     }
 
     function toggleOnlineStatus(): void {
-        const visibility = $user.status.visible;
-        user.update(function (user) {
-            user.status.visible = !visibility ? true : false;
-            return user;
+        const visibility = user.status.visible;
+        students.update(function (students) {
+            students[$userID].status.visible = !visibility ? true : false;
+            return students;
         })
     }
 
@@ -144,7 +106,7 @@
         <h1>{title[$currentStep-1]}</h1>
         {#if $currentStep === 1}
             <ul class="themes">
-                {#each themes as theme}
+                {#each $themes as theme}
                     <li data-theme={theme.name} style="background-image: url({theme.thumbnail}); background-color: {theme.backgroundColor};" on:click={setTheme}>
                         {#if theme.nameVisible}
                             <span>{theme.name}</span>
@@ -169,19 +131,19 @@
             {:else}
             <div class="preview">
                 <div class="photo">
-                    <img src="{$user.photoURL}" alt="Profiel foto">
+                    <img src="{user.photoURL}" alt="Profiel foto">
                 </div>
-                <span class="name">{$user.firstName} {$user.lastNameVisible ? $user.lastName : ""}</span>
-                <span class="study">#{$user.study.abbreviation}</span>
-                {#if $user.status.visible}
-                    <div class="status">{$user.status}</div>
+                <span class="name">{user.firstName} {user.lastNameVisible ? user.lastName : ""}</span>
+                <span class="study">#{user.study.abbreviation}</span>
+                {#if user.status.visible}
+                    <div class="status">{user.status}</div>
                 {/if}
             </div>
 
             <div class="settings">
                 <div class="image" on:click={openUploadDialog}>
                     <div class="photo">
-                        <img src="{$user.photoURL}" alt="Profiel foto">
+                        <img src="{user.photoURL}" alt="Profiel foto">
                     </div>
                     <span>wijzig profielfoto</span>
                     <input type="file" accept="image/png, image/jpeg" name="avatar" hidden on:change={uploadImage}>
@@ -191,7 +153,7 @@
                         <span>Status</span>
                         <ul class="status">
                             {#each $statusOptions as statusName}
-                                {#if $user.status.text === statusName }
+                                {#if user.status.text === statusName }
                                     <li class="selected">{statusName}</li>
                                 {:else}
                                     <li on:click={updateStatus}>{statusName}</li>
