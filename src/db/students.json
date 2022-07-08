@@ -1,20 +1,29 @@
 [
   {
-    "id": 0,
-    "firstName": "Vera",
-    "lastName": "Langeveld",
-    "lastNameVisible": true,
-    "photoURL": "",
-    "status": {
-      "text": "Online",
-      "visible": true
-    },
-    "study": {
-      "name": "Communication & Multimedia Design",
-      "abbreviation": "CMD"
-    },
-    "lessons": []
+  "id": 0,
+  "firstName": "Jaimy",
+  "lastName": "Vaals",
+  "lastNameVisible": true,
+  "photoURL": "",
+  "status": {
+    "text": "Online",
+    "visible": true
   },
+  "study": {
+    "name": "Communication & Multimedia Design",
+    "abbreviation": "CMD"
+  },
+  "lessons": [
+    {
+      "name": "Vormgeving",
+      "room": "TTH 02B09",
+      "time": {
+        "start": "9:00",
+        "end": "10:30"
+      },
+      "image": ""
+    }
+  ]},
   {
     "id": 1,
     "firstName": "Jochem",
@@ -164,6 +173,22 @@
     "firstName": "Tim",
     "lastName": "Vergooi",
     "lastNameVisible": false,
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "lessons": []
+  },
+  {
+    "id": 11,
+    "firstName": "Vera",
+    "lastName": "Langeveld",
+    "lastNameVisible": true,
     "photoURL": "",
     "status": {
       "text": "Online",
