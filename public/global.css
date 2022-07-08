@@ -85,6 +85,15 @@ button:-moz-focusring,
   outline: 1px dotted ButtonText;
 }
 
+textarea {
+    resize: none;
+}
+
+*:focus-visible,
+*:focus {
+    outline: none;
+}
+
 .view {
     height: 100%;
     background-color: var(--cmd-color-main);
