@@ -6,8 +6,9 @@
     import Toggle from "../lib/components/Toggle.svelte";
     import ProgressBar from "../lib/components/ProgressBar.svelte";
     import { interestedSubjects, subjects, currentTheme, themes, students, userID, statusOptions, onboard } from "../store";
+    import { openUploadDialog } from "../utils/utils";
 
-    const currentStep : Writable<number> = writable(1);
+    const currentStep: Writable<number> = writable(1);
     setContext("step", {
         currentStep,
         previous: function () {
@@ -48,11 +49,6 @@
             students[$userID].status.text = $statusOptions[index];
             return students;
         })
-    }
-
-    function openUploadDialog(): void {
-        const fileInput : HTMLInputElement = document.querySelector("[type=\"file\"]");
-        fileInput.click();
     }
 
     function uploadImage(e: Event): void {

@@ -4,6 +4,7 @@
     import PostCompact from "../lib/components/PostCompact.svelte";
     import TopBar from "../lib/components/TopBar.svelte";
     import { students, userID, posts, currentCategory } from "../store";
+    import { calcContentView } from "../utils/utils";
 
     const user = $students.find(user => user.id === $userID);
     let header: HTMLElement;
@@ -31,15 +32,6 @@
             return post.category === $currentCategory;
         }
     })
-
-    function calcContentView(hd: HTMLElement, nv: HTMLElement): number | void {
-        if (hd && nv) {
-            const windowHeight = "innerHeight" in window 
-            ? window.innerHeight
-            : document.documentElement.offsetHeight;
-            return windowHeight - (hd.offsetHeight + nv.offsetHeight);
-        }
-    }
 
     function sortPosts(option: Sort): void {
         if (sortOption === option) {

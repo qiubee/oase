@@ -2,6 +2,7 @@
     import VoteButton from "./VoteButton.svelte";
     import { push } from "svelte-spa-router";
     import { students, posts, userID } from "../../store";
+    import { timeDiff } from "../../utils/utils";
 
     export let postID: number;
     let voted: boolean = false;
@@ -11,21 +12,6 @@
     const verifiedReactions = post.reactions.filter(function (reaction) {
         return reaction.userType === "representative";
     }).length;
-
-    function timeDiff(start: Date, end: Date): string {
-        const diff = (+end - +start);
-        const days = Math.floor(diff / 1000 / 60 / 60 / 24)
-        const hours = Math.floor(diff / 1000 / 60 / 60);
-        const minutes = Math.floor(diff / 1000 / 60);
-        
-        if (days >= 1) {
-            return days + "d";
-        } else if (hours >= 1) {
-            return hours + "h";
-        } else {
-            return minutes + "min";
-        }
-    }
 
     function vote(postID: number): void {
         voted = voted ? false : true;

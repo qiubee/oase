@@ -1,6 +1,7 @@
 <script lang="ts">
-    import { posts, students } from "../store";
     import TopBar from "../lib/components/TopBar.svelte";
+    import { posts, students } from "../store";
+    import { timeDiff } from "../utils/utils";
 
     type Params = {
         id?: string
@@ -11,21 +12,6 @@
 
     const post = $posts.find(post => post.id === parseInt(params.id));
     const student = $students.find(user => user.id === post.author);
-
-    function timeDiff(start: Date, end: Date): string {
-        const diff = (+end - +start);
-        const days = Math.floor(diff / 1000 / 60 / 60 / 24)
-        const hours = Math.floor(diff / 1000 / 60 / 60);
-        const minutes = Math.floor(diff / 1000 / 60);
-        
-        if (days >= 1) {
-            return days + "d";
-        } else if (hours >= 1) {
-            return hours + "h";
-        } else {
-            return minutes + "min";
-        }
-    }
 </script>
 
 <div class="view">
