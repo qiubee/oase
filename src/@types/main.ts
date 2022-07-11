@@ -25,7 +25,7 @@ const allPostStatus = [
   "Besproken in vergadering",
   "In behandeling",
   "In uitvoering",
-  "Compleet"
+  "Compleet",
 ] as const;
 
 export type Subjects = typeof allSubjects[number];
@@ -101,5 +101,5 @@ export type FormError = {
 export type FormData = {
   title: Post["title"];
   category: Subjects;
-  details: Post["description"]
-}
+  details: Post["description"];
+};
