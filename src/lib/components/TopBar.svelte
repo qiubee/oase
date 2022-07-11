@@ -7,9 +7,11 @@
     export let state: string = routes[0];
     export let post: boolean = false;
     export let node: HTMLElement;
+    export let hideBorder: boolean = false;
+    export let author: boolean = false;
 </script>
 
-<header bind:this={node}>
+<header bind:this={node} style="{hideBorder ? "border-color: var(--cmd-color-main)" :""}">
     {#if post === false}
         {#if state === routes[0]}
             <Category/>
@@ -32,6 +34,8 @@
                 </g>
               </svg>              
         </button>
+        {:else if author}
+        <PostOptions left={"arrow-left"} right={"edit"}/>
         {:else}
         <PostOptions left={"arrow-left"} right={"notification-bell"}/>
     {/if}
