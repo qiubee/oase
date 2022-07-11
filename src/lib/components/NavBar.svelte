@@ -8,7 +8,7 @@
 <div bind:this={node}>
     <ul>
         {#each $routes as route}
-            <li on:click={push(route.location)} class="{route.name} {location === route.name ? "selected" : ""}">
+            <li on:click={() => push(route.location)} class="{route.name} {location === route.name ? "selected" : ""}">
                 <img src="{route.iconUrl}" alt="{route.iconAlt}">
             </li>
         {/each}

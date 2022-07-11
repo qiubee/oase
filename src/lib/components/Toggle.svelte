@@ -3,11 +3,11 @@
     export let action: Function = function () {
     };
 
-    function toggle():void {
+    function toggle(): void {
         active = !active ? true : false; 
     }
 
-    function change():void {
+    function change(): void {
         toggle();
         action();
     }
