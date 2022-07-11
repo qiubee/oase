@@ -71,8 +71,8 @@ export type Route = {
 
 export type User = {
   id: number;
-  firstName: string;
-  lastName: string;
+  readonly firstName: string;
+  readonly lastName: string;
   lastNameVisible: boolean;
   photoURL: string;
   status: {
@@ -83,8 +83,18 @@ export type User = {
     name: string;
     abbreviation: string;
   };
-  readonly lessons: Array<Lesson>;
 };
+
+export type Student = {
+  readonly lessons: Array<Lesson>;
+} & User;
+
+export type Representative = {
+  council: {
+    type: "Opleidingscommissie" | "Faculteitsraad" | "Medezeggenschapsraad";
+    study: string;
+  };
+} & User;
 
 export type Theme = {
   name: string;
