@@ -209,7 +209,6 @@
         margin-right: 0.5rem;
     }
     
-
     .metadata .photo {
         font-size: 0.5rem;
         background-color: var(--cmd-color-white);
