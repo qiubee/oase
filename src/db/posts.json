@@ -7,7 +7,7 @@
     "description": "Het wordt steeds drukker in het TTH en daarmee zijn de studieplekken steeds vaker bezet. Ik zou graag op de campus willen studeren met mijn groepje maar we moeten telkens naar het KSH of WBH om nog een plek te kunnen vinden.",
     "timestamp": "1655706600000",
     "category": "studieplekken",
-    "upvotes": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "upvotes": [2, 3, 4, 5, 6, 7, 8, 9, 10],
     "status": "discussie",
     "reactions": [
       {
@@ -17,7 +17,7 @@
         "message": "Dat zou ik ook heel fijn vinden. Nu heb ik dat ik soms nergens kan zitten met mijn groep."
       },
       {
-        "userID": 1,
+        "userID": 0,
         "userType": "representative",
         "timestamp": "1655708160000",
         "message": "Goed idee! Waar in het gebouw hebben jullie het meest last van het tekort aan plekken?"
@@ -38,7 +38,7 @@
     "description": "Met het maken van de opdracht van HCI komen we tijd tekort. Ik hoor van andere in mijn klas dat ze graag nog een dag extra willen hebben voor de opdracht.",
     "timestamp": "1656676680000",
     "category": "studiedruk",
-    "upvotes": [0, 2, 4],
+    "upvotes": [1, 2, 4, 6],
     "status": "discussie",
     "reactions": [
       {

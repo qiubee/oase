@@ -200,5 +200,21 @@
       "abbreviation": "CMD"
     },
     "lessons": []
+  },
+  {
+    "id": 12,
+    "firstName": "Luna",
+    "lastName": "Mere",
+    "lastNameVisible": true,
+    "photoURL": "",
+    "status": {
+      "text": "Bezig",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "lessons": []
   }
 ]

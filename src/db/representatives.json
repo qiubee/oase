@@ -1,19 +1,21 @@
-{
-  "id": 0,
-  "firstName": "Brian",
-  "lastName": "Campen",
-  "lastNameVisible": true,
-  "photoURL": "",
-  "status": {
-    "text": "Online",
-    "visible": true
-  },
-  "study": {
-    "name": "Communication & Multimedia Design",
-    "abbreviation": "CMD"
-  },
-  "council": {
-    "type": "Opleidingscommissie",
-    "study": "CMD"
+[
+  {
+    "id": 0,
+    "firstName": "Brian",
+    "lastName": "Campen",
+    "lastNameVisible": true,
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "council": {
+      "type": "Opleidingscommissie",
+      "study": "CMD"
+    }
   }
-}
+]
