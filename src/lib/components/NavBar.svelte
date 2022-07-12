@@ -1,7 +1,7 @@
 <script lang="ts">
     import { push } from "svelte-spa-router";
     import { routes } from "../../store";
-    export let location: string = $routes[0].name;
+    export let location = $routes[0].name;
     export let node: HTMLElement;
 </script>
 
@@ -22,7 +22,7 @@
         width: 100%;
         max-width: 30rem;
         background-color: var(--cmd-color-white);
-        filter:  drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+        filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
     }
 
     ul {
