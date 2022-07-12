@@ -1,12 +1,35 @@
 <script lang="ts">
+    import { getContext } from "svelte";
     import { pop } from "svelte-spa-router";
+    import { students, userID } from "../../../store";
 
     const icon = ["edit", "arrow-left", "notification-bell", "close", "none"] as const;
+    const postID: number = getContext("postID");
     export let left: typeof icon[number] = icon[icon.length-1];
     export let right: typeof icon[number] = icon[icon.length-1];
+    const user = $students.find(user => user.id === $userID);
+    let subscribed: boolean = user.following.posts.includes(postID);
+
 
     function editPost(): void {
 
+    }
+
+    function toggleFollowPost(): void {
+        subscribed = subscribed === true ? false : true;
+        if (subscribed === true) {
+            students.update(function (students) {
+                const student = students.find((student) => student.id === $userID);
+                student.following.posts.push(postID);
+                return students;
+            })
+        } else {
+            students.update(function (students) {
+                const student = students.find((student) => student.id === $userID);
+                student.following.posts.filter((id) => id !== postID)
+                return students;
+            })
+        }
     }
 </script>
 
@@ -34,12 +57,11 @@
     </div>
     <div class="right">
     {#if right === "notification-bell"}
-        <button>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 20.947 22">
-                <g id="Group_726" data-name="Group 726" transform="translate(-340.429 -96.9)">
-                <path id="Path_423" data-name="Path 423" d="M361.283,115.109l-1.988-2.777a5.994,5.994,0,0,1-1.127-3.525v-4.642a.317.317,0,0,0-.01-.1A7.269,7.269,0,0,0,350.9,96.9a7.277,7.277,0,0,0-7.255,7.265v4.642a5.978,5.978,0,0,1-1.137,3.525l-1.988,2.777a.5.5,0,0,0-.031.533.507.507,0,0,0,.451.277h6.784a3.218,3.218,0,0,0,6.353,0h6.784a.507.507,0,0,0,.451-.277A.5.5,0,0,0,361.283,115.109ZM350.9,117.6a2.2,2.2,0,0,1-2.131-1.681h4.263A2.2,2.2,0,0,1,350.9,117.6Zm-8.966-2.705,1.414-1.967a7.07,7.07,0,0,0,1.322-4.119v-4.642a6.245,6.245,0,0,1,6.23-6.241,6.243,6.243,0,0,1,6.23,6.241.349.349,0,0,0,.01.1v4.54a7.014,7.014,0,0,0,1.312,4.119l1.414,1.967Z"/>
-                </g>
-            </svg>          
+        <button on:click={toggleFollowPost}>
+            <svg class="notification-bell {subscribed === true ? "": "default"}" xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 40.298 42">
+                <path class="fill" d="M39.312,35.616H25.354a5.2,5.2,0,0,1-10.41,0H.986l3.825-5.343A12.635,12.635,0,0,0,7.176,22.9V13.988a12.973,12.973,0,1,1,25.945,0h.02V22.9a12.617,12.617,0,0,0,2.346,7.374Z"/>
+                <path d="M40.126,35.034,36.3,29.691a11.532,11.532,0,0,1-2.169-6.782V13.978a.738.738,0,0,0-.02-.2A13.986,13.986,0,0,0,20.154,0,13.74,13.74,0,0,0,10.3,4.1a13.819,13.819,0,0,0-4.1,9.877v8.931a11.5,11.5,0,0,1-2.188,6.782L.182,35.034A1.01,1.01,0,0,0,.1,36.059a.991.991,0,0,0,.887.532H14.042a6.191,6.191,0,0,0,12.224,0H39.317a.94.94,0,0,0,.867-.532A1.007,1.007,0,0,0,40.126,35.034ZM20.154,39.825a4.21,4.21,0,0,1-4.1-3.234h8.2A4.21,4.21,0,0,1,20.154,39.825ZM2.9,34.62l2.721-3.785a13.6,13.6,0,0,0,2.543-7.926V13.978A12.015,12.015,0,0,1,20.154,1.972,12.024,12.024,0,0,1,32.141,13.978a.608.608,0,0,0,.02.2v8.734a13.5,13.5,0,0,0,2.524,7.926L37.4,34.62Z"/>
+            </svg>           
         </button>
         {:else if right === "close"}
         <button on:click={() => pop()}>
@@ -83,4 +105,7 @@
         height: 2.5rem;
     }
     
+    .notification-bell.default  .fill {
+        fill: none;
+    }
 </style>
