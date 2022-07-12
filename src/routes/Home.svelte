@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import NavBar from "../lib/components/NavBar.svelte";
     import LessonSlider from "../lib/components/LessonSlider.svelte";
     import PostCompact from "../lib/components/PostCompact.svelte";
@@ -19,6 +20,7 @@
     let hideSortOptions: boolean = false;
     let sortOption: Sort;
     let sortedPosts = $posts;
+    let contentHeight: number;
 
     $: filteredPosts = sortedPosts.filter(function (post) {
         hideSortOptions = false;
@@ -58,12 +60,16 @@
     }
 
     sortPosts(Sort.NEW);
+
+    onMount(function () {
+        contentHeight = calcContentView(header, navigation);
+    })
 </script>
 
 <div class="view">
     <div class="content">
         <TopBar bind:node={header}/>
-        <main style="max-height: {calcContentView(header, navigation)}px;">
+        <main style="max-height: {contentHeight}px;">
             {#if user.lessons.length > 0}
                 <LessonSlider/>
             {/if}
