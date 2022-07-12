@@ -79,6 +79,10 @@ export type User = {
     text: StatusOptions;
     visible: boolean;
   };
+  following: {
+    subjects: Subjects[];
+    posts: Post["id"][];
+  };
   readonly study: {
     name: string;
     abbreviation: string;
