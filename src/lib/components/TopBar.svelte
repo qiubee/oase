@@ -9,6 +9,7 @@
     export let node: HTMLElement;
     export let hideBorder: boolean = false;
     export let author: boolean = false;
+
 </script>
 
 <header bind:this={node} style="{hideBorder ? "border-color: var(--cmd-color-main)" :""}">

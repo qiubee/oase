@@ -1,6 +1,8 @@
 <script lang="ts">
-    import { interestedSubjects, currentCategory } from "../../../store";
-    const categories: string[] = ["Alles", "Populair", ...$interestedSubjects];
+    import { students, userID, currentCategory } from "../../../store";
+    
+    const user = $students.find(user => user.id === $userID);
+    let categories: string[] = ["Alles", "Populair", ...user.following.subjects];
     let dropdownHidden: boolean = true;
 
     function toggleCategoryDropdown(): void {
@@ -82,6 +84,7 @@
         left: -0.75rem;
         text-transform: capitalize;
         width: 100vw;
+        max-width: 30rem;
         background-color: var(--cmd-color-main);
         filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.1));
     }

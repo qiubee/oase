@@ -5,8 +5,9 @@
     import Button from "../lib/components/Button.svelte";
     import Toggle from "../lib/components/Toggle.svelte";
     import ProgressBar from "../lib/components/ProgressBar.svelte";
-    import { interestedSubjects, subjects, currentTheme, themes, students, userID, statusOptions, onboard } from "../store";
+    import { subjects, currentTheme, themes, students, userID, statusOptions, onboard } from "../store";
     import { openUploadDialog } from "../utils/utils";
+    import type { Subjects } from "src/@types/main";
 
     const currentStep: Writable<number> = writable(1);
     setContext("step", {
@@ -19,7 +20,7 @@
         }
     })
 
-    const user = $students.find(user => user.id);
+    const user = $students.find(user => user.id === $userID);
     const title: string[] = ["Kies thema", "Kies onderwerpen", "Profiel instellen"];
 
     function setTheme(e: Event): void {
@@ -28,18 +29,21 @@
         currentStep.update((n) => ++n);
     }
 
-    function toggleSaveSubject(): void {
-        this.classList.toggle("selected");
-        const subject: string = this.textContent.trim();
-        interestedSubjects.update(function (list: string[]) {
+    function toggleFollowSubject(e: Event): void {
+        const el = <HTMLElement>e.target;
+        el.classList.toggle("selected");
+        const subject = <Subjects>el.textContent.trim();
+        students.update(function (students) {
+            const list = students[$userID].following.subjects;
             if (list.includes(subject)) {
-                return [...list].filter(function (val: string) {
+                students[$userID].following.subjects = [...list].filter(function (val: string) {
                     return val !== subject;
                 })
             } else {
-                return [...list, subject];
+                students[$userID].following.subjects.push(subject);
             }
-        });
+            return students;
+        })
     }
 
     function updateStatus(): void {
@@ -113,12 +117,12 @@
             {:else if $currentStep === 2}
                 <ul class="subjects">
                     {#each $subjects as subject}
-                        {#if $interestedSubjects.includes(subject)}
-                            <li on:click={toggleSaveSubject} class="selected">
+                        {#if user.following.subjects.includes(subject)}
+                            <li on:click={toggleFollowSubject} class="selected">
                                 {subject}
                             </li>
                         {:else}
-                            <li on:click={toggleSaveSubject}>
+                            <li on:click={toggleFollowSubject}>
                                 {subject}
                             </li>
                         {/if}
