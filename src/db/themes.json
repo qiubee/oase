@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Oase",
+    "nameVisible": true,
+    "thumbnail": "src/assets/themes/palms.svg",
+    "backgroundColor": "#FBF0BC"
+  },
+  {
+    "name": "Sterrennacht",
+    "nameVisible": true,
+    "thumbnail": "src/assets/themes/stars.svg",
+    "backgroundColor": "#37333B"
+  },
+  {
+    "name": "CMD",
+    "nameVisible": false,
+    "thumbnail": "src/assets/themes/cmd.png",
+    "backgroundColor": "#FFF021"
+  },
+  {
+    "name": "CO-CB",
+    "nameVisible": false,
+    "thumbnail": "src/assets/themes/cocb.svg",
+    "backgroundColor": "white"
+  },
+  {
+    "name": "HBO-ICT",
+    "nameVisible": false,
+    "thumbnail": "src/assets/themes/hbo-ict.png",
+    "backgroundColor": "white"
+  }
+]
