@@ -33,7 +33,7 @@ const allRouteNames = [
   "forum",
   "search",
   "notifications",
-  "profile"
+  "profile",
 ] as const;
 
 export type Subjects = typeof allSubjects[number];
