@@ -1,10 +1,12 @@
 <script lang="ts">
     import { routes } from "../../store";
     import { push } from "svelte-spa-router";
+    import type { Route } from "src/@types/main";
+    import Subscriptions from "./topbar/Subscriptions.svelte";
     import Category from "./topbar/Category.svelte";
     import PostOptions from "./topbar/PostOptions.svelte";
 
-    export let state: string = routes[0];
+    export let state: Route["name"] = $routes[0].name;
     export let post: boolean = false;
     export let node: HTMLElement;
     export let hideBorder: boolean = false;
@@ -14,8 +16,10 @@
 
 <header bind:this={node} style="{hideBorder ? "border-color: var(--cmd-color-main)" :""}">
     {#if post === false}
-        {#if state === routes[0]}
+        {#if state === "home"}
             <Category/>
+        {:else if state === "forum"}
+            <Subscriptions/>
         {/if}
         <button on:click={() => push("/post-aanmaken")} class="cta">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" viewBox="0 0 24.519 21.059">
