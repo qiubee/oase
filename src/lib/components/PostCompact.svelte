@@ -7,7 +7,7 @@
     export let postID: number;
     let voted: boolean = false;
     let post = $posts.find(post => post.id === postID);
-    const student = $students.find(user => user.id === post.author);
+    const author = $students.find(user => user.id === post.author);
     const user = $students.find(user => user.id === $userID);
     const verifiedReactions = post.reactions.filter(function (reaction) {
         return reaction.userType === "representative";
@@ -38,19 +38,20 @@
     <div class="votes" on:click={() => vote(postID)}>
         <div>
             <div class="amount">
-                <svg class="upvote" xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 0 130 150">><path d="M123.344,58.4,68.585,2.486a7.911,7.911,0,0,0-11.515,0L2.311,58.4a8.1,8.1,0,0,0,5.8,13.752H39.673a2.122,2.122,0,0,1,2.154,2.071V138.1a8.308,8.308,0,0,0,8.284,8.284H74.964a8.309,8.309,0,0,0,8.284-8.284V74.227A2.071,2.071,0,0,1,85.4,72.156h32.143A8.122,8.122,0,0,0,123.344,58.4Zm-2.154,7.124a3.954,3.954,0,0,1-3.645,2.485H85.4a6.276,6.276,0,0,0-6.3,6.213V138.1a4.21,4.21,0,0,1-4.142,4.142H50.111a4.154,4.154,0,0,1-4.142-4.142V74.227a6.177,6.177,0,0,0-5.882-6.13.892.892,0,0,0,.166-.663,3.107,3.107,0,0,0-6.213,0,1.409,1.409,0,0,0,.083.58h-8.45a1.409,1.409,0,0,0,.083-.58,3.107,3.107,0,0,0-6.213,0,1.409,1.409,0,0,0,.083.58H11.258a1.409,1.409,0,0,0,.083-.58,3.077,3.077,0,0,0-3.148-3.065,2.757,2.757,0,0,0-2.9,2.485,3.6,3.6,0,0,1-.828-1.325A3.687,3.687,0,0,1,5.293,61.3L60.052,5.385a3.541,3.541,0,0,1,2.734-1.243A3.712,3.712,0,0,1,65.6,5.385L120.361,61.3A4,4,0,0,1,121.19,65.529Z"/><circle cx="22.676" cy="52.953" r="3.097"/><circle cx="37.165" cy="52.953" r="3.097"/><circle cx="51.687" cy="52.953" r="3.097"/><circle cx="37.165" cy="38.463" r="3.097"/><circle cx="51.687" cy="38.463" r="3.097"/><circle cx="51.687" cy="23.974" r="3.097"/><circle cx="51.671" cy="67.442" r="3.097"/></svg>
+                <div>
+                    <VoteButton voted={voted}/>
+                </div>
                 <span>{post.upvotes.length}</span>
             </div>
-            <button><VoteButton active={voted}/></button>
         </div>
     </div>
     <div class="main" on:click={() => push("/post/" + postID)}>
         <header>
             <div class="metadata">
                 <div class="photo">
-                    <img src="{student.photoURL}" alt="Profiel foto {student.firstName} {student.lastNameVisible ? student.lastName : ""}">
+                    <img src="{author.photoURL}" alt="Profiel foto {author.firstName} {author.lastNameVisible ? author.lastName : ""}">
                 </div>
-                <span class="name">{student.firstName} {student.lastNameVisible ? student.lastName : ""}</span>
+                <span class="name">{author.firstName} {author.lastNameVisible ? author.lastName : ""}</span>
                 <span class="time">{timeDiff(new Date(parseInt(post.timestamp)), new Date())}</span>
             </div>
             <div class="status">
@@ -164,20 +165,15 @@
         flex-direction: column;
         align-items: center;
         padding: 1rem;
-        padding-bottom: 0;
     }
     
-    .votes .upvote {
-        margin-bottom: 0.75rem;
+    .votes .amount > div {
+        margin-bottom: 0.25rem;
     }
 
     .votes span {
         font-weight: bold;
         font-size: 1rem;
-    }
-
-    .votes button {
-        padding: 1rem;
     }
 
     header {
