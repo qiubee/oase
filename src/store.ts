@@ -11,6 +11,8 @@ import type {
 import allStudents from "./db/students.json";
 import allRepresentatives from "./db/representatives.json";
 import allPosts from "./db/posts.json";
+import allRoutes from "./db/routes.json";
+import allThemes from "./db/themes.json";
 
 const allSubjects = [
   "studiedruk",
@@ -35,86 +37,17 @@ const allStatusOptions = [
 // test
 export const loggedIn = writable<boolean>(true);
 export const onboard = writable<boolean>(false);
-export const interestedSubjects = writable<string[]>([
-  "informatievoorziening",
-  "studiedruk",
-  "communicatie",
-]);
 
 // export const loggedIn = writable<boolean>(false);
 // export const onboard = writable<boolean>(true);
-// export const interestedSubjects = writable<string[]>([]);
 export const currentTheme = writable<string>("Oase");
 export const subjects = readable<readonly Subjects[]>(allSubjects);
 export const statusOptions =
   readable<readonly StatusOptions[]>(allStatusOptions);
 export const userID = readable<number>(0);
 export const currentCategory = writable<string>("Alles");
-export const routes = readable<Route[]>([
-  {
-    name: "home",
-    location: "/",
-    iconUrl: "src/assets/routes/house.png",
-    iconAlt: "Home",
-  },
-  {
-    name: "forum",
-    location: "/forum",
-    iconUrl: "src/assets/routes/chat.png",
-    iconAlt: "Forum",
-  },
-  {
-    name: "search",
-    location: "/zoek",
-    iconUrl: "src/assets/routes/search.png",
-    iconAlt: "Zoek",
-  },
-  {
-    name: "notifications",
-    location: "/meldingen",
-    iconUrl: "src/assets/routes/alert.png",
-    iconAlt: "Meldingen",
-  },
-  {
-    name: "profile",
-    location: "/profiel",
-    iconUrl: "src/assets/routes/cthulhu.png",
-    iconAlt: "Profiel",
-  },
-]);
-export const themes = readable<Theme[]>([
-  {
-    name: "Oase",
-    nameVisible: true,
-    thumbnail: "src/assets/themes/palms.svg",
-    backgroundColor: "#FBF0BC",
-  },
-  {
-    name: "Sterrennacht",
-    nameVisible: true,
-    thumbnail: "src/assets/themes/stars.svg",
-    backgroundColor: "#37333B",
-  },
-  {
-    name: "CMD",
-    nameVisible: false,
-    thumbnail: "src/assets/themes/cmd.png",
-    backgroundColor: "#FFF021",
-  },
-  {
-    name: "CO-CB",
-    nameVisible: false,
-    thumbnail: "src/assets/themes/cocb.svg",
-    backgroundColor: "white",
-  },
-  {
-    name: "HBO-ICT",
-    nameVisible: false,
-    thumbnail: "src/assets/themes/hbo-ict.png",
-    backgroundColor: "white",
-  },
-]);
-
+export const routes = readable<Route[]>(allRoutes);
+export const themes = readable<Theme[]>(allThemes);
 export const students = writable<Student[]>(allStudents);
 export const posts = writable<Post[]>(allPosts);
 export const representatives = writable<Representative[]>(allRepresentatives);
