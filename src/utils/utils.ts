@@ -1,13 +1,12 @@
-export function calcContentView(
-  hd: HTMLElement,
-  nv: HTMLElement
-): number | void {
+export function calcContentView(hd: HTMLElement, nv: HTMLElement): number {
   if (hd && nv) {
     const windowHeight =
       "innerHeight" in window
         ? window.innerHeight
         : document.documentElement.offsetHeight;
     return windowHeight - (hd.offsetHeight + nv.offsetHeight);
+  } else {
+    return 0;
   }
 }
 
