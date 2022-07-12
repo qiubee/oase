@@ -28,9 +28,18 @@ const allPostStatus = [
   "Compleet",
 ] as const;
 
+const allRouteNames = [
+  "home",
+  "forum",
+  "search",
+  "notifications",
+  "profile"
+] as const;
+
 export type Subjects = typeof allSubjects[number];
 export type StatusOptions = typeof allStatusOptions[number];
 export type PostStatuses = typeof allPostStatus[number];
+export type RouteNames = typeof allRouteNames[number];
 
 export type Lesson = {
   name: string;
@@ -63,7 +72,7 @@ export type Post = {
 };
 
 export type Route = {
-  name: string;
+  name: RouteNames;
   location: string;
   iconUrl: string;
   iconAlt: string;
