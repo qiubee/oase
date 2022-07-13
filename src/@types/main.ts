@@ -1,9 +1,9 @@
-const allSubjects = [
+export const allCategories = [
   "studiedruk",
   "studiebegeleiding",
   "communicatie",
   "diversiteit",
-  "studentenvereniging",
+  "studievereniging",
   "informatievoorziening",
   "studieplekken",
   "evenementen",
@@ -11,7 +11,7 @@ const allSubjects = [
   "online",
 ] as const;
 
-const allStatusOptions = [
+export const allStatusOptions = [
   "Online",
   "Bezig",
   "Aan het werk",
@@ -36,7 +36,7 @@ const allRouteNames = [
   "profile",
 ] as const;
 
-export type Subjects = typeof allSubjects[number];
+export type Categories = typeof allCategories[number];
 export type StatusOptions = typeof allStatusOptions[number];
 export type PostStatuses = typeof allPostStatus[number];
 export type RouteNames = typeof allRouteNames[number];
@@ -65,7 +65,7 @@ export type Post = {
   title: string;
   description: string;
   timestamp: string;
-  category: Subjects;
+  category: Categories;
   upvotes: Array<User["id"]>;
   status: PostStatuses;
   reactions: Reaction[];
@@ -89,7 +89,7 @@ export type User = {
     visible: boolean;
   };
   following: {
-    subjects: Subjects[];
+    categories: Category["id"][];
     posts: Post["id"][];
   };
   readonly study: {
@@ -116,6 +116,12 @@ export type Theme = {
   backgroundColor: string;
 };
 
+export type Category = {
+  id: number;
+  name: Categories;
+  followers: Array<User["id"]>;
+};
+
 export type FormError = {
   title: boolean;
   details: boolean;
@@ -123,6 +129,14 @@ export type FormError = {
 
 export type FormData = {
   title: Post["title"];
-  category: Subjects;
+  category: Categories;
   details: Post["description"];
+};
+
+export type NewsPost = {
+  author: string;
+  title: string;
+  content: string;
+  tag: string;
+  timestamp: string;
 };
