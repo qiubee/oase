@@ -554,8 +554,6 @@
 
   a {
     font-family: "Pauschal";
-    color: black;
-    text-decoration: none;
     margin-bottom: 1.1rem;
     font-size: 0.9rem;
   }
