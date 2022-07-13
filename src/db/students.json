@@ -10,11 +10,7 @@
       "visible": true
     },
     "following": {
-      "subjects": [
-        "studiedruk",
-        "studentenvereniging",
-        "informatievoorziening"
-      ],
+      "categories": [],
       "posts": []
     },
     "study": {
@@ -44,7 +40,7 @@
       "visible": true
     },
     "following": {
-      "subjects": [],
+      "categories": [0, 5],
       "posts": []
     },
     "study": {
@@ -64,7 +60,7 @@
       "visible": true
     },
     "following": {
-      "subjects": [],
+      "categories": [5, 6],
       "posts": []
     },
     "study": {
@@ -84,7 +80,7 @@
       "visible": true
     },
     "following": {
-      "subjects": [],
+      "categories": [0, 2],
       "posts": []
     },
     "study": {
@@ -104,7 +100,7 @@
       "visible": true
     },
     "following": {
-      "subjects": [],
+      "categories": [0, 1],
       "posts": []
     },
     "study": {
@@ -124,7 +120,7 @@
       "visible": true
     },
     "following": {
-      "subjects": [],
+      "categories": [2, 5],
       "posts": []
     },
     "study": {
@@ -144,7 +140,7 @@
       "visible": true
     },
     "following": {
-      "subjects": [],
+      "categories": [0, 1, 2],
       "posts": []
     },
     "study": {
@@ -164,7 +160,7 @@
       "visible": true
     },
     "following": {
-      "subjects": [],
+      "categories": [0],
       "posts": []
     },
     "study": {
@@ -184,7 +180,7 @@
       "visible": true
     },
     "following": {
-      "subjects": [],
+      "categories": [0, 5],
       "posts": []
     },
     "study": {
@@ -204,7 +200,7 @@
       "visible": true
     },
     "following": {
-      "subjects": [],
+      "categories": [5],
       "posts": []
     },
     "study": {
@@ -224,7 +220,7 @@
       "visible": true
     },
     "following": {
-      "subjects": [],
+      "categories": [0],
       "posts": []
     },
     "study": {
@@ -244,7 +240,7 @@
       "visible": true
     },
     "following": {
-      "subjects": [],
+      "categories": [8],
       "posts": []
     },
     "study": {
@@ -264,7 +260,7 @@
       "visible": true
     },
     "following": {
-      "subjects": [],
+      "categories": [1, 2, 3, 6],
       "posts": []
     },
     "study": {
