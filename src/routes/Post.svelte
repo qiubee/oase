@@ -21,7 +21,7 @@ import { setContext } from "svelte";
     let header: HTMLElement;
 
     let post = $posts.find(post => post.id === parseInt(params.id));
-    const student = $students.find(user => user.id === post.author);
+    const author = $students.find(user => user.id === post.author);
     const user = $students.find(user => user.id === $userID);
     const verifiedReactions = post.reactions.filter(function (reaction) {
         return reaction.userType === "representative";
@@ -82,7 +82,7 @@ import { setContext } from "svelte";
 
 <div class="view">
     <div class="content">
-        {#if student.id === user.id}
+        {#if author.id === user.id}
             <TopBar bind:node={header} post={true} author={true} hideBorder={true}/>
         {:else}
             <TopBar bind:node={header} post={true} hideBorder={true}/>
@@ -92,9 +92,9 @@ import { setContext } from "svelte";
                 <header>
                     <div class="metadata">
                         <div class="photo">
-                            <img src="{student.photoURL}" alt="Profiel foto {student.firstName} {student.lastNameVisible ? student.lastName : ""}">
+                            <img src="{author.photoURL}" alt="Profiel foto {author.firstName} {author.lastNameVisible ? author.lastName : ""}">
                         </div>
-                        <span class="name">{student.firstName} {student.lastNameVisible ? student.lastName : ""}</span>
+                        <span class="name">{author.firstName} {author.lastNameVisible ? author.lastName : ""}</span>
                         <span class="time">{timeDiff(new Date(parseInt(post.timestamp)), new Date())}</span>
                     </div>
                     <div class="class">
