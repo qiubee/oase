@@ -5,9 +5,9 @@
     import Button from "../lib/components/Button.svelte";
     import Toggle from "../lib/components/Toggle.svelte";
     import ProgressBar from "../lib/components/ProgressBar.svelte";
-    import { subjects, currentTheme, themes, students, userID, statusOptions, onboard } from "../store";
+    import { categories, currentTheme, themes, students, userID, statusOptions, onboard } from "../store";
     import { openUploadDialog } from "../utils/utils";
-    import type { Subjects } from "src/@types/main";
+    import type { Categories } from "src/@types/main";
 
     const currentStep: Writable<number> = writable(1);
     setContext("step", {
@@ -32,15 +32,15 @@
     function toggleFollowSubject(e: Event): void {
         const el = <HTMLElement>e.target;
         el.classList.toggle("selected");
-        const subject = <Subjects>el.textContent.trim();
+        const subject = <Categories>el.textContent.trim();
         students.update(function (students) {
-            const list = students[$userID].following.subjects;
+            const list = students[$userID].following.categories;
             if (list.includes(subject)) {
-                students[$userID].following.subjects = [...list].filter(function (val: string) {
+                students[$userID].following.categories = [...list].filter(function (val: string) {
                     return val !== subject;
                 })
             } else {
-                students[$userID].following.subjects.push(subject);
+                students[$userID].following.categories.push(subject);
             }
             return students;
         })
@@ -115,15 +115,15 @@
                 {/each}
             </ul>
             {:else if $currentStep === 2}
-                <ul class="subjects">
-                    {#each $subjects as subject}
-                        {#if user.following.subjects.includes(subject)}
+                <ul class="categories">
+                    {#each $categories as category}
+                        {#if user.following.categories.includes(category.id)}
                             <li on:click={toggleFollowSubject} class="selected">
-                                {subject}
+                                {category.name}
                             </li>
                         {:else}
                             <li on:click={toggleFollowSubject}>
-                                {subject}
+                                {category.name}
                             </li>
                         {/if}
                     {/each}
@@ -253,13 +253,13 @@
     }
 
     .themes li:hover,
-    .subjects li:hover,
+    .categories li:hover,
     .settings .image:hover,
     .settings .status li {
         cursor: pointer;
     }
 
-    .subjects {
+    .categories {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         column-gap: 1rem;
@@ -267,7 +267,7 @@
         margin: 0.5rem;
     }
 
-    .subjects li {
+    .categories li {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -280,7 +280,7 @@
         text-transform: capitalize;
     }
 
-    .subjects li:global(.selected) {
+    .categories li:global(.selected) {
         background-color: black;
         color: white;
     }

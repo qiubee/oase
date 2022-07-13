@@ -1,14 +1,13 @@
 <script lang="ts">
-    import type { FormData, FormError, Post } from "src/@types/main";
-    import { subjects, posts, userID } from "../store";
+    import type { FormData, FormError, Post, allCategories } from "src/@types/main";
+    import { categories, posts, userID } from "../store";
     import { pop, replace } from "svelte-spa-router";
     import PostOptions from "../lib/components/topbar/PostOptions.svelte";
 
     const postTypes = ["idee", "probleem"] as const;
-    const allSubjects = [...$subjects] as const;
 
     let type: typeof postTypes[number];
-    let selectedSubject: typeof allSubjects[number] = "studiedruk";
+    let selectedCategory: typeof allCategories[number] = "studiedruk";
     let error: FormError = {
         title: false,
         details: false
@@ -18,8 +17,8 @@
         type = type === "idee" ? "probleem" : "idee";
     }
 
-    function updateSubject(subject: typeof allSubjects[number]): void {
-        selectedSubject = subject;
+    function updateCategory(category: typeof allCategories[number]): void {
+        selectedCategory = category;
     }
 
     function checkForm(e: Event): void {
@@ -127,10 +126,10 @@
                     <div>
                         <h2>Categorie</h2>
                         <ul>
-                            {#each $subjects as subject}
-                            <li on:click={() => updateSubject(subject)} class={selectedSubject === subject ? "selected" : ""}>
+                            {#each $categories as category}
+                            <li on:click={() => updateCategory(category.name)} class={selectedCategory === category.name ? "selected" : ""}>
                                 <label>
-                                    <input type="radio" name="category" value={subject}>{subject}
+                                    <input type="radio" name="category" value={category.name}>{category.name}
                                 </label>
                             </li>
                             {/each}
