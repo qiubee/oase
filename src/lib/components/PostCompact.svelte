@@ -150,7 +150,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        max-width: 3rem;
+        max-width: 2.5rem;
     }
 
     .votes > div {
