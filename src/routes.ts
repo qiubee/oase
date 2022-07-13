@@ -7,6 +7,7 @@ import Profile from "./routes/Profile.svelte";
 import Search from "./routes/Search.svelte";
 import CreatePost from "./routes/CreatePost.svelte";
 import Post from "./routes/Post.svelte";
+import Category from "./routes/Category.svelte";
 import Setup from "./routes/Setup.svelte";
 
 export default {
@@ -20,6 +21,7 @@ export default {
   "/post-aanmaken": CreatePost,
 
   "/post/:id": Post,
+  "/categorie/:subject": Category,
 
   "*": NotFound,
 };
