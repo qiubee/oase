@@ -1,3 +1,5 @@
+import type { Post } from "src/@types/main";
+
 export function calcContentView(hd: HTMLElement, nv: HTMLElement): number {
   if (hd && nv) {
     const windowHeight =
@@ -28,4 +30,18 @@ export function timeDiff(start: Date, end: Date): string {
   } else {
     return minutes + "min";
   }
+}
+
+export function shuffle(array: Post[]): Post[] {
+  let currentIndex = array.length;
+  let randomIndex: number;
+
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
 }
