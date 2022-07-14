@@ -19,11 +19,17 @@ export function openUploadDialog(): void {
 
 export function timeDiff(start: Date, end: Date): string {
   const diff = +end - +start;
-  const days = Math.floor(diff / 1000 / 60 / 60 / 24);
-  const hours = Math.floor(diff / 1000 / 60 / 60);
   const minutes = Math.floor(diff / 1000 / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+  const months = Math.floor(days / 30);
+  const years = Math.floor(days / 356);
 
-  if (days >= 1) {
+  if (years >= 1) {
+    return years + "j";
+  } else if (months >= 1) {
+    return months + "md";
+  } else if (days >= 1) {
     return days + "d";
   } else if (hours >= 1) {
     return hours + "h";
