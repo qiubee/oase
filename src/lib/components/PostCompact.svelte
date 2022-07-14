@@ -9,7 +9,7 @@
     let post = $posts.find(post => post.id === postID);
     const author = $students.find(user => user.id === post.author);
     const user = $students.find(user => user.id === $userID);
-    const verifiedReactions = post.reactions.filter(function (reaction) {
+    const verifiedReactions = post.comments.filter(function (reaction) {
         return reaction.userType === "representative";
     }).length;
 
@@ -95,7 +95,7 @@
                             <path id="Path_352" data-name="Path 352" d="M94.742,179.1a.305.305,0,1,0,.305.305.305.305,0,0,0-.305-.305" transform="translate(-89.647 -170.253)"/>
                             <path id="Path_353" data-name="Path 353" d="M73.453,200.391a.305.305,0,1,0,.305.305.305.305,0,0,0-.305-.305" transform="translate(-70.188 -189.712)"/>
                           </svg>                          
-                        <span>{post.reactions.length}</span>
+                        <span>{post.comments.length}</span>
                     </div>
                 </div>
                 <button>
