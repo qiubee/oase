@@ -1,10 +1,10 @@
 <script lang="ts">
-    import type { Reaction } from "src/@types/main";
+    import type { Comment } from "src/@types/main";
     import VoteButton from "../lib/components/VoteButton.svelte";
     import TopBar from "../lib/components/TopBar.svelte";
     import { posts, students, userID, representatives } from "../store";
     import { timeDiff } from "../utils/utils";
-import { setContext } from "svelte";
+    import { setContext } from "svelte";
 
     type Params = {
         id?: string
@@ -23,11 +23,11 @@ import { setContext } from "svelte";
     let post = $posts.find(post => post.id === parseInt(params.id));
     const author = $students.find(user => user.id === post.author);
     const user = $students.find(user => user.id === $userID);
-    const verifiedReactions = post.reactions.filter(function (reaction) {
+    const verifiedReactions = post.comments.filter(function (reaction) {
         return reaction.userType === "representative";
     }).length;
     
-    let sortedReactions: Reaction[] = [];
+    let sortedReactions: Comment[] = [];
     let voted: boolean = post.upvotes.includes($userID);
     let dropdownHidden: boolean = true;
 
@@ -64,7 +64,7 @@ import { setContext } from "svelte";
     }
 
     function sort(sortOption: Sort): void {
-        sortedReactions = post.reactions.sort(function (a, b) {
+        sortedReactions = post.comments.sort(function (a, b) {
             if (sortOption === Sort.NEW) {
                 if (parseInt(a.timestamp) < parseInt(b.timestamp)) {
                     return 1;
@@ -148,7 +148,7 @@ import { setContext } from "svelte";
                                     <path id="Path_352" data-name="Path 352" d="M94.742,179.1a.305.305,0,1,0,.305.305.305.305,0,0,0-.305-.305" transform="translate(-89.647 -170.253)"/>
                                     <path id="Path_353" data-name="Path 353" d="M73.453,200.391a.305.305,0,1,0,.305.305.305.305,0,0,0-.305-.305" transform="translate(-70.188 -189.712)"/>
                                 </svg>                          
-                                <span>{post.reactions.length}</span>
+                                <span>{post.comments.length}</span>
                             </div>
                         </div>
                         <button class="share">
@@ -164,8 +164,9 @@ import { setContext } from "svelte";
                     <span class="type">#{post.type}</span>
                 </footer>
             </article>
-            <div class="comments">
-                {#if post.reactions.length > 0}
+            <div class="comments {post.comments.length > 0 ? "": "empty"}">
+                {#if post.comments.length > 0}
+                    {#if post.comments.length > 1}
                     <div class="sort">
                         <span>Sorteer:</span>
                         <div>
@@ -182,6 +183,7 @@ import { setContext } from "svelte";
                             </ul>
                         </div>
                     </div>
+                    {/if}
                     <ul>
                         {#each sortedReactions as comment}
                         <li class="comment {comment.userType === "representative" ? "verified" : ""}">
@@ -246,6 +248,8 @@ import { setContext } from "svelte";
     }
 
     .post {
+        display: flex;
+        flex-direction: column;
         height: calc(100% - 66px);
         overflow-y: auto;
     }
@@ -424,6 +428,16 @@ import { setContext } from "svelte";
         padding: 0.75rem;
     }
 
+    .comments.empty {
+        height: 100%;
+    }
+
+    .comments.empty > p {
+        font-weight: bold;
+        text-align: center;
+        margin: 0;
+    }
+
     .sort {
         display: flex;
         flex-direction: row;
@@ -485,8 +499,9 @@ import { setContext } from "svelte";
     }
 
     .sort .options li.selected {
-        background-color: var(--cmd-color-black);
-        color: var(--cmd-color-white);
+        background-color: var(--cmd-color-white);
+        color: var(--cmd-color-black);
+        font-weight: bold;
     }
 
     .comment {
