@@ -2,7 +2,7 @@
     import type { FormData, FormError, Post, allCategories } from "src/@types/main";
     import { categories, posts, userID } from "../store";
     import { pop, replace } from "svelte-spa-router";
-    import PostOptions from "../lib/components/topbar/PostOptions.svelte";
+    import Options from "../lib/components/topbar/Options.svelte";
 
     const postTypes = ["idee", "probleem"] as const;
 
@@ -73,7 +73,7 @@
             category: data.category,
             upvotes: [],
             status: "In afwachting",
-            reactions: []
+            comments: []
         }
 
         posts.update((posts) => {
@@ -145,7 +145,7 @@
         </div>
         {:else}
         <header>
-            <PostOptions right="close"/>
+            <Options right="close"/>
         </header>
         <div class="main">
             <div>
