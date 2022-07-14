@@ -21,7 +21,7 @@ export default {
   "/post-aanmaken": CreatePost,
 
   "/post/:id": Post,
-  "/categorie/:subject": Category,
+  "/categorie/:category": Category,
 
   "*": NotFound,
 };
