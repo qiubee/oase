@@ -51,7 +51,7 @@ export type Lesson = {
   image: string;
 };
 
-export type Reaction = {
+export type Comment = {
   userID: number;
   userType: "student" | "representative";
   timestamp: string;
@@ -68,7 +68,7 @@ export type Post = {
   category: Categories;
   upvotes: Array<User["id"]>;
   status: PostStatuses;
-  reactions: Reaction[];
+  comments: Comment[];
 };
 
 export type Route = {
@@ -139,4 +139,9 @@ export type NewsPost = {
   content: string;
   tag: string;
   timestamp: string;
+};
+
+export type Sorted = {
+  posts: Post[];
+  comments: Comment[];
 };
