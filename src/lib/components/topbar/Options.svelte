@@ -4,29 +4,51 @@
     import { students, userID } from "../../../store";
 
     const icon = ["edit", "arrow-left", "notification-bell", "close", "none"] as const;
-    const postID: number = getContext("postID");
+    let postID: number;
+    let categoryID: number;
     export let left: typeof icon[number] = icon[icon.length-1];
     export let right: typeof icon[number] = icon[icon.length-1];
+    export let category: string = "";
     const user = $students.find(user => user.id === $userID);
-    let subscribed: boolean = user.following.posts.includes(postID);
+    let type: "post" | "category" = "post";
+    let subscribed: boolean;
 
+    if (category) {
+        type = "category";
+    }
+
+    if (type === "post") {
+        postID = getContext("postID");
+        subscribed = user.following.posts.includes(postID);
+    } else {
+        categoryID = getContext("categoryID");
+        subscribed = user.following.categories.includes(categoryID);
+    }
 
     function editPost(): void {
 
     }
 
-    function toggleFollowPost(): void {
+    function toggleFollow(type: "post" | "category"): void {
         subscribed = subscribed === true ? false : true;
         if (subscribed === true) {
             students.update(function (students) {
                 const student = students.find((student) => student.id === $userID);
-                student.following.posts.push(postID);
+                if (type === "post") {
+                    student.following.posts.push(postID);
+                } else {
+                    student.following.categories.push(categoryID);
+                }
                 return students;
             })
         } else {
             students.update(function (students) {
                 const student = students.find((student) => student.id === $userID);
-                student.following.posts.filter((id) => id !== postID)
+                if (type === "post") {
+                    student.following.posts = student.following.posts.filter((id) => id !== postID);
+                } else {
+                    student.following.categories = student.following.categories.filter((id) => id !== categoryID);
+                }
                 return students;
             })
         }
@@ -55,9 +77,14 @@
         </button>
     {/if}
     </div>
+    {#if category}
+        <div class="category">
+            {category}
+        </div>
+    {/if}
     <div class="right">
     {#if right === "notification-bell"}
-        <button on:click={toggleFollowPost}>
+        <button on:click={() => toggleFollow(type)}>
             <svg class="notification-bell {subscribed === true ? "": "default"}" xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 40.298 42">
                 <path class="fill" d="M39.312,35.616H25.354a5.2,5.2,0,0,1-10.41,0H.986l3.825-5.343A12.635,12.635,0,0,0,7.176,22.9V13.988a12.973,12.973,0,1,1,25.945,0h.02V22.9a12.617,12.617,0,0,0,2.346,7.374Z"/>
                 <path d="M40.126,35.034,36.3,29.691a11.532,11.532,0,0,1-2.169-6.782V13.978a.738.738,0,0,0-.02-.2A13.986,13.986,0,0,0,20.154,0,13.74,13.74,0,0,0,10.3,4.1a13.819,13.819,0,0,0-4.1,9.877v8.931a11.5,11.5,0,0,1-2.188,6.782L.182,35.034A1.01,1.01,0,0,0,.1,36.059a.991.991,0,0,0,.887.532H14.042a6.191,6.191,0,0,0,12.224,0H39.317a.94.94,0,0,0,.867-.532A1.007,1.007,0,0,0,40.126,35.034ZM20.154,39.825a4.21,4.21,0,0,1-4.1-3.234h8.2A4.21,4.21,0,0,1,20.154,39.825ZM2.9,34.62l2.721-3.785a13.6,13.6,0,0,0,2.543-7.926V13.978A12.015,12.015,0,0,1,20.154,1.972,12.024,12.024,0,0,1,32.141,13.978a.608.608,0,0,0,.02.2v8.734a13.5,13.5,0,0,0,2.524,7.926L37.4,34.62Z"/>
@@ -93,16 +120,25 @@
     .options {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
-    }
-
-    .right {
-        margin-left: auto;
     }
 
     button {
         width: 2.5rem;
         height: 2.5rem;
+    }
+
+    .category {
+        background-color: var(--cmd-color-black);
+        color: var(--cmd-color-white);
+        padding: 0.4rem 1rem;
+        border-radius: 10rem;
+        font-size: 0.75rem;
+        text-transform: capitalize;
+        font-family: "Kotori Rose";
+        font-weight: bold;
     }
     
     .notification-bell.default  .fill {
