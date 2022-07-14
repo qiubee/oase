@@ -2,7 +2,7 @@
     import { push } from "svelte-spa-router";
     import { routes } from "../../store";
     export let location = $routes[0].name;
-    export let node: HTMLElement;
+    export let node: HTMLElement = null;
 </script>
 
 <div bind:this={node}>
