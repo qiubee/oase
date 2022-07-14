@@ -1,8 +1,15 @@
 <script lang="ts">
-    import { students, userID, currentCategory } from "../../../store";
+    import { students, userID, currentCategory, categories } from "../../../store";
     
-    const user = $students.find(user => user.id === $userID);
-    let categories: string[] = ["Alles", "Populair", ...user.following.subjects];
+    let user = $students.find(user => user.id === $userID);
+    let userSubsribedCategories = $categories.map(function (cat) {
+        for (let id of user.following.categories) {
+            if (cat.id === id) {
+                return cat.name;
+            }
+        }
+    }).filter((cat) => cat);
+    let dropdownCategories: string[] = ["Alles", "Populair", ...userSubsribedCategories];
     let dropdownHidden: boolean = true;
 
     function toggleCategoryDropdown(): void {
@@ -12,7 +19,7 @@
     function changeCategory(e: Event): void {
         const el = <HTMLInputElement>e.target;
         const selectedCategory = el.textContent;
-        if (categories.includes(selectedCategory)) {
+        if (dropdownCategories.includes(selectedCategory)) {
             currentCategory.update(function (category) {
                 category = selectedCategory;
                 return category;
@@ -30,7 +37,7 @@
         </svg>
     </button>
     <ul class="categories {dropdownHidden ? "hidden" : ""}">
-        {#each categories as category}
+        {#each dropdownCategories as category}
             {#if $currentCategory === category}
                 <li class="selected">{category}</li>
             {:else}
