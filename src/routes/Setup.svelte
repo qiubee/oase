@@ -2,12 +2,13 @@
     import { replace } from "svelte-spa-router";
     import { setContext } from "svelte";
     import { Writable, writable } from "svelte/store";
+    import type { Student } from "src/@types/main";
     import Button from "../lib/components/Button.svelte";
     import Toggle from "../lib/components/Toggle.svelte";
     import ProgressBar from "../lib/components/ProgressBar.svelte";
     import { categories, currentTheme, themes, students, userID, statusOptions, onboard } from "../store";
     import { openUploadDialog } from "../utils/utils";
-    import type { Categories } from "src/@types/main";
+    import { follow } from "../actions";
 
     const currentStep: Writable<number> = writable(1);
     setContext("step", {
@@ -20,7 +21,7 @@
         }
     })
 
-    const user = $students.find(user => user.id === $userID);
+    $: user = $students.find(user => user.id === $userID);
     const title: string[] = ["Kies thema", "Kies onderwerpen", "Profiel instellen"];
 
     function setTheme(e: Event): void {
@@ -29,26 +30,8 @@
         currentStep.update((n) => ++n);
     }
 
-    function toggleFollowSubject(e: Event): void {
-        const el = <HTMLElement>e.target;
-        el.classList.toggle("selected");
-        const subject = <Categories>el.textContent.trim();
-        students.update(function (students) {
-            const list = students[$userID].following.categories;
-            if (list.includes(subject)) {
-                students[$userID].following.categories = [...list].filter(function (val: string) {
-                    return val !== subject;
-                })
-            } else {
-                students[$userID].following.categories.push(subject);
-            }
-            return students;
-        })
-    }
-
-    function updateStatus(): void {
-        const status = this.textContent;
-        const index = $statusOptions.indexOf(status);
+    function updateStatus(option: Student["status"]["text"]): void {
+        const index = $statusOptions.indexOf(option);
         students.update(function (students) {
             students[$userID].status.text = $statusOptions[index];
             return students;
@@ -118,11 +101,11 @@
                 <ul class="categories">
                     {#each $categories as category}
                         {#if user.following.categories.includes(category.id)}
-                            <li on:click={toggleFollowSubject} class="selected">
+                            <li data-id={category.id} on:click={() => follow(category, $userID)} class="selected">
                                 {category.name}
                             </li>
                         {:else}
-                            <li on:click={toggleFollowSubject}>
+                            <li data-id={category.id} on:click={() => follow(category, $userID)}>
                                 {category.name}
                             </li>
                         {/if}
@@ -136,7 +119,7 @@
                 <span class="name">{user.firstName} {user.lastNameVisible ? user.lastName : ""}</span>
                 <span class="study">#{user.study.abbreviation}</span>
                 {#if user.status.visible}
-                    <div class="status">{user.status}</div>
+                    <div class="status">{user.status.text}</div>
                 {/if}
             </div>
 
@@ -153,10 +136,10 @@
                         <span>Status</span>
                         <ul class="status">
                             {#each $statusOptions as statusName}
-                                {#if user.status.text === statusName }
+                                {#if user.status.text === statusName}
                                     <li class="selected">{statusName}</li>
                                 {:else}
-                                    <li on:click={updateStatus}>{statusName}</li>
+                                    <li on:click={() => updateStatus(statusName)}>{statusName}</li>
                                 {/if}
                             {/each}
                         </ul>
@@ -166,8 +149,8 @@
                         <Toggle action={toggleLastName}/>
                     </li>
                     <li>
-                        <span>Online status weergeven</span>
-                        <Toggle active={true} action={toggleOnlineStatus}/>
+                        <span>Online status verbergen</span>
+                        <Toggle action={toggleOnlineStatus}/>
                     </li>
                 </ul>
             </div>
