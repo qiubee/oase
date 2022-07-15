@@ -1,7 +1,7 @@
 <script lang="ts">
     import VoteButton from "./VoteButton.svelte";
     import { push } from "svelte-spa-router";
-    import { students, posts, userID } from "../../store";
+    import { students, posts, userID, statuses } from "../../store";
     import { timeDiff } from "../../utils/utils";
 
     export let postID: number;
@@ -9,6 +9,7 @@
     let post = $posts.find(post => post.id === postID);
     const author = $students.find(user => user.id === post.author);
     const user = $students.find(user => user.id === $userID);
+    const status = $statuses.find((status) => status.id === post.status);
     const verifiedReactions = post.comments.filter(function (reaction) {
         return reaction.userType === "representative";
     }).length;
@@ -56,7 +57,7 @@
             </div>
             <div class="status">
                 <span>#{post.type}</span>
-                <img src="src/assets/status/{post.status}.svg" alt="{post.status}">
+                <img src="{status.iconURL}" alt="{status.name}">
             </div>
         </header>
         <section>
