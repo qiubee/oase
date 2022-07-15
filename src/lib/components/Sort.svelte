@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Categories, Category, Post, Comment } from "src/@types/main";
+    import type { Post, Sorted } from "src/@types/main";
     import { sorted, posts } from "../../store";
 
     enum SortComments {
@@ -25,12 +25,7 @@
     let dropdownHidden: boolean = true;
     export let position: "left" | "right" = "left";
     export let type: SortTypes = "posts";
-    export let id: Post["id"] = null;
-    let post: Post;
-
-    if (type === "comments" && id) {
-        post = $posts.find(post => post.id === id);
-    }
+    export let post: Post = null;
 
     function toggleDropdown(): void {
         dropdownHidden = dropdownHidden === true ? false : true;
@@ -39,7 +34,7 @@
     function sort(type: SortTypes, option: SortComments | SortPosts): void {
         sortIndex = option;
         if (type === "posts") {
-            $sorted.posts = $posts.sort(function (a, b) {
+            $sorted.posts = <Sorted["posts"]>$posts.sort(function (a, b) {
                 if (option === SortPosts.NEW) {
                     if (a.timestamp < b.timestamp) {
                         return 1;
@@ -56,7 +51,7 @@
                     }
                 }
             });
-        } else if (type === "comments" && id) {
+        } else if (type === "comments" && post) {
             $sorted.comments = post.comments.sort(function (a, b) {
                 if (option === SortComments.NEW) {
                     if (parseInt(a.timestamp) < parseInt(b.timestamp)) {
@@ -72,8 +67,11 @@
         dropdownHidden = true;
     }
 
-    sort("posts", SortPosts.NEW);
-    sort("comments", SortComments.NEW);
+    if (type === "posts") {
+        sort("posts", SortPosts.NEW);
+    } else if (type === "comments") {
+        sort("comments", SortComments.NEW);
+    }
 </script>
 
 <div class="sort {type} {position}">
