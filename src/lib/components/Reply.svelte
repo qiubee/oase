@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Comment, Post } from "src/@types/main";
+    import type { Comment, Post, Sorted } from "src/@types/main";
     import { posts, userID, sorted } from "../../store";
 
     export let postID: Post["id"];
@@ -22,7 +22,7 @@
             return posts;
         })
         sorted.update(function (sorted) {
-            sorted.comments = $posts.find(function (post) {
+            sorted.comments = <Sorted["comments"]>$posts.find(function (post) {
                 return post.id === postID;
             }).comments;
             return sorted;

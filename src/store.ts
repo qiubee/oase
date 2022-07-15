@@ -1,5 +1,5 @@
 import { readable, writable } from "svelte/store";
-import type { Theme, NewsPost, Sorted } from "src/@types/main";
+import type { Theme, NewsPost, Sorted, Category } from "src/@types/main";
 import { allStatusOptions } from "./@types/main";
 import allStudents from "./db/students.json";
 import allRepresentatives from "./db/representatives.json";
@@ -18,7 +18,7 @@ export const onboard = writable<boolean>(false);
 // export const onboard = writable<boolean>(true);
 
 export const currentTheme = writable<string>("Oase");
-export const categories = writable(allCategories);
+export const categories = writable(<Category[]>allCategories);
 export const statusOptions = readable(allStatusOptions);
 export const userID = readable<number>(0);
 export const currentCategory = writable<string>("Alles");
