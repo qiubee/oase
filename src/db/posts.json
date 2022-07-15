@@ -8,7 +8,7 @@
     "timestamp": "1655706600000",
     "category": "studieplekken",
     "upvotes": [2, 3, 4, 5, 6, 7, 8, 9, 10],
-    "status": "discussie",
+    "status": 0,
     "comments": [
       {
         "userID": 4,
@@ -39,7 +39,7 @@
     "timestamp": "1656676680000",
     "category": "studiedruk",
     "upvotes": [1, 2, 4, 6],
-    "status": "discussie",
+    "status": 0,
     "comments": [
       {
         "userID": 8,
@@ -70,7 +70,7 @@
     "timestamp": "1657807032156",
     "category": "studiedruk",
     "upvotes": [],
-    "status": "discussie",
+    "status": 0,
     "comments": []
   }
 ]

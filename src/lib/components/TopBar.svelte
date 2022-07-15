@@ -6,7 +6,7 @@
     import Category from "./topbar/Category.svelte";
     import Options from "./topbar/Options.svelte";
 
-    export let state: Route["name"] = $routes[0].name;
+    export let state = <Route["name"]>$routes[0].name;
     export let post: boolean = false;
     export let node: HTMLElement = null;
     export let hideBorder: boolean = false;

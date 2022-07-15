@@ -1,0 +1,32 @@
+[
+  {
+    "id": 0,
+    "name": "discussie",
+    "iconURL": "src/assets/status/discussie.svg"
+  },
+  {
+    "id": 1,
+    "name": "besproken in raad",
+    "iconURL": ""
+  },
+  {
+    "id": 2,
+    "name": "plannen",
+    "iconURL": ""
+  },
+  {
+    "id": 3,
+    "name": "uitvoeren",
+    "iconURL": ""
+  },
+  {
+    "id": 4,
+    "name": "klaar",
+    "iconURL": ""
+  },
+  {
+    "id": 5,
+    "name": "verlopen/verworpen",
+    "iconURL": ""
+  }
+]

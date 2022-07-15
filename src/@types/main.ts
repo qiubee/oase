@@ -19,13 +19,12 @@ export const allStatusOptions = [
 ] as const;
 
 const allPostStatus = [
-  "In afwachting",
-  "Niet behaald",
-  "Ter discussie",
-  "Besproken in vergadering",
-  "In behandeling",
-  "In uitvoering",
-  "Compleet",
+  "discussie",
+  "besproken in raad",
+  "plannen",
+  "uitvoeren",
+  "klaar",
+  "verlopen",
 ] as const;
 
 const allRouteNames = [
@@ -40,6 +39,21 @@ export type Categories = typeof allCategories[number];
 export type StatusOptions = typeof allStatusOptions[number];
 export type PostStatuses = typeof allPostStatus[number];
 export type RouteNames = typeof allRouteNames[number];
+
+export enum PostStatus {
+  DISCUSSION,
+  INMEETING,
+  PROCESSING,
+  EXECUTING,
+  COMPLETE,
+  DISMISSED,
+}
+
+export type Status = {
+  id: number;
+  name: PostStatuses;
+  iconURL: string;
+};
 
 export type Lesson = {
   name: string;
@@ -67,7 +81,7 @@ export type Post = {
   timestamp: string;
   category: Categories;
   upvotes: Array<User["id"]>;
-  status: PostStatuses;
+  status: Status["id"];
   comments: Comment[];
 };
 
@@ -80,6 +94,7 @@ export type Route = {
 
 export type User = {
   id: number;
+  type: "student" | "representative";
   readonly firstName: string;
   readonly lastName: string;
   lastNameVisible: boolean;
@@ -99,10 +114,12 @@ export type User = {
 };
 
 export type Student = {
+  type: "student";
   readonly lessons: Array<Lesson>;
 } & User;
 
 export type Representative = {
+  type: "representative";
   council: {
     type: "Opleidingscommissie" | "Faculteitsraad" | "Medezeggenschapsraad";
     study: string;
