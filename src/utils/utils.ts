@@ -33,8 +33,10 @@ export function timeDiff(start: Date, end: Date): string {
     return days + "d";
   } else if (hours >= 1) {
     return hours + "h";
-  } else {
+  } else if (minutes >= 1) {
     return minutes + "min";
+  } else {
+    return "<1min";
   }
 }
 
