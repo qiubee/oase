@@ -257,8 +257,8 @@
     }
 
     .status img {
-        width: 1.1rem;
-        padding: 0.5rem;
+        width: 1.4rem;
+        padding: 0.35rem;
         background-color: var(--cmd-color-main);
     }
 
