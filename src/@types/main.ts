@@ -97,7 +97,6 @@ export type User = {
   type: "student" | "representative";
   readonly firstName: string;
   readonly lastName: string;
-  lastNameVisible: boolean;
   photoURL: string;
   status: {
     text: StatusOptions;
@@ -115,6 +114,7 @@ export type User = {
 
 export type Student = {
   type: "student";
+  lastNameVisible: boolean;
   readonly lessons: Array<Lesson>;
 } & User;
 
