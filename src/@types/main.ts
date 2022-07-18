@@ -18,7 +18,7 @@ export const allStatusOptions = [
   "Niet storen",
 ] as const;
 
-const allPostStatus = [
+export const allPostStatus = [
   "discussie",
   "besproken in raad",
   "plannen",

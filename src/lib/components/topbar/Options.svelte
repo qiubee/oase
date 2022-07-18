@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { pop } from "svelte-spa-router";
     import { students, userID } from "../../../store";
+    import StatusProgress from "./StatusProgress.svelte";
 
     const icon = ["edit", "arrow-left", "notification-bell", "close", "none"] as const;
     let postID: number;
@@ -81,6 +82,8 @@
         <div class="category">
             {category}
         </div>
+        {:else}
+        <StatusProgress postID={postID} />
     {/if}
     <div class="right">
     {#if right === "notification-bell"}
