@@ -5,6 +5,7 @@
     import Subscriptions from "./topbar/Subscriptions.svelte";
     import Category from "./topbar/Category.svelte";
     import Options from "./topbar/Options.svelte";
+    import SearchBar from "./topbar/SearchBar.svelte";
 
     export let state = <Route["name"]>$routes[0].name;
     export let post: boolean = false;
@@ -25,9 +26,11 @@
     <Options left={"arrow-left"} {category} right={"notification-bell"}/>
   {:else}
     {#if state === "home"}
-        <Category/>
+      <Category/>
     {:else if state === "forum"}
-        <Subscriptions/>
+      <Subscriptions/>
+    {:else if state === "search"}
+      <SearchBar/>
     {/if}
     <button on:click={() => push("/post-aanmaken")} class="cta">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" viewBox="0 0 24.519 21.059">
@@ -54,6 +57,7 @@
     header {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         max-height: 3.25rem;
         max-width: 30rem;
         background-color: var(--cmd-color-main);
