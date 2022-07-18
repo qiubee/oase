@@ -38,4 +38,14 @@
         border-radius: 0.25rem;
         margin-bottom: 0.75rem;
     }
+
+    @media (min-width: 22rem) {
+        .categories {
+            justify-content: space-around;
+        }
+
+        .categories li {
+            margin: 0.5rem;
+        }
+    }
 </style>
