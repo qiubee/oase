@@ -8,7 +8,7 @@
     import Comment from "../lib/components/Comment.svelte";
     import { posts, students, userID, statuses, sorted } from "../store";
     import { timeDiff } from "../utils/utils";
-import { beforeUpdate } from "svelte";
+    import { beforeUpdate, setContext } from "svelte";
 
     type Params = {
         id?: string
@@ -25,6 +25,8 @@ import { beforeUpdate } from "svelte";
     }).length;
     const status = $statuses.find((status) => status.id === post.status);
     let voted = post.upvotes.includes($userID);
+
+    setContext("postID", post.id);
 
     function vote(postID: number): void {
         voted = voted ? false : true;
@@ -269,10 +271,8 @@ import { beforeUpdate } from "svelte";
     }
 
     article .status img {
-        max-width: 1.25rem;
-        height: 1.25rem;
-        width: 100%;
-        padding: 0.65rem;
+        height: 1.65rem;
+        padding: 0.35rem;
         background-color: var(--cmd-color-white);
     }
 
@@ -350,6 +350,7 @@ import { beforeUpdate } from "svelte";
     }
 
     .comments {
+        height: 100%;
         background-color: var(--cmd-color-white);
         padding: 0 0.75rem;
         padding-bottom: 0.75rem;
