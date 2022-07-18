@@ -47,7 +47,7 @@
         width: 100%;
         bottom: 0;
         padding: 1rem 0;
-        background-color: var(--cmd-color-main);;
+        background-color: var(--cmd-color-main);
     }
 
     input {
