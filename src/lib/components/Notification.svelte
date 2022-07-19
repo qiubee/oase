@@ -18,8 +18,8 @@
 <div class="notification {notification !== Notification.COMMENT ? "" : "comment"}" on:click={() => push("/post/" + post.id)}>
     {#if notification === Notification.UPVOTES || notification === Notification.REACTIONS}
         {#if notification === Notification.UPVOTES}
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 19.443 19.443">
-            <g id="Group_553" data-name="Group 553" transform="translate(10.166 -0.544) rotate(45)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 19.443 19.443">
+            <g id="Group_553" data-name="Group 553" transform="translate(11 -4.544) rotate(45) scale(1.25)">
             <path id="Union_6" data-name="Union 6" d="M4.615,15.033a.5.5,0,0,1-.5-.5V6.944H.669A.75.75,0,0,1,.138,5.664L5.607.2a.75.75,0,0,1,1.06,0l5.468,5.468a.75.75,0,0,1-.53,1.281H8.159v7.588a.5.5,0,0,1-.5.5Z" transform="translate(0.809 0.069)" fill="#aaa"/>
             </g>
         </svg>
@@ -57,7 +57,7 @@
     {:else if notification === Notification.COMMENT && post.comments.length > 0}
         {@const comment = post.comments[Math.floor(Math.random() * (post.comments.length - 1))]}
         <div class="metadata">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 14.236 9.548">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 14.236 9.548">
                 <path id="Path_398" data-name="Path 398" d="M153.4,182.112c-.908-.935-2.783-2.058-6.568-2.075a.325.325,0,0,0-.324.323v1.128a.527.527,0,0,1-.267.448.726.726,0,0,1-.68.032l-5.413-4.124a.18.18,0,0,1-.086-.146.193.193,0,0,1,.1-.156l5.4-4.114a.726.726,0,0,1,.68.032.526.526,0,0,1,.267.445v1.287a.238.238,0,0,0,.238.238c4.845,0,6.341,4.306,6.8,6.605A.084.084,0,0,1,153.4,182.112Z" transform="translate(-139.69 -172.976)" fill="#aaa" stroke="#aaa" stroke-width="0.75"/>
             </svg>
             <h2><span>{post.title}</span></h2>
@@ -109,7 +109,7 @@
     .notification {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
         padding: 0.75rem;
         background-color: var(--cmd-color-white);
     }
@@ -137,6 +137,11 @@
     .notification:not(.comment) svg {
         min-width: 1.25rem;
         height: 100%;
+        margin-top: 0.25rem;
+    }
+
+    .notification.comment svg {
+        max-width: 1.2rem;
     }
 
     h2 {
@@ -146,7 +151,6 @@
         margin: 0;
         font-size: 0.6rem;
         height: 1.5rem;
-        width: 12rem;
         overflow: hidden;
         font-weight: normal;
         text-overflow: ellipsis;
@@ -163,16 +167,14 @@
         border-radius: 5rem;
         color: white;
         margin-left: auto;
-        padding: 0.3rem 0.6rem;
+        padding: 0.2rem 0.5rem;
         font-size: 0.75rem;
         font-family: var(--font-pauschal);
         background-color: var(--cmd-color-black);
     }
 
     .notification p {
-        font-size: 0.75rem;
-        margin: 0;
-        margin-top: 0.5rem;
+        margin: 0.25rem 0.25rem 0 0;        
     }
 
     .bold {
@@ -184,10 +186,10 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-end;
+        font-size: 0.75rem;
     }
 
     .content .time {
-        font-size: 0.65rem;
         font-family: var(--font-pauschal);
         color: var(--cmd-color-gray);
     }
