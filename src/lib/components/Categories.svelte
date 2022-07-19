@@ -33,7 +33,7 @@
         width: 7.5rem;
         background-color: var(--cmd-color-white);
         padding: 0.6rem 0.75rem;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
         font-size: 0.9em;
         border-radius: 0.25rem;
         margin-bottom: 0.75rem;

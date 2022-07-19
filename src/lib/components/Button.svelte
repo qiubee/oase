@@ -98,6 +98,6 @@
     }
 
     button span {
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
     }
 </style>

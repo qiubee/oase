@@ -75,7 +75,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
         font-size: 1rem;
     }
 
@@ -103,14 +103,14 @@
     }
 
     .comment .metadata .name {
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
         font-size: 0.9rem;
         margin-right: 0.5rem;
     }
 
     .comment .time {
         font-size: 0.9rem;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
     }
 
     .comment .council {
@@ -124,13 +124,13 @@
     }
 
     .comment .council span {
-        font-family: "Kotori Rose";
+        font-family: var(--font-kotori-rose);
         font-size: 0.8rem;
     }
 
     .comment p {
         font-size: 1rem;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
     }
 
     .comment .bottom {

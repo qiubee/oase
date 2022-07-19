@@ -500,12 +500,12 @@
     flex-direction: column;
     bottom: 0;
     width: 100%;
-    font-family: "Pauschal";
+    font-family: var(--font-pauschal);
     background-color: var(--std-bg-color);
   }
 
   h1 {
-    font-family: "Kotori Rose";
+    font-family: var(--font-kotori-rose);
     color: black;
     font-size: 1.5rem;
     font-weight: 700;
@@ -537,7 +537,7 @@
   }
 
   input[type="submit"] {
-    font-family: "Pauschal";
+    font-family: var(--font-pauschal);
     font-size: 1.25rem;
     background-color: black;
     color: white;
@@ -553,7 +553,7 @@
   }
 
   a {
-    font-family: "Pauschal";
+    font-family: var(--font-pauschal);
     margin-bottom: 1.1rem;
     font-size: 0.9rem;
   }

@@ -229,13 +229,13 @@
     }
 
     .metadata .name {
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
     }
 
     .metadata .time {
         display: flex;
         align-items: center;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
         color: var(--cmd-color-gray);
     }
 
@@ -267,7 +267,7 @@
         flex-direction: row;
         width: 100%;
         justify-content: space-between;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
     }
 
     footer > div {

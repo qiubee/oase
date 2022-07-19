@@ -257,7 +257,7 @@
         background-color: white;
         border-radius: 10vw;
         height: 2rem;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
         font-size: 0.85rem;
         text-align: center;
         text-transform: capitalize;
@@ -313,7 +313,7 @@
     }
 
     .preview .name {
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
         font-size: 0.75rem;
     }
 
@@ -356,7 +356,7 @@
 
     .settings .image span {
         font-size: 0.8rem;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
         color: var(--std-active-color);
     }
 
@@ -403,7 +403,7 @@
 
     .options * {
         font-size: 0.75rem;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
     }
 
     .options > li:not(:last-child) {

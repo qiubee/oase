@@ -140,7 +140,7 @@
         border-radius: 10rem;
         font-size: 0.75rem;
         text-transform: capitalize;
-        font-family: "Kotori Rose";
+        font-family: var(--font-kotori-rose);
         font-weight: bold;
     }
     

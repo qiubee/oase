@@ -32,7 +32,7 @@
         background-color: var(--cmd-color-white);
         padding: 1.25rem;
         border-radius: 0.5rem;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
     }
 
     h3 {

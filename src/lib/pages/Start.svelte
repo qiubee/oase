@@ -45,7 +45,7 @@
 <style>
   h1 {
     position: relative;
-    font-family: "Kotori Rose";
+    font-family: var(--font-kotori-rose);
     color: white;
     font-size: 3.5rem;
     font-weight: 700;

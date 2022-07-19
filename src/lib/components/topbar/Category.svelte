@@ -65,7 +65,7 @@
         max-width: 12rem;
         margin-right: 0.5rem;
         font-size: 1.5rem;
-        font-family: "Kotori Rose";
+        font-family: var(--font-kotori-rose);
         font-weight: bold;
         text-transform: capitalize;
         color: black;

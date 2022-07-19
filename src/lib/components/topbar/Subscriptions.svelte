@@ -13,7 +13,7 @@
         display: flex;
         align-items: center;
         color: initial;
-        font-family: "Kotori Rose";
+        font-family: var(--font-kotori-rose);
         font-weight: bold;
         font-size: 0.75rem;
         padding-right: 1rem;

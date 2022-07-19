@@ -258,7 +258,7 @@
     form ul {
         display: flex;
         flex-direction: row;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
         overflow-x: scroll;
         scroll-snap-type: x proximity;
         margin-left: 0.75rem;
@@ -295,14 +295,14 @@
         border: none;
         padding: 0.5rem 0.75rem;
         font-size: 0.9rem;
-        font-family: "Kotori Rose";
+        font-family: var(--font-kotori-rose);
         font-weight: normal;
     }
 
     input[type="submit"] {
         display: block;
         color: black;
-        font-family: "Kotori Rose";
+        font-family: var(--font-kotori-rose);
         background-color: var(--cmd-color-white);
         padding: 0.75rem 1.25rem;
         border-radius: 0.25rem;

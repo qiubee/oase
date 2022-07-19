@@ -155,7 +155,7 @@
         justify-content: space-between;
         background-color: var(--cmd-color-white);
         padding: 1rem 0.75rem;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
         font-size: 0.9rem;
         margin-bottom: 0.5rem;
     }

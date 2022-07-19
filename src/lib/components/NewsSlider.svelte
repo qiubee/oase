@@ -53,7 +53,7 @@
         flex-direction: row;
         align-items: center;
         font-size: 0.8rem;
-        font-family: "Kotori Rose";
+        font-family: var(--font-kotori-rose);
         font-weight: bold;
         margin-left: auto;
         max-width: 8rem;
@@ -124,7 +124,7 @@
     li div .time,
     li h2,
     li .author {
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
     }
 
     li h2 {

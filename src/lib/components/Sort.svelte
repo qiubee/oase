@@ -177,7 +177,7 @@
         background-color: var(--cmd-color-main);
         padding: 0.6rem 1rem;
         border-radius: 0.5rem;
-        font-family: "Kotori Rose";
+        font-family: var(--font-kotori-rose);
     }
 
     .comments .options {

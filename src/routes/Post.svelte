@@ -223,14 +223,14 @@
     }
 
     article .metadata .name {
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
         font-size: 1.1rem;
     }
 
     article .metadata .time {
         display: flex;
         align-items: center;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
     }
 
     article .metadata .time::before {
@@ -239,7 +239,7 @@
 
     article .type {
         font-size: 0.9rem;
-        font-family: "Kotori Rose";
+        font-family: var(--font-kotori-rose);
         font-weight: bold;
     }
 
@@ -247,7 +247,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
     }
 
     article .category {
@@ -277,13 +277,13 @@
     }
 
     .main {
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
         margin-top: 1.5rem;
     }
 
     h1 {
         font-size: 1.1rem;
-        font-family: "Kotori Rose";
+        font-family: var(--font-kotori-rose);
         font-weight: normal;
         margin: 0;
         margin-bottom: 1.25rem;
@@ -295,7 +295,7 @@
         align-items: center;
         justify-content: space-between;
         margin-top: 1.25rem;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
     }
 
     footer > div {
@@ -308,7 +308,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        font-family: "Kotori Rose";
+        font-family: var(--font-kotori-rose);
         font-weight: bold;
         margin-right: 1.5rem;
         color: initial;

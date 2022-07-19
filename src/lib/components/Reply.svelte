@@ -53,7 +53,7 @@
     input {
         padding: 0.5rem 0.75rem;
         font-size: 0.9rem;
-        font-family: "Kotori Rose";
+        font-family: var(--font-kotori-rose);
         font-weight: normal;
         margin: 0 0.75rem;
         max-width: 20rem;
@@ -70,6 +70,6 @@
         height: 100%;
         color: initial;
         border: 2px solid var(--cmd-color-black);
-        font-family: "Kotori Rose";
+        font-family: var(--font-kotori-rose);
     }
 </style>

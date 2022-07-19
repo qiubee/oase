@@ -41,7 +41,7 @@ function search() {
     input {
         width: 100%;
         font-size: 0.9rem;
-        font-family: "Kotori Rose";
+        font-family: var(--font-kotori-rose);
         font-weight: normal;
         padding: 0;
         background-color: var(--cmd-color-white);

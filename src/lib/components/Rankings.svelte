@@ -78,7 +78,7 @@
     li .info {
         display: flex;
         flex-direction: column;
-        font-family: "Pauschal";
+        font-family: var(--font-pauschal);
     }
 
     li .category {
