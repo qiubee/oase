@@ -7,6 +7,7 @@
     import Options from "./topbar/Options.svelte";
     import SearchBar from "./topbar/SearchBar.svelte";
     import NotificationSettings from "./topbar/NotificationSettings.svelte";
+    import ProfileSettings from "./topbar/ProfileSettings.svelte";
 
     export let state = <Route["name"]>$routes[0].name;
     export let post: boolean = false;
@@ -34,6 +35,8 @@
       <SearchBar/>
     {:else if state === "notifications"}
       <NotificationSettings/>
+    {:else if state === "profile"}
+      <ProfileSettings/>
     {/if}
     <button on:click={() => push("/post-aanmaken")} class="cta">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" viewBox="0 0 24.519 21.059">
