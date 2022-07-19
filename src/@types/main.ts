@@ -65,6 +65,13 @@ export type Lesson = {
   image: string;
 };
 
+export type Grade = {
+  grade: number;
+  date: string;
+  course: string;
+  points: number;
+};
+
 export type Comment = {
   userID: number;
   userType: "student" | "representative";
@@ -116,6 +123,7 @@ export type Student = {
   type: "student";
   lastNameVisible: boolean;
   readonly lessons: Array<Lesson>;
+  readonly grades: Array<Grade>;
 } & User;
 
 export type Representative = {

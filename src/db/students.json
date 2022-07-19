@@ -28,6 +28,26 @@
         },
         "image": ""
       }
+    ],
+    "grades": [
+      {
+        "grade": 7.0,
+        "date": "1635980400000",
+        "course": "Project Individueel 1",
+        "points": 9
+      },
+      {
+        "grade": 6.7,
+        "date": "1635372000000",
+        "course": "Inleiding Programmeren",
+        "points": 3
+      },
+      {
+        "grade": 6.0,
+        "date": "1634680800000",
+        "course": "Human Computer Interaction",
+        "points": 9
+      }
     ]
   },
   {
@@ -49,7 +69,8 @@
       "name": "Communication & Multimedia Design",
       "abbreviation": "CMD"
     },
-    "lessons": []
+    "lessons": [],
+    "grades": []
   },
   {
     "id": 2,
@@ -70,7 +91,8 @@
       "name": "Communication & Multimedia Design",
       "abbreviation": "CMD"
     },
-    "lessons": []
+    "lessons": [],
+    "grades": []
   },
   {
     "id": 3,
@@ -91,7 +113,8 @@
       "name": "Communication & Multimedia Design",
       "abbreviation": "CMD"
     },
-    "lessons": []
+    "lessons": [],
+    "grades": []
   },
   {
     "id": 4,
@@ -112,7 +135,8 @@
       "name": "Communication & Multimedia Design",
       "abbreviation": "CMD"
     },
-    "lessons": []
+    "lessons": [],
+    "grades": []
   },
   {
     "id": 5,
@@ -133,7 +157,8 @@
       "name": "Communication & Multimedia Design",
       "abbreviation": "CMD"
     },
-    "lessons": []
+    "lessons": [],
+    "grades": []
   },
   {
     "id": 6,
@@ -154,7 +179,8 @@
       "name": "Communication & Multimedia Design",
       "abbreviation": "CMD"
     },
-    "lessons": []
+    "lessons": [],
+    "grades": []
   },
   {
     "id": 7,
@@ -175,7 +201,8 @@
       "name": "Communication & Multimedia Design",
       "abbreviation": "CMD"
     },
-    "lessons": []
+    "lessons": [],
+    "grades": []
   },
   {
     "id": 8,
@@ -196,7 +223,8 @@
       "name": "Communication & Multimedia Design",
       "abbreviation": "CMD"
     },
-    "lessons": []
+    "lessons": [],
+    "grades": []
   },
   {
     "id": 9,
@@ -217,7 +245,8 @@
       "name": "Communication & Multimedia Design",
       "abbreviation": "CMD"
     },
-    "lessons": []
+    "lessons": [],
+    "grades": []
   },
   {
     "id": 10,
@@ -238,7 +267,8 @@
       "name": "Communication & Multimedia Design",
       "abbreviation": "CMD"
     },
-    "lessons": []
+    "lessons": [],
+    "grades": []
   },
   {
     "id": 11,
@@ -259,7 +289,8 @@
       "name": "Communication & Multimedia Design",
       "abbreviation": "CMD"
     },
-    "lessons": []
+    "lessons": [],
+    "grades": []
   },
   {
     "id": 12,
@@ -280,6 +311,7 @@
       "name": "Communication & Multimedia Design",
       "abbreviation": "CMD"
     },
-    "lessons": []
+    "lessons": [],
+    "grades": []
   }
 ]
