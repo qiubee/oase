@@ -297,7 +297,7 @@
         margin-right: 0.3rem;
     }
 
-    footer > span {
+    .category {
         max-height: 0.9rem;
         border-radius: 5rem;
         color: white;
