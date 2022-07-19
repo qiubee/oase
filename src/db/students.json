@@ -1,6 +1,7 @@
 [
   {
     "id": 0,
+    "type": "student",
     "firstName": "Jaimy",
     "lastName": "Vaals",
     "lastNameVisible": true,
@@ -31,6 +32,7 @@
   },
   {
     "id": 1,
+    "type": "student",
     "firstName": "Jochem",
     "lastName": "Craaien",
     "lastNameVisible": false,
@@ -51,6 +53,7 @@
   },
   {
     "id": 2,
+    "type": "student",
     "firstName": "Jurre",
     "lastName": "van Welen",
     "lastNameVisible": true,
@@ -71,6 +74,7 @@
   },
   {
     "id": 3,
+    "type": "student",
     "firstName": "Aisha",
     "lastName": "Yenogun",
     "lastNameVisible": false,
@@ -91,6 +95,7 @@
   },
   {
     "id": 4,
+    "type": "student",
     "firstName": "Emma",
     "lastName": "Reboden",
     "lastNameVisible": true,
@@ -111,6 +116,7 @@
   },
   {
     "id": 5,
+    "type": "student",
     "firstName": "Chris",
     "lastName": "Aanter",
     "lastNameVisible": false,
@@ -131,6 +137,7 @@
   },
   {
     "id": 6,
+    "type": "student",
     "firstName": "Quinty",
     "lastName": "Haleman",
     "lastNameVisible": true,
@@ -151,6 +158,7 @@
   },
   {
     "id": 7,
+    "type": "student",
     "firstName": "Sarah",
     "lastName": "Zuyghim",
     "lastNameVisible": false,
@@ -171,6 +179,7 @@
   },
   {
     "id": 8,
+    "type": "student",
     "firstName": "Max",
     "lastName": "van der Meer",
     "lastNameVisible": true,
@@ -191,6 +200,7 @@
   },
   {
     "id": 9,
+    "type": "student",
     "firstName": "Peter",
     "lastName": "Luisdalen",
     "lastNameVisible": true,
@@ -211,6 +221,7 @@
   },
   {
     "id": 10,
+    "type": "student",
     "firstName": "Tim",
     "lastName": "Vergooi",
     "lastNameVisible": false,
@@ -231,6 +242,7 @@
   },
   {
     "id": 11,
+    "type": "student",
     "firstName": "Vera",
     "lastName": "Langeveld",
     "lastNameVisible": true,
@@ -251,6 +263,7 @@
   },
   {
     "id": 12,
+    "type": "student",
     "firstName": "Luna",
     "lastName": "Mere",
     "lastNameVisible": true,
