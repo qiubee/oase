@@ -10,13 +10,8 @@ import allNews from "./db/news.json";
 import allCategories from "./db/categories.json";
 import allPostStatus from "./db/post-status.json";
 
-// test
-export const loggedIn = writable<boolean>(true);
-export const onboard = writable<boolean>(false);
-
-// export const loggedIn = writable<boolean>(false);
-// export const onboard = writable<boolean>(true);
-
+export const loggedIn = writable<boolean>(false);
+export const onboard = writable<boolean>(true);
 export const currentTheme = writable<string>("Oase");
 export const categories = writable(<Category[]>allCategories);
 export const statusOptions = readable(allStatusOptions);
