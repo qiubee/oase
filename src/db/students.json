@@ -23,8 +23,26 @@
         "name": "Vormgeving",
         "room": "TTH 02B09",
         "time": {
-          "start": "9:00",
-          "end": "10:30"
+          "start": "1658300400000",
+          "end": "1658305800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Ontwerpgeschiedenis",
+        "room": "TTH 02B21",
+        "time": {
+          "start": "1658328000000",
+          "end": "1658331000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "TTH 02B21",
+        "time": {
+          "start": "1658480400000",
+          "end": "1658486400000"
         },
         "image": ""
       }
