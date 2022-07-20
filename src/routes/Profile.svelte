@@ -37,20 +37,24 @@
                 <button on:click={() => toggleView(View.MESSAGES)} class="{view === View.MESSAGES ? "active": ""}">Berichten</button>
             </div>
             {#if view === View.STUDY}
-                <div class="heading">
-                    <h2>Rooster</h2>
+                <div class="container">
+                    <div class="heading">
+                        <h2>Rooster</h2>
+                    </div>
+                    <Schedule/>
                 </div>
-                <Schedule/>
-                <div class="heading">
-                    <h2>Cijfers</h2>
-                    <a href="/cijfers" use:link>
-                        <span>Cijferlijst</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 8 4.898" transform="rotate(270)">
-                        <path id="Union_5" data-name="Union 5" d="M-386.25,3.834l-.163.167.163-.167L-390,0l3.75,3.834L-382.5,0l-3.75,3.834.163.167Z" transform="translate(390.357 0.35)" fill="none" stroke="#1f2121" stroke-width="1.5"/>
-                        </svg>
-                    </a>
+                <div class="container">
+                    <div class="heading">
+                        <h2>Cijfers</h2>
+                        <a href="/cijfers" use:link>
+                            <span>Cijferlijst</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 8 4.898" transform="rotate(270)">
+                            <path id="Union_5" data-name="Union 5" d="M-386.25,3.834l-.163.167.163-.167L-390,0l3.75,3.834L-382.5,0l-3.75,3.834.163.167Z" transform="translate(390.357 0.35)" fill="none" stroke="#1f2121" stroke-width="1.5"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <GradingList max={5}/>
                 </div>
-                <GradingList max={5}/>
             {:else if view === View.MESSAGES}
                 <div class="messages">
                     <p>Je kunt op dit moment geen berichten sturen of ontvangen.</p>
@@ -65,6 +69,10 @@
     .content,
     main {
         height: 100%;
+    }
+    
+    main {
+        overflow-y: auto;
     }
     
     .toggle {
@@ -89,6 +97,10 @@
 
     .toggle .active {
         background-color: var(--cmd-color-white);
+    }
+
+    .container {
+        margin-top: 1.5rem;
     }
 
     .heading {
