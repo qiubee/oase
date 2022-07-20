@@ -7,7 +7,7 @@
     import Toggle from "../lib/components/Toggle.svelte";
     import ProgressBar from "../lib/components/ProgressBar.svelte";
     import { categories, currentTheme, themes, students, userID, statusOptions, onboard } from "../store";
-    import { openUploadDialog } from "../utils/utils";
+    import { getImageUrl, openUploadDialog } from "../utils/utils";
     import { follow } from "../actions";
 
     const currentStep: Writable<number> = writable(1);
@@ -90,7 +90,7 @@
         {#if $currentStep === 1}
             <ul class="themes">
                 {#each $themes as theme}
-                    <li data-theme={theme.name} style="background-image: url({theme.thumbnail}); background-color: {theme.backgroundColor};" on:click={setTheme}>
+                    <li data-theme={theme.name} style="background-image: url('{getImageUrl(theme.thumbnail)}'); background-color: {theme.backgroundColor};" on:click={setTheme}>
                         {#if theme.nameVisible}
                             <span>{theme.name}</span>
                         {/if}
@@ -167,7 +167,7 @@
 
 <style>
     .setup {
-        background: url("src/assets/sand.svg") center bottom var(--std-bg-color);
+        background: url("./../assets/sand.svg") center bottom var(--std-bg-color);
         height: 100%;
     }
 

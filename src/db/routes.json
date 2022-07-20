@@ -2,31 +2,31 @@
   {
     "name": "home",
     "location": "/",
-    "iconUrl": "src/assets/routes/house.png",
+    "iconURL": "routes/house.png",
     "iconAlt": "Home"
   },
   {
     "name": "forum",
     "location": "/forum",
-    "iconUrl": "src/assets/routes/chat.png",
+    "iconURL": "routes/chat.png",
     "iconAlt": "Forum"
   },
   {
     "name": "search",
     "location": "/zoek",
-    "iconUrl": "src/assets/routes/search.png",
+    "iconURL": "routes/search.png",
     "iconAlt": "Zoek"
   },
   {
     "name": "notifications",
     "location": "/meldingen",
-    "iconUrl": "src/assets/routes/alert.png",
+    "iconURL": "routes/alert.png",
     "iconAlt": "Meldingen"
   },
   {
     "name": "profile",
     "location": "/profiel",
-    "iconUrl": "src/assets/routes/cthulhu.png",
+    "iconURL": "routes/cthulhu.png",
     "iconAlt": "Profiel"
   }
 ]

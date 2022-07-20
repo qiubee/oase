@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { Status } from "src/@types/main";
     import { posts, statuses } from "../../../store";
+    import { getImageUrl } from "../../../utils/utils";
 
     type StatProgress = {
         step: "current" | "done" | "pending";
@@ -31,7 +32,7 @@
             {#if status.name !== "verlopen"}
                 <li on:click={showStatusName} class="{status.step}">
                     <div>
-                        <img src="{status.iconURL}" alt="{status.name}">
+                        <img src="{getImageUrl(status.iconURL)}" alt="{status.name}">
                         <span class="hidden">{status.name}</span>
                     </div>
                     <div class="step"></div>

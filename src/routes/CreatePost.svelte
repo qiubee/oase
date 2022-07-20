@@ -3,6 +3,7 @@
     import { categories, posts, userID } from "../store";
     import { pop, replace } from "svelte-spa-router";
     import Options from "../lib/components/topbar/Options.svelte";
+    import createPostIMG from "./../assets/create-post.png";
 
     const postTypes = ["idee", "probleem"] as const;
 
@@ -72,7 +73,7 @@
             timestamp: `${+new Date()}`,
             category: data.category,
             upvotes: [],
-            status: "In afwachting",
+            status: 0,
             comments: []
         }
 
@@ -149,7 +150,7 @@
         </header>
         <div class="main">
             <div>
-                <img src="src/assets/create-post.png" alt="Oproep">
+                <img src={createPostIMG} alt="Oproep">
                 <h1>Ik heb een...</h1>
             </div>
             <ul>

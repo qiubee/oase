@@ -5,7 +5,7 @@
     import TopBar from "../lib/components/TopBar.svelte";
     import NavBar from "../lib/components/NavBar.svelte";
     import Categories from "../lib/components/Categories.svelte";
-    import { calcContentView } from "../utils/utils";
+    import { calcContentView, getImageUrl } from "../utils/utils"
     import { statuses, representatives, posts } from "../store";
 
     type ActiveRepresentatives = {
@@ -50,7 +50,7 @@
             <ul class="status">
                 {#each $statuses as status}
                     <li>
-                        <img src="{status.iconURL}" alt="{status.name}">
+                        <img src="{getImageUrl(status.iconURL)}" alt="{status.name}">
                     </li>
                 {/each}
             </ul>

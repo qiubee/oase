@@ -7,7 +7,7 @@
     import Sort from "../lib/components/Sort.svelte";
     import Comment from "../lib/components/Comment.svelte";
     import { posts, students, userID, statuses, sorted } from "../store";
-    import { timeDiff } from "../utils/utils";
+    import { getImageUrl, timeDiff } from "./../utils/utils";
     import { beforeUpdate, setContext } from "svelte";
 
     type Params = {
@@ -74,7 +74,7 @@
                         <a href="/categorie/{post.category}" class="category" use:link>{post.category}</a>
                         <div class="status">
                             <span>{status.name}</span>
-                            <img src="{status.iconURL}" alt="{status.name}">
+                            <img src="{getImageUrl(status.iconURL)}" alt="{status.name}">
                         </div>
                     </div>
                 </header>

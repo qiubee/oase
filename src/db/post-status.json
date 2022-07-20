@@ -2,31 +2,31 @@
   {
     "id": 0,
     "name": "discussie",
-    "iconURL": "src/assets/status/discussion.svg"
+    "iconURL": "status/discussion.svg"
   },
   {
     "id": 1,
     "name": "besproken in raad",
-    "iconURL": "src/assets/status/inmeeting.svg"
+    "iconURL": "status/inmeeting.svg"
   },
   {
     "id": 2,
     "name": "plannen",
-    "iconURL": "src/assets/status/processing.svg"
+    "iconURL": "status/processing.svg"
   },
   {
     "id": 3,
     "name": "uitvoeren",
-    "iconURL": "src/assets/status/executing.svg"
+    "iconURL": "status/executing.svg"
   },
   {
     "id": 4,
     "name": "klaar",
-    "iconURL": "src/assets/status/done.svg"
+    "iconURL": "status/done.svg"
   },
   {
     "id": 5,
     "name": "verlopen",
-    "iconURL": "src/assets/status/dismissed.svg"
+    "iconURL": "status/dismissed.svg"
   }
 ]
