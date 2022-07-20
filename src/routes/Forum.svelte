@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import type { Post } from "src/@types/main";
     import TopBar from "../lib/components/TopBar.svelte";
     import NavBar from "../lib/components/NavBar.svelte";
     import NewsSlider from "../lib/components/NewsSlider.svelte";
@@ -12,7 +13,7 @@
     let header: HTMLElement;
     let navigation: HTMLElement;
     let contentHeight: number;
-    const spotlightPosts = shuffle($posts).slice(0, 3);
+    const spotlightPosts = shuffle(<Post[]>$posts).slice(0, 3);
 
     onMount(function () {
         contentHeight = calcContentView(header, navigation);
