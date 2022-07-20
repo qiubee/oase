@@ -131,7 +131,7 @@
                         <span class="room">{lesson.room}</span>
                     </div>
                     <div class="time">
-                        <span class="start">{startHours}:{startMinutes < 10 ? `${startMinutes}0` : startMinutes}</span>
+                        <span class="start">{startHours}:{startMinutes < 10 ? `${startMinutes}0` : startMinutes} - </span>
                         <span class="end">{endHours}:{endMinutes < 10 ? `${endMinutes}0` : endMinutes}</span>
                     </div>
                 </li>
