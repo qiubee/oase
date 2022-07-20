@@ -95,7 +95,7 @@ export type Post = {
 export type Route = {
   name: RouteNames;
   location: string;
-  iconUrl: string;
+  iconURL: string;
   iconAlt: string;
 };
 
