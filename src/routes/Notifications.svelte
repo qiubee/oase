@@ -57,8 +57,8 @@
         <TopBar bind:node={header} state={"notifications"}/>
         <main style="max-height: {contentHeight}px;">
             <div class="toggle">
-                <button on:click={() => toggleView(View.NOTIFICATIONS)} class="{view === View.NOTIFICATIONS ? "active": ""}">Laatste meldingen</button>
-                <button on:click={() => toggleView(View.MESSAGES)} class="{view === View.MESSAGES ? "active": ""}">Nieuwe Berichten</button>
+                <button on:click={() => toggleView(View.NOTIFICATIONS)} class="{view === View.NOTIFICATIONS ? "active": ""}">Meldingen</button>
+                <button on:click={() => toggleView(View.MESSAGES)} class="{view === View.MESSAGES ? "active": ""}">Berichten</button>
             </div>
             {#if view === View.NOTIFICATIONS}
                 <ul class="notifications">
