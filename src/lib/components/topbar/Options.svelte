@@ -82,7 +82,7 @@
         <div class="category">
             {category}
         </div>
-        {:else}
+        {:else if postID >= 0}
         <StatusProgress postID={postID} />
     {/if}
     <div class="right">
