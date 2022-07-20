@@ -1,4 +1,18 @@
 import type { Post } from "src/@types/main";
+const monthNames = [
+  "Januari",
+  "Februari",
+  "Maart",
+  "April",
+  "Mei",
+  "Juni",
+  "Juli",
+  "Augustus",
+  "September",
+  "Oktober",
+  "November",
+  "December",
+];
 
 export function calcContentView(hd: HTMLElement, nv: HTMLElement): number {
   if (hd && nv) {
@@ -55,4 +69,18 @@ export function shuffle(array: Post[]): Post[] {
   }
 
   return array;
+}
+
+export function getDaysInMonth(month: number, year: number): Date[] {
+  const date = new Date(year, month, 1);
+  const days: Date[] = [];
+  while (date.getMonth() === month) {
+    days.push(new Date(date));
+    date.setDate(date.getDate() + 1);
+  }
+  return days;
+}
+
+export function getLongMonthName(month: number): string {
+  return monthNames[month];
 }
