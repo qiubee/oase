@@ -11,16 +11,4 @@ export default defineConfig({
       targets: ["defaults", "iOS 9"],
     }),
   ],
-  build: {
-    polyfillModulePreload: true,
-  },
-  experimental: {
-    renderBuiltUrl: (filename: string, { hostType }) => {
-      if (hostType === "js") {
-        return { runtime: `window.__toCdnUrl(${JSON.stringify(filename)})` };
-      } else {
-        return { relative: true };
-      }
-    },
-  },
 });
