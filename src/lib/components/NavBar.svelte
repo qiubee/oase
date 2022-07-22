@@ -1,7 +1,6 @@
 <script lang="ts">
     import { push } from "svelte-spa-router";
     import { routes } from "../../store";
-    import { getImageUrl } from "../../utils/utils";
     export let location = $routes[0].name;
     export let node: HTMLElement = null;
 
@@ -11,7 +10,7 @@
     <ul>
         {#each $routes as route}
             <li on:click={() => push(route.location)} class="{route.name} {location === route.name ? "selected" : ""}">
-                <img src="{getImageUrl(route.iconURL)}" alt="{route.iconAlt}">
+                <img src="{route.iconURL}" alt="{route.iconAlt}">
             </li>
         {/each}
     </ul>

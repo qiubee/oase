@@ -2,7 +2,7 @@
     import VoteButton from "./VoteButton.svelte";
     import { push } from "svelte-spa-router";
     import { students, posts, userID, statuses } from "../../store";
-    import { getImageUrl, timeDiff } from "../../utils/utils";
+    import { timeDiff } from "../../utils/utils";
 
     export let postID: number;
     let voted: boolean = false;
@@ -58,7 +58,7 @@
             <div class="status">
                 <span>#{post.type}</span>
                 <div>
-                    <img src="{getImageUrl(status.iconURL)}" alt="{status.name}">
+                    <img src="{status.iconURL}" alt="{status.name}">
                 </div>
             </div>
         </header>

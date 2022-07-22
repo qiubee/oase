@@ -84,7 +84,3 @@ export function getDaysInMonth(month: number, year: number): Date[] {
 export function getLongMonthName(month: number): string {
   return monthNames[month];
 }
-
-export function getImageUrl(path: string) {
-  return new URL(`./../assets/${path}`, import.meta.url).href;
-}
