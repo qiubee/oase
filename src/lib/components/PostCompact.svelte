@@ -57,7 +57,9 @@
             </div>
             <div class="status">
                 <span>#{post.type}</span>
-                <img src="{getImageUrl(status.iconURL)}" alt="{status.name}">
+                <div>
+                    <img src="{getImageUrl(status.iconURL)}" alt="{status.name}">
+                </div>
             </div>
         </header>
         <section>
@@ -222,7 +224,8 @@
         border-radius: 3.5rem;
     }
 
-    .metadata .photo img::before {
+    .metadata .photo img::before,
+    .status img::before {
         position: absolute;
         top: -999rem;
         left: -999rem;
@@ -256,10 +259,14 @@
         margin-right: 1rem;
     }
 
-    .status img {
-        width: 1.4rem;
-        padding: 0.35rem;
+    .status div {
+        width: 2rem;
+        height: 2rem;
         background-color: var(--cmd-color-main);
+    }
+
+    .status img {
+        padding: 0.35rem;
     }
 
     footer {

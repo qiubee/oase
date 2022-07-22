@@ -74,7 +74,9 @@
                         <a href="/categorie/{post.category}" class="category" use:link>{post.category}</a>
                         <div class="status">
                             <span>{status.name}</span>
-                            <img src="{getImageUrl(status.iconURL)}" alt="{status.name}">
+                            <div>
+                                <img src="{getImageUrl(status.iconURL)}" alt="{status.name}">
+                            </div>
                         </div>
                     </div>
                 </header>
@@ -216,7 +218,8 @@
         border-radius: 3.5rem;
     }
 
-    article .metadata .photo img::before {
+    article .metadata .photo img::before,
+    article .status img::before {
         position: absolute;
         top: -999rem;
         left: -999rem;
@@ -270,10 +273,14 @@
         margin-right: 0.75rem;
     }
 
-    article .status img {
-        height: 1.65rem;
-        padding: 0.35rem;
+    article .status div {
+        height: 2.25rem;
+        width: 2.25rem;
         background-color: var(--cmd-color-white);
+    }
+
+    article .status img {
+        padding: 0.35rem;
     }
 
     .main {
