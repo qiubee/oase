@@ -71,7 +71,7 @@
     ul li {
         display: block;
         background-color: var(--cmd-color-white);
-        min-width: 16rem;
+        min-width: calc(100% - 4rem);
         padding: 1.25rem;
         margin: 0 0.75rem;
         border-radius: 0.5rem;
