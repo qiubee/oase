@@ -9,6 +9,7 @@ import CreatePost from "./routes/CreatePost.svelte";
 import Post from "./routes/Post.svelte";
 import Category from "./routes/Category.svelte";
 import Setup from "./routes/Setup.svelte";
+import Test from "./routes/Test.svelte";
 
 export default {
   "/": Home,
@@ -19,6 +20,7 @@ export default {
   "/login": Login,
   "/account-instellen": Setup,
   "/post-aanmaken": CreatePost,
+  "/test": Test,
 
   "/post/:id": Post,
   "/categorie/:category": Category,
