@@ -6,7 +6,7 @@
 
     export let icon : string = "back";
     export let shape : string = "round";
-    export let text : string = "volgende";
+    export let text : string = "Volgende";
     export let action = function () {
         next();
     }
@@ -72,6 +72,7 @@
         width: 2rem;
         height: 2rem;
         appearance: none;
+        background-color: #a7aa85;
         background-color: var(--std-btn-bg-color);
         border: none;
         border-radius: 100%;
@@ -80,11 +81,12 @@
     .rectangle {
         padding: 0.5rem 1rem;
         background-color: black;
+        background-color: var(--cmd-color-black);
         color: white;
+        color: var(--cmd-color-white);
         appearance: none;
         border: none;
         border-radius: 0.25rem;
-        text-transform: capitalize;
         margin: 0.5rem 0;
         min-width: 6rem;
     }
@@ -98,6 +100,7 @@
     }
 
     button span {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
 </style>
