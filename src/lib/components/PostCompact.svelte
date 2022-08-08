@@ -126,6 +126,7 @@
     article {
         display: flex;
         flex-direction: row;
+        background-color: white;
         background-color: var(--cmd-color-white);
         margin-bottom: 0.25rem;
     }
@@ -210,8 +211,10 @@
     
     .metadata .photo {
         font-size: 0.5rem;
+        background-color: white;
         background-color: var(--cmd-color-white);
         border: 1px solid black;
+        border-color: var(--cmd-color-black);
         height: 1.4rem;
         width: 1.4rem;
         border-radius: 3.5rem;
@@ -232,13 +235,16 @@
     }
 
     .metadata .name {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
 
     .metadata .time {
         display: flex;
         align-items: center;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
+        color: #7e7e7e;
         color: var(--cmd-color-gray);
     }
 
@@ -262,6 +268,9 @@
     .status div {
         width: 2rem;
         height: 2rem;
+        max-width: 2rem;
+        max-height: 2rem;
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
     }
 
@@ -274,6 +283,7 @@
         flex-direction: row;
         width: 100%;
         justify-content: space-between;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
 
@@ -308,10 +318,12 @@
         max-height: 0.9rem;
         border-radius: 5rem;
         color: white;
+        color: var(--cmd-color-white);
         padding: 0.25rem 0.75rem;
         font-size: 0.7rem;
         margin-right: 0.75rem;
         margin-top: -0.15rem;
+        background-color: black;
         background-color: var(--cmd-color-black);
     }
 </style>
