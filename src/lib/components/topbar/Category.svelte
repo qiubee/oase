@@ -56,6 +56,7 @@
         width: 90%;
         appearance: none;
         border: none;
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
     }
     
@@ -65,10 +66,12 @@
         max-width: 12rem;
         margin-right: 0.5rem;
         font-size: 1.5rem;
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-weight: bold;
         text-transform: capitalize;
         color: black;
+        color: var(--cmd-color-black);
     }
 
     button:hover,
@@ -87,11 +90,12 @@
     .categories {
         position: absolute;
         z-index: 1;
-        top: 2.35rem;
+        top: 2.1rem;
         left: -0.75rem;
         text-transform: capitalize;
         width: 100vw;
         max-width: 30rem;
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
         filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.1));
     }
@@ -100,11 +104,14 @@
         position: relative;
         padding: 1rem 0 1rem 0.25rem;
         margin: 0 0.75rem;
-        border-bottom: 2px solid var(--cmd-color-black);
+        border-bottom: 2px solid black;
+        border-color: var(--cmd-color-black);
     }
 
     .categories .selected {
+        background-color: white;
         background-color: var(--cmd-color-white);
+        color: black;
         color: var(--cmd-color-black);
     }
 
@@ -116,6 +123,7 @@
         left: -0.75rem;
         width: 0.75rem;
         height: 100%;
+        background-color: white;
         background-color: var(--cmd-color-white);
     }
 
