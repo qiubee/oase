@@ -31,8 +31,10 @@
         display: flex;
         justify-content: center;
         width: 7.5rem;
+        background-color: white;
         background-color: var(--cmd-color-white);
         padding: 0.6rem 0.75rem;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         font-size: 0.9em;
         border-radius: 0.25rem;

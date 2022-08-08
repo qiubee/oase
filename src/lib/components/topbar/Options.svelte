@@ -134,12 +134,15 @@
     }
 
     .category {
+        background-color: black;
         background-color: var(--cmd-color-black);
+        color: white;
         color: var(--cmd-color-white);
         padding: 0.4rem 1rem;
         border-radius: 10rem;
         font-size: 0.75rem;
         text-transform: capitalize;
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-weight: bold;
     }

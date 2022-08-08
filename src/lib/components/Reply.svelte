@@ -47,12 +47,14 @@
         width: 100%;
         bottom: 0;
         padding: 1rem 0;
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
     }
 
     input {
         padding: 0.5rem 0.75rem;
         font-size: 0.9rem;
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-weight: normal;
         margin: 0 0.75rem;
@@ -63,13 +65,16 @@
     }
 
     button {
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
         margin-right: 0.75rem;
         border-radius: 0.25rem;
         padding: 0 0.5rem;
         height: 100%;
         color: initial;
-        border: 2px solid var(--cmd-color-black);
+        border: 2px solid black;
+        border-color: var(--cmd-color-black);
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
     }
 </style>

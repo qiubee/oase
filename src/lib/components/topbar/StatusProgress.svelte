@@ -72,7 +72,8 @@
         width: 4px;
         height: 4px;
         background-color: transparent;
-        border: 1px solid var(--cmd-color-black);
+        border: 1px solid black;
+        border-color: var(--cmd-color-black);
         border-radius: 1rem;
     }
 
@@ -80,12 +81,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
     }
 
     .done .step,
     .done .step::after,
     .current .step {
+        background-color: black;
         background-color: var(--cmd-color-black);
     }
 
@@ -100,13 +103,15 @@
     }
 
     .pending .step {
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
     }
 
     .current .step::after,
     .pending:not(:last-child) .step::after {
         height: 0;
-        border-bottom: 1px dotted var(--cmd-color-black);
+        border-bottom: 1px dotted black;
+        border-bottom-color: var(--cmd-color-black);
         background-color: transparent;
     }
 

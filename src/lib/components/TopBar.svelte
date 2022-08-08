@@ -66,8 +66,10 @@
         align-items: center;
         max-height: 3.25rem;
         max-width: 30rem;
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
-        border-bottom: 2px solid var(--cmd-color-black);
+        border-bottom: 2px solid black;
+        border-bottom-color: var(--cmd-color-black);
         padding: 0.75rem 0;
         margin: 0 0.75rem;
     }
@@ -81,6 +83,7 @@
         border: none;
         width: 2.5rem;
         height: 2.5rem;
+        background-color: white;
         background-color: var(--cmd-color-white);
         border-radius: 0.5rem;
     }

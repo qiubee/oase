@@ -15,6 +15,7 @@
 
     .circles path,
     .circles circle {
+        fill: #FFF021;
         fill: var(--cmd-color-main);
     }
 
@@ -24,6 +25,7 @@
 
     .default .circles path,
     .default .circles circle {
+        fill: black;
         fill: var(--cmd-color-black);
     }
 </style>

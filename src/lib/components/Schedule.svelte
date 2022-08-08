@@ -153,6 +153,7 @@
         padding: 1.25rem;
         margin: 0;
         margin-bottom: 0.25rem;
+        background-color: white;
         background-color: var(--cmd-color-white);
     }
 
@@ -179,7 +180,8 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        border: 2px solid var(--cmd-color-black);
+        border: 2px solid black;
+        border-color: var(--cmd-color-black);
         width: 1.75rem;
         height: 1.75rem;
     }
@@ -219,17 +221,21 @@
 
     .days li {
         position: relative;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
 
     .now {
+        background-color: black;
         background-color: var(--cmd-color-black);
+        color: white;
         color: var(--cmd-color-white);
         border-radius: 0.5rem;
     }
 
     .selected {
-        border: 2px solid var(--cmd-color-black);
+        border: 2px solid black;
+        border-color: var(--cmd-color-black);
         border-radius: 0.5rem;
     }
 
@@ -240,10 +246,12 @@
         width: 3px;
         height: 3px;
         bottom: 0.35rem;
+        background-color: black;
         background-color: var(--cmd-color-black);
     }
 
     li.now.planned::after {
+        background-color: white;
         background-color: var(--cmd-color-white);
     }
 
@@ -256,8 +264,10 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        background-color: white;
         background-color: var(--cmd-color-white);
         padding: 0.75rem 1.25rem;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         margin: 0.25rem 0;
     }
@@ -273,6 +283,7 @@
 
     .lessons .room {
         font-size: 0.75rem;
+        color: #7e7e7e;
         color: var(--cmd-color-gray);
     }
 

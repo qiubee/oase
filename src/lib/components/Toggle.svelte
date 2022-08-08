@@ -34,6 +34,7 @@
         height: 0.7rem;
         width: 0.7rem;
         background-color: white;
+        background-color: var(--cmd-color-white);
         border-radius: 50%;
     }
 

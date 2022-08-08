@@ -70,11 +70,13 @@
 
     ul li {
         display: block;
+        background-color: white;
         background-color: var(--cmd-color-white);
         min-width: calc(100% - 4rem);
         padding: 1.25rem;
         margin: 0 0.75rem;
         border-radius: 0.5rem;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         scroll-snap-align: center;
     }
@@ -86,6 +88,7 @@
 
     .room {
         font-size: 0.8rem;
+        color: #7e7e7e;
         color: var(--cmd-color-gray);
     }
 
@@ -115,8 +118,10 @@
     .scroll-position .point {
         width: 0.2rem;
         height: 0.2rem;
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
-        border: 2px solid var(--cmd-color-black);
+        border: 2px solid black;
+        border-color: var(--cmd-color-black);
         border-radius: 0.125rem;
     }
 
@@ -125,6 +130,7 @@
     }
 
     .scroll-position .point.active {
+        background-color: black;
         background-color: var(--cmd-color-black);
     }
 </style>

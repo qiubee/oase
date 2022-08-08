@@ -45,8 +45,10 @@
 <style>
   h1 {
     position: relative;
+    font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-family: var(--font-kotori-rose);
     color: white;
+    color: var(--cmd-color-white);
     font-size: 3.5rem;
     font-weight: 700;
     margin-top: 16rem;

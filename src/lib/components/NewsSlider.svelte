@@ -53,6 +53,7 @@
         flex-direction: row;
         align-items: center;
         font-size: 0.8rem;
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-weight: bold;
         margin-left: auto;
@@ -86,6 +87,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        background-color: white;
         background-color: var(--cmd-color-white);
         min-width: 16rem;
         padding: 1rem;
@@ -113,6 +115,7 @@
     li div .tag {
         font-weight: bold;
         text-transform: uppercase;
+        color: #7e7e7e;
         color: var(--cmd-color-gray);
         font-size: 0.9rem;
     }
@@ -124,6 +127,7 @@
     li div .time,
     li h2,
     li .author {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
 
@@ -142,8 +146,10 @@
     .scroll-position .point {
         width: 0.25rem;
         height: 0.25rem;
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
-        border: 2px solid var(--cmd-color-black);
+        border: 2px solid black;
+        border-color: var(--cmd-color-black);
         border-radius: 0.15rem;
     }
 
@@ -152,6 +158,7 @@
     }
 
     .scroll-position .point.active {
+        background-color: black;
         background-color: var(--cmd-color-black);
     }
 </style>

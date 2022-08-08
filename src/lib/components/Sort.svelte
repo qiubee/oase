@@ -128,14 +128,17 @@
     }
 
     .posts .selected {
+        background-color: white;
         background-color: var(--cmd-color-white);
         border-color: white;
+        border-color: var(--cmd-color-white);
     }
 
     .posts li {
         display: flex;
         align-items: center;
         border: 2px solid black;
+        border-color: var(--cmd-color-black);
         border-radius: 0.35rem;
         padding: 0.3rem 0.5rem;
         font-weight: bold;
@@ -173,10 +176,13 @@
         flex-direction: row;
         justify-content: space-between;
         width: 8rem;
+        color: black;
         color: var(--cmd-color-black);
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
         padding: 0.6rem 1rem;
         border-radius: 0.5rem;
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
     }
 
@@ -191,6 +197,7 @@
     }
 
     .comments .options li {
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
         padding: 0.75rem 1rem;
     }
@@ -204,7 +211,8 @@
     }
 
     .comments .options li:not(:last-of-type) {
-        border-bottom: 1px solid var(--cmd-color-black);
+        border-bottom: 1px solid black;
+        border-bottom-color: var(--cmd-color-black);
     }
 
     .comments .options.hidden {
@@ -212,7 +220,8 @@
     }
 
     .comments .options li.selected {
-        background-color: var(--cmd-color-white);
+        background-color: white;
+        color: black;
         color: var(--cmd-color-black);
         font-weight: bold;
     }

@@ -524,12 +524,15 @@
     flex-direction: column;
     bottom: 0;
     width: 100%;
+    font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-family: var(--font-pauschal);
   }
 
   h1 {
+    font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-family: var(--font-kotori-rose);
     color: black;
+    color: var(--cmd-color-black);
     font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
@@ -554,6 +557,7 @@
 
   input:not([type="submit"]) {
     color: black;
+    color: var(--cmd-color-black);
     border: none;
     padding: 0.75rem 1.25rem;
     border-radius: 4rem;
@@ -565,13 +569,17 @@
   input:not([type="submit"]):focus,
   input:not([type="submit"]):focus-visible {
     outline: 2px solid black;
+    outline-color: var(--cmd-color-black);
   }
 
   input[type="submit"] {
+    font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-family: var(--font-pauschal);
     font-size: 1.25rem;
     background-color: black;
+    background-color: var(--cmd-color-black);
     color: white;
+    color: var(--cmd-color-white);
     padding: 0.75rem;
     border: none;
     border-radius: 0.25rem;
@@ -584,6 +592,7 @@
   }
 
   a {
+    font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-family: var(--font-pauschal);
     margin-bottom: 1.1rem;
     font-size: 0.9rem;

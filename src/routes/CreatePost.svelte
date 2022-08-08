@@ -204,8 +204,10 @@
         justify-content: space-between;
         max-height: 3.25rem;
         max-width: 30rem;
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
-        border-bottom: 2px solid var(--cmd-color-main);
+        border-bottom: 2px solid #FFF021;
+        border-color: var(--cmd-color-main);
         padding: 0.75rem 0;
         margin: 0 0.75rem;
     }
@@ -250,7 +252,9 @@
         width: calc(100% - 1rem);
         border: none;
         border-bottom: 2px solid black;
+        border-bottom-color: var(--cmd-color-black);
         background-color: transparent;
+        color: black;
         color: var(--cmd-color-black);
         padding: 0.75rem 0.5rem;
         font-size: 1rem;
@@ -259,6 +263,7 @@
     form ul {
         display: flex;
         flex-direction: row;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         overflow-x: scroll;
         scroll-snap-type: x proximity;
@@ -272,6 +277,7 @@
         border-radius: 0.25rem;
         margin-right: 0.5rem;
         border: 2px solid black;
+        border-color: var(--cmd-color-black);
         text-transform: capitalize;
         scroll-snap-align: start;
         transition: background-color ease 0.1s, border-color ease 0.1s;
@@ -284,7 +290,9 @@
 
     form ul li.selected {
         background-color: white;
+        background-color: var(--cmd-color-white);
         border-color: white;
+        border-color: var(--cmd-color-white);
     }
 
     form ul li input[type="radio"] {
@@ -296,6 +304,7 @@
         border: none;
         padding: 0.5rem 0.75rem;
         font-size: 0.9rem;
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-weight: normal;
     }
@@ -303,7 +312,10 @@
     input[type="submit"] {
         display: block;
         color: black;
+        color: var(--cmd-color-black);
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
+        background-color: white;
         background-color: var(--cmd-color-white);
         padding: 0.75rem 1.25rem;
         border-radius: 0.25rem;
@@ -320,10 +332,12 @@
         display: inline-block;
         border-radius: 5rem;
         color: white;
+        color: var(--cmd-color-white);
         font-size: 0.75rem;
         font-weight: normal;
         padding: 0.25rem 0.75rem;
         margin-right: 0.75rem;
+        background-color: black;
         background-color: var(--cmd-color-black);
     }
 
@@ -368,6 +382,7 @@
         align-items: center;
         width: 8rem;
         height: 8rem;
+        background-color: white;
         background-color: var(--cmd-color-white);
         border-radius: 0.75rem;
     }
@@ -419,6 +434,7 @@
     }
 
     .controls .selected {
+        background-color: white;
         background-color: var(--cmd-color-white);
         font-weight: bold;
     }

@@ -26,8 +26,10 @@
 
     .photo {
         font-size: 0.5rem;
+        background-color: white;
         background-color: var(--cmd-color-white);
         border: 1px solid black;
+        border-color: var(--cmd-color-black);
         height: 2.4rem;
         width: 2.4rem;
         border-radius: 3.5rem;
@@ -49,7 +51,9 @@
 
     .status {
         display: inline-block;
+        background-color: white;
         background-color: var(--cmd-color-white);
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-weight: bold;
         font-size: 0.9rem;

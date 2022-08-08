@@ -185,6 +185,7 @@
         z-index: 1;
         margin: 0 0.75rem;
         padding: 0.5rem 0;
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
     }
 
@@ -204,8 +205,10 @@
 
     article .metadata .photo {
         font-size: 0.5rem;
+        background-color: white;
         background-color: var(--cmd-color-white);
         border: 1px solid black;
+        border-color: var(--cmd-color-black);
         height: 2rem;
         width: 2rem;
         border-radius: 3.5rem;
@@ -226,6 +229,7 @@
     }
 
     article .metadata .name {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         font-size: 1.1rem;
     }
@@ -233,6 +237,7 @@
     article .metadata .time {
         display: flex;
         align-items: center;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
 
@@ -242,6 +247,7 @@
 
     article .type {
         font-size: 0.9rem;
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-weight: bold;
     }
@@ -250,15 +256,18 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
 
     article .category {
         border-radius: 5rem;
         color: white;
+        color: var(--cmd-color-white);
         padding: 0.25rem 1rem;
         font-size: 0.9rem;
         text-transform: capitalize;
+        background-color: black;
         background-color: var(--cmd-color-black);
     }
 
@@ -276,6 +285,7 @@
     article .status div {
         height: 2.25rem;
         width: 2.25rem;
+        background-color: white;
         background-color: var(--cmd-color-white);
     }
 
@@ -284,12 +294,14 @@
     }
 
     .main {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         margin-top: 1.5rem;
     }
 
     h1 {
         font-size: 1.1rem;
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-weight: normal;
         margin: 0;
@@ -302,6 +314,7 @@
         align-items: center;
         justify-content: space-between;
         margin-top: 1.25rem;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
 
@@ -315,6 +328,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-weight: bold;
         margin-right: 1.5rem;
@@ -353,11 +367,13 @@
     }
 
     .sorting {
+        background-color: white;
         background-color: var(--cmd-color-white);
     }
 
     .comments {
         height: 100%;
+        background-color: white;
         background-color: var(--cmd-color-white);
         padding: 0 0.75rem;
         padding-bottom: 0.75rem;

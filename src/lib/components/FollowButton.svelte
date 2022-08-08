@@ -20,10 +20,13 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
         padding: 0.25rem 0.6rem;
         border-radius: 0.25rem;
-        border: 2px solid var(--cmd-color-main);
+        border: 2px solid #FFF021;
+        border-color: var(--cmd-color-main);
+        color: black;
         color: var(--cmd-color-black);
         font-size: 0.8rem;
     }

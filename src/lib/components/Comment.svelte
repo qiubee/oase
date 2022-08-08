@@ -58,6 +58,7 @@
         z-index: 1;
         padding: 0.75rem;
         border-radius: 0.4rem;
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
     }
 
@@ -75,14 +76,17 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         font-size: 1rem;
     }
 
     .comment .metadata .photo {
         font-size: 0.5rem;
+        background-color: white;
         background-color: var(--cmd-color-white);
         border: 1px solid black;
+        border-color: var(--cmd-color-black);
         height: 1.5rem;
         width: 1.5rem;
         border-radius: 3.5rem;
@@ -103,6 +107,7 @@
     }
 
     .comment .metadata .name {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         font-size: 0.9rem;
         margin-right: 0.5rem;
@@ -110,6 +115,7 @@
 
     .comment .time {
         font-size: 0.9rem;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
 
@@ -124,12 +130,14 @@
     }
 
     .comment .council span {
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-size: 0.8rem;
     }
 
     .comment p {
         font-size: 1rem;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
 
@@ -152,6 +160,7 @@
         width: 2px;
         height: 50%;
         background-color: black;
+        background-color: var(--cmd-color-black);
     }
 
     .comment:first-child .timeline {

@@ -98,13 +98,16 @@
         padding: 0.5rem;
         color: initial;
         font-size: 0.8rem;
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-weight: bold;
         width: 50%;
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
     }
 
     .toggle .active {
+        background-color: white;
         background-color: var(--cmd-color-white);
     }
 

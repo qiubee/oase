@@ -31,6 +31,7 @@ function search() {
         max-width: 15rem;
         border: none;
         border-radius: 0.25rem;
+        background-color: white;
         background-color: var(--cmd-color-white);
     }
     
@@ -41,9 +42,11 @@ function search() {
     input {
         width: 100%;
         font-size: 0.9rem;
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-weight: normal;
         padding: 0;
+        background-color: white;
         background-color: var(--cmd-color-white);
         border: none;
     }

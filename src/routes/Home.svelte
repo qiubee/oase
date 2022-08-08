@@ -110,14 +110,17 @@
     }
 
     .sort .selected {
+        background-color: white;
         background-color: var(--cmd-color-white);
         border-color: white;
+        border-color: var(--cmd-color-white);
     }
 
     .sort li {
         display: flex;
         align-items: center;
         border: 2px solid black;
+        border-color: var(--cmd-color-black);
         border-radius: 0.35rem;
         padding: 0.3rem 0.5rem;
         font-weight: bold;

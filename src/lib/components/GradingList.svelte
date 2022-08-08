@@ -32,6 +32,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        background-color: white;
         background-color: var(--cmd-color-white);
         margin: 0.25rem 0;
         padding: 0.75rem;
@@ -42,6 +43,7 @@
         justify-content: center;
         font-size: 1.25rem;
         font-weight: bold;
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
         padding: 0.75rem;
         width: 1.75rem;
@@ -57,7 +59,9 @@
     }
 
     .date {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
+        color: #7e7e7e;
         color: var(--cmd-color-gray);
     }
 
@@ -66,7 +70,9 @@
         right: 0;
         bottom: 0;
         font-size: 0.7rem;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
+        background-color: #FFF021;
         background-color: var(--cmd-color-main);
         padding: 0.3rem 0.4rem;
     }

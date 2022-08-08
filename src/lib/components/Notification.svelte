@@ -111,6 +111,7 @@
         flex-direction: row;
         align-items: flex-start;
         padding: 0.75rem;
+        background-color: white;
         background-color: var(--cmd-color-white);
     }
 
@@ -166,10 +167,13 @@
         max-height: 0.9rem;
         border-radius: 5rem;
         color: white;
+        color: var(--cmd-color-white);
         margin-left: auto;
         padding: 0.2rem 0.5rem;
         font-size: 0.75rem;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
+        background-color: black;
         background-color: var(--cmd-color-black);
     }
 
@@ -190,7 +194,9 @@
     }
 
     .content .time {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
+        color: #7e7e7e;
         color: var(--cmd-color-gray);
     }
 
@@ -215,8 +221,10 @@
     
     .embed .photo {
         font-size: 0.5rem;
+        background-color: white;
         background-color: var(--cmd-color-white);
         border: 1px solid black;
+        border-color: var(--cmd-color-black);
         height: 1.4rem;
         width: 1.4rem;
         border-radius: 3.5rem;
@@ -236,13 +244,16 @@
     }
 
     .embed .name {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
 
     .embed .time {
         display: flex;
         align-items: center;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
+        color: #7e7e7e;
         color: var(--cmd-color-gray);
     }
 
@@ -262,11 +273,13 @@
     }
 
     .embed .council span {
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-size: 0.7rem;
     }
 
     .embed p {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         margin-top: 0.5rem;
     }
@@ -275,6 +288,7 @@
         align-self: flex-end;
         color: initial;
         font-size: 0.7rem;
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
     }
 </style>
