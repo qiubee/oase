@@ -133,6 +133,7 @@
         width: 4rem;
         height: 4rem;
         padding: 0 1rem;
+        background-color: white;
         background-color: var(--cmd-color-white);
     }
 
@@ -153,8 +154,10 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        background-color: white;
         background-color: var(--cmd-color-white);
         padding: 1rem 0.75rem;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         font-size: 0.9rem;
         margin-bottom: 0.5rem;
@@ -166,6 +169,7 @@
         justify-content: space-between;
         align-items: center;
         margin: 0.75rem 0;
+        background-color: white;
         background-color: var(--cmd-color-white);
         padding: 0.75rem;
     }
@@ -178,8 +182,10 @@
 
     .metadata .photo {
         font-size: 0.5rem;
+        background-color: white;
         background-color: var(--cmd-color-white);
         border: 1px solid black;
+        border-color: var(--cmd-color-black);
         height: 2.5rem;
         width: 2.5rem;
         border-radius: 3.5rem;
@@ -222,11 +228,16 @@
 
     .metadata .council span {
         font-size: 0.8rem;
+        color: #7e7e7e;
         color: var(--cmd-color-gray);
         margin-top: 1px;
     }
 
     .replies svg {
         margin-right: 0.25rem;
+    }
+    
+    .councils {
+        margin-bottom: 1.5rem;
     }
 </style>
