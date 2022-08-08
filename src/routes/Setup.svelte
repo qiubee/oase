@@ -1,6 +1,6 @@
 <script lang="ts">
     import { replace } from "svelte-spa-router";
-    import { setContext } from "svelte";
+    import { setContext, onMount, afterUpdate } from "svelte";
     import { Writable, writable } from "svelte/store";
     import type { Student } from "src/@types/main";
     import Button from "../lib/components/Button.svelte";
@@ -9,6 +9,9 @@
     import { categories, currentTheme, themes, students, userID, statusOptions, onboard } from "../store";
     import { openUploadDialog } from "../utils/utils";
     import { follow } from "../actions";
+
+    let headerHeight: number;
+    let contentHeight: number;
 
     const currentStep: Writable<number> = writable(1);
     setContext("step", {
@@ -22,7 +25,7 @@
     })
 
     $: user = $students.find(user => user.id === $userID);
-    const title: string[] = ["Kies thema", "Kies onderwerpen", "Profiel instellen"];
+    const title: string[] = ["Kies thema", "Kies onderwerpen", "Profiel instellen", "Houd je aan de regels"];
 
     function setTheme(e: Event): void {
         const el = <HTMLElement>e.target;
@@ -70,22 +73,35 @@
         })
         replace("/");
     }
+
+    onMount(function () {
+        const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+        contentHeight = windowHeight - headerHeight;
+    })
+
+    afterUpdate(function () {
+        const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+        contentHeight = windowHeight - headerHeight;
+    })
 </script>
 
-<div class="setup">
-    <header class="step-{$currentStep}">
+
+<div class="setup {$currentStep === 4 ? "rules" :""}">
+    <header bind:clientHeight={headerHeight} class="step-{$currentStep}">
         {#if $currentStep === 1}
             <Button icon={"logout"}/>
-        {:else}
+        {:else if $currentStep < 4}
             <Button/>
         {/if}
+        {#if $currentStep < 4}
         <div>
             <div>
                 <ProgressBar/>
             </div>
         </div>
+        {/if}
     </header>
-    <main>
+    <main style="max-height: {contentHeight}px;">
         <h1>{title[$currentStep-1]}</h1>
         {#if $currentStep === 1}
             <ul class="themes">
@@ -111,7 +127,7 @@
                         {/if}
                     {/each}
                 </ul>
-            {:else}
+            {:else if $currentStep === 3}
             <div class="preview">
                 <div class="photo">
                     <img src="{user.photoURL}" alt="Profiel foto">
@@ -122,7 +138,6 @@
                     <div class="status">{user.status.text}</div>
                 {/if}
             </div>
-
             <div class="settings">
                 <div class="image" on:click={openUploadDialog}>
                     <div class="photo">
@@ -154,10 +169,25 @@
                     </li>
                 </ul>
             </div>
+            {:else if $currentStep === 4}
+            <div class="tos">
+                <p>Om voor iedereen een plek te geven om vrij te kunnen discussieren moet je akkoord gaan met de regels. Dus:</p>
+                <ol>
+                    <li>Ga respectvol met elkaar om.</li>
+                    <li>Bedreiging, discriminitie en intimidatie zijn absoluut verboden.</li>
+                    <li>Gebruik geen obscene, stuitende of overmatig gewelddadige taal.</li>
+                    <li>Blijf bij het onderwerp en ga niet off-topic.</li>
+                    <li>Plaats je bericht maar één keer.</li>
+                    <li>Plaats geen gevoelige informatie (van anderen).</li>
+                    <li>Niet lastigvallen, beledigen, bespotten, uitlokken, vernederen of persoonlijke aanvallen van andere studenten. Wees vriendelijk, ook als anderen dat niet zijn.</li>
+                </ol>
+            </div>
         {/if}
         <div>
-            {#if $currentStep === 3}
-            <Button shape={"rectangle"} text={"Opslaan"} action={goHome}/>
+            {#if $currentStep === 4}
+            <Button shape={"rectangle"} text={"Ik ga akkoord"} action={goHome}/>
+            {:else if $currentStep === 3}
+            <Button shape={"rectangle"} text={"Opslaan"}/>
             {:else if $currentStep > 1}
             <Button shape={"rectangle"} icon={"next"}/>
             {/if}
@@ -167,8 +197,14 @@
 
 <style>
     .setup {
-        background: url("./../assets/sand.svg") center bottom var(--std-bg-color);
+        background: url("./../assets/sand.svg") center bottom #fbf0bc;
         height: 100%;
+    }
+
+    .setup.rules {
+        background: none;
+        background-color: #FFF021;
+        background-color: var(--cmd-color-main);
     }
 
     h1 {
@@ -196,6 +232,10 @@
         left: -50%;
     }
 
+    main {
+        overflow-y: auto;
+    }
+
     main h1 {
         margin-bottom: 3rem;
     }
@@ -220,6 +260,7 @@
         height: 4rem;
         margin: auto;
         border: solid white;
+        border-color: var(--cmd-color-white);
         border-width: 0.25rem 0;
         text-align: center;
         background-size: cover;
@@ -229,6 +270,7 @@
 
     .themes li[data-theme="Sterrennacht"] {
         color: white;
+        color: var(--cmd-color-white);
     }
 
     .themes li:not(:last-child) {
@@ -255,8 +297,10 @@
         justify-content: center;
         align-items: center;
         background-color: white;
+        background-color: var(--cmd-color-white);
         border-radius: 10vw;
         height: 2rem;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         font-size: 0.85rem;
         text-align: center;
@@ -265,7 +309,9 @@
 
     .categories li:global(.selected) {
         background-color: black;
+        background-color: var(--cmd-color-black);
         color: white;
+        color: var(--cmd-color-white);
     }
 
     .preview {
@@ -274,6 +320,7 @@
         flex-direction: column;
         align-items: center;
         background-color: white;
+        background-color: var(--cmd-color-white);
         height: 6rem;
         width: 6rem;
         border-radius: 0.5rem;
@@ -291,7 +338,9 @@
     .photo {
         font-size: 0.5rem;
         background-color: white;
+        background-color: var(--cmd-color-white);
         border: 0.1rem solid black;
+        border-color: var(--cmd-color-black);
         height: 2.5rem;
         width: 2.5rem;
         border-radius: 3.5rem;
@@ -313,6 +362,7 @@
     }
 
     .preview .name {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         font-size: 0.75rem;
     }
@@ -320,6 +370,7 @@
     .preview .study {
         font-size: 0.6rem;
         font-weight: bold;
+        color: #b9b9b9;
         color: var(--std-gray);
         margin-top: 0.25rem;
     }
@@ -328,7 +379,9 @@
         position: absolute;
         bottom: -0.5rem;
         background-color: white;
-        border: 0.1rem solid var(--std-active-color);
+        background-color: var(--cmd-color-white);
+        border: 0.1rem solid #a093e5;
+        border-color: var(--std-active-color);
         border-radius: 1rem;
         padding: 0.1rem 0.75rem;
         font-weight: bold;
@@ -339,6 +392,7 @@
         display: flex;
         flex-direction: column;
         background-color: white;
+        background-color: var(--cmd-color-white);
         padding: 1rem;
         max-width: 14rem;
         margin: auto;
@@ -356,7 +410,9 @@
 
     .settings .image span {
         font-size: 0.8rem;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
+        color: #a093e5;
         color: var(--std-active-color);
     }
 
@@ -379,7 +435,8 @@
 
     .settings .status li {
         min-width: 4rem;
-        border: 2px solid var(--std-active-color);
+        border: 2px solid #a093e5;
+        border-color: var(--std-active-color);
         border-radius: 1rem;
         padding: 0.2rem 0.25rem;
         text-align: center;
@@ -392,8 +449,10 @@
     }
 
     .settings .status .selected {
+        background-color: #a093e5;
         background-color: var(--std-active-color);
         color: white;
+        color: var(--cmd-color-white);
         font-weight: bold;
     }
 
@@ -403,6 +462,7 @@
 
     .options * {
         font-size: 0.75rem;
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
 
@@ -418,5 +478,41 @@
 
     .step-3 ~ main > div:last-of-type {
         margin: 1rem auto;
+    }
+
+    .step-4 {
+        padding: 0;
+    }
+
+    .step-4 ~ main > h1 {
+        margin: 1.75rem 0 1rem 0;
+    }
+
+    .step-4 ~ main > div:last-of-type {
+        margin: 2rem auto 0 auto;
+    }
+
+    .tos {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 0.75rem;
+        flex-direction: column;
+        max-width: 21rem;
+        margin-top: 0;
+    }
+
+    .tos p {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-family: var(--font-pauschal);
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .tos ol {
+        list-style-type: decimal;
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin: 0 0.5rem;
+        margin-left: 1.5rem;
     }
 </style>
