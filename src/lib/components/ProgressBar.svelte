@@ -32,6 +32,7 @@
         align-items: center;
         justify-content: space-between;
         background-color: white;
+        background-color: var(--cmd-color-white);
         padding: 0.5rem 0.8rem;
         border-radius: 3rem;
         height: 0.5rem;
@@ -40,13 +41,15 @@
 
     .step {
         border: 0.1rem solid black;
+        border-color: var(--cmd-color-black);
         border-radius: 100%;
-        width: 0.4rem;
-        height: 0.4rem;
+        width: 6px;
+        height: 6px;
     }
 
     .active {
         background-color: black;
+        background-color: var(--cmd-color-black);
     }
 
     .complete {
