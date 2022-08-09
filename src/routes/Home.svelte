@@ -95,7 +95,18 @@
 </div>
 
 <style>
-    .sort li:hover{
+    main {
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+    }
+
+    main::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sort li:hover {
         cursor: pointer;
     }
 

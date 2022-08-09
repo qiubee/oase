@@ -66,6 +66,17 @@
 </div>
 
 <style>
+    main {
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+    }
+
+    main::-webkit-scrollbar {
+        display: none;
+    }
+
     .content,
     main {
         height: 100%;
