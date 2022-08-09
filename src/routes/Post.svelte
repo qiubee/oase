@@ -169,6 +169,17 @@
 </div>
 
 <style>
+    .post {
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+    }
+
+    .post::-webkit-scrollbar {
+        display: none;
+    }
+
     .content {
         height: 100%;
     }
@@ -283,14 +294,16 @@
     }
 
     article .status div {
-        height: 2.25rem;
-        width: 2.25rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        padding: 0.35rem;
         background-color: white;
         background-color: var(--cmd-color-white);
     }
 
     article .status img {
-        padding: 0.35rem;
+        width: 1.5rem;
+        height: 1.5rem;
     }
 
     .main {
@@ -372,7 +385,6 @@
     }
 
     .comments {
-        height: 100%;
         background-color: white;
         background-color: var(--cmd-color-white);
         padding: 0 0.75rem;
@@ -380,17 +392,18 @@
     }
 
     .comments.empty {
+        box-sizing: border-box;
         display: flex;
         align-items: center;
         justify-content: center;
         height: 100%;
-        padding: 0.75rem;
+        padding: 0 0.75rem;
     }
 
     .comments.empty > p {
         font-weight: bold;
         text-align: center;
-        margin: 0;
+        padding: 0.75rem 0;
     }
 
     .comment {
