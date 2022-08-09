@@ -21,7 +21,7 @@
     .toggle {
         display: flex;
         align-items: center;
-        justify-content: start;
+        justify-content: flex-start;
         background-color: #e3c6c6;
         height: 0.75rem;
         width: 1.4rem;
@@ -39,7 +39,7 @@
     }
 
     .active {
-        justify-content: end;
+        justify-content: flex-end;
         background-color: #6e51c1;
     }
 
