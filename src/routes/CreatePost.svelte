@@ -7,6 +7,7 @@
 
     const postTypes = ["idee", "probleem"] as const;
 
+    let view: HTMLElement;
     let type: typeof postTypes[number];
     let selectedCategory: typeof allCategories[number] = "studiedruk";
     let error: FormError = {
@@ -51,6 +52,11 @@
         if (inputName === "details") {
             error.details = true;
         }
+
+        view.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     }
 
     function removeError(inputName: "title" | "details"): void {
@@ -117,7 +123,7 @@
                 </button>
             </div>
         </header>
-        <div class="new-post">
+        <div bind:this={view} class="new-post">
             <div>
                 <h1>Mijn #{type}</h1>
                 <form on:submit|preventDefault={checkForm}>
@@ -215,6 +221,7 @@
     .new-post {
         height: calc(100% - 66px);
         overflow-y: auto;
+        scroll-behavior: smooth;
     }
 
     .content {
@@ -254,6 +261,7 @@
         border-bottom: 2px solid black;
         border-bottom-color: var(--cmd-color-black);
         background-color: transparent;
+        border-radius: 0;
         color: black;
         color: var(--cmd-color-black);
         padding: 0.75rem 0.5rem;
@@ -270,6 +278,11 @@
         margin-left: 0.75rem;
         padding-bottom: 0.75rem;
         margin-bottom: -0.75rem;
+    }
+
+    form ul * {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-family: var(--font-pauschal);
     }
 
     form ul li {
@@ -350,7 +363,7 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        height: 80vh;
+        height: 80%;
         margin: 0 0.75rem;
     }
 
