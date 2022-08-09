@@ -33,13 +33,15 @@
                 </li>
                 {/each}
             </ul>
-            <div class="scroll-position">
-                {#each lessonsToday as _, index}
-                    {#if index < lessonsToday.length}
-                        <div class="point {scrollPosition ===  index ? "active": ""}"></div>
-                    {/if}
-                {/each}
-            </div>
+            {#if lessonsToday.length > 1}
+                <div class="scroll-position">
+                    {#each lessonsToday as _, index}
+                        {#if index < lessonsToday.length}
+                            <div class="point {scrollPosition ===  index ? "active": ""}"></div>
+                        {/if}
+                    {/each}
+                </div>
+            {/if}
         </div>
     </div>
 {/if}
@@ -79,6 +81,11 @@
         font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         scroll-snap-align: center;
+    }
+
+    ul li * {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-family: var(--font-pauschal);
     }
 
     h3 {
