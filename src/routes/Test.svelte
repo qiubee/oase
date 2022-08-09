@@ -88,8 +88,7 @@ import Button from "../lib/components/Button.svelte";
         border-radius: 0.25rem;
     }
     
-    input:not([type="submit"]):focus,
-    input:not([type="submit"]):focus-visible {
+    input:not([type="submit"]):focus {
         outline: 2px solid black;
         outline-color: var(--cmd-color-black);
     }
