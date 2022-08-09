@@ -23,16 +23,16 @@
         align-items: center;
         justify-content: flex-start;
         background-color: #e3c6c6;
-        height: 0.75rem;
-        width: 1.4rem;
+        height: 1.05rem;
+        width: 2.05rem;
         border-radius: 3rem;
         padding: 0.1rem;
         transition: background-color ease 0.5s;
     }
 
     .knob {
-        height: 0.7rem;
-        width: 0.7rem;
+        height: 1rem;
+        width: 1rem;
         background-color: white;
         background-color: var(--cmd-color-white);
         border-radius: 50%;
