@@ -21,18 +21,20 @@
         {#each $news as post, index}
             {#if index < maxPosts}
                 <li>
-                    <div>
+                    <div class="card">     
                         <div>
-                            <span class="tag">{post.tag}</span>
-                            {#if post.timestamp}
-                                <span class="time">{timeDiff(new Date(parseInt(post.timestamp)), new Date())} geleden</span>
-                            {/if}
+                            <div>
+                                <span class="tag">{post.tag}</span>
+                                {#if post.timestamp}
+                                    <span class="time">{timeDiff(new Date(parseInt(post.timestamp)), new Date())} geleden</span>
+                                {/if}
+                            </div>
+                            <h2>{post.title}</h2>
                         </div>
-                        <h2>{post.title}</h2>
+                        {#if post.author}
+                            <span class="author">{post.author}</span>
+                        {/if}
                     </div>
-                    {#if post.author}
-                        <span class="author">{post.author}</span>
-                    {/if}
                 </li>
             {/if}
         {/each}
@@ -82,21 +84,29 @@
     }
 
     ul {
+        box-sizing: border-box;
         width: 100%;
         display: flex;
         flex-direction: row;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    ul li {
+        display: flex;
+        justify-content: stretch;
     }
 
     ul::-webkit-scrollbar {
         display: none;
     }
 
-    ul li {
+    .card {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -110,14 +120,14 @@
         scroll-snap-align: center;
     }
 
-    li > div {
+    .card > div {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         margin-bottom: 0.75rem;
     }
 
-    li > div > div {
+    .card > div > div {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -125,7 +135,7 @@
         margin-bottom: 0.75rem;
     }
 
-    li div .tag {
+    .card div .tag {
         font-weight: bold;
         text-transform: uppercase;
         color: #7e7e7e;
@@ -133,18 +143,18 @@
         font-size: 0.9rem;
     }
 
-    li div .tag::before {
+    .card div .tag::before {
         content: "#";
     }
 
-    li div .time,
-    li h2,
-    li .author {
+    .card div .time,
+    .card h2,
+    .card .author {
         font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
 
-    li h2 {
+    .card h2 {
         font-size: 1rem;
         margin: 0;
     }
