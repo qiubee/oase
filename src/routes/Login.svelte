@@ -546,6 +546,7 @@
     margin: 0;
     margin-bottom: 1rem;
     font-size: 0.9rem;
+    font-weight: normal;
   }
 
   form {
@@ -556,6 +557,7 @@
   }
 
   input:not([type="submit"]) {
+    min-width: 10rem;
     color: black;
     color: var(--cmd-color-black);
     border: none;
@@ -563,13 +565,15 @@
     border-radius: 4rem;
     text-shadow: none;
     appearance: none;
+    font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: var(--font-pauschal);
     margin-bottom: 1rem;
   }
 
-  input:not([type="submit"]):focus,
-  input:not([type="submit"]):focus-visible {
+  input:not([type="submit"]):focus {
     outline: 2px solid black;
     outline-color: var(--cmd-color-black);
+    border-radius: 4rem;
   }
 
   input[type="submit"] {
