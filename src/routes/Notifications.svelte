@@ -61,6 +61,7 @@
                 <button on:click={() => toggleView(View.MESSAGES)} class="{view === View.MESSAGES ? "active": ""}">Berichten</button>
             </div>
             {#if view === View.NOTIFICATIONS}
+                {#if notifications.length > 0}
                 <ul class="notifications">
                     {#each notifications as post}
                         <li>
@@ -68,6 +69,12 @@
                         </li>
                     {/each}
                 </ul>
+                {:else}
+                <div class="empty">
+                    <p>Geen meldingen.</p>
+                    <p>Volg onderwerpen of posts om meldingen te krijgen.</p>
+                </div>
+                {/if}
             {:else if view === View.MESSAGES}
             <div class="messages">
                 <p>Geen nieuwe berichten.</p>
@@ -115,7 +122,8 @@
         margin-bottom: 0.75rem;
     }
 
-    .messages {
+    .messages,
+    .empty {
         height: 90%;
         display: flex;
         align-items: center;
@@ -125,6 +133,19 @@
     p {
         font-weight: bold;
         text-align: center;
-        margin: 0;
+        margin: 0 0.75rem;
+    }
+
+    .empty {
+        flex-direction: column;
+    }
+
+    .empty p:first-child {
+        margin-bottom: 1.5rem;
+    }
+
+    .empty p:last-child {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-family: var(--font-pauschal);
     }
 </style>
