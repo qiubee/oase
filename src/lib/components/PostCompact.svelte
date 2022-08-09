@@ -225,6 +225,9 @@
         width: 100%;
         height: 100%;
         border-radius: 3.5rem;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     .metadata .photo img::before,
@@ -266,16 +269,18 @@
     }
 
     .status div {
-        width: 2rem;
-        height: 2rem;
-        max-width: 2rem;
-        max-height: 2rem;
+        width: 1.35rem;
+        height: 1.35rem;
+        max-width: 1.35rem;
+        max-height: 1.35rem;
+        padding: 0.35rem;
         background-color: #FFF021;
         background-color: var(--cmd-color-main);
     }
 
     .status img {
-        padding: 0.35rem;
+        width: 1.35rem;
+        height: 1.35rem;
     }
 
     footer {
