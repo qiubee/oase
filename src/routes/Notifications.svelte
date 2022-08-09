@@ -15,6 +15,7 @@
     let header: HTMLElement;
     let navigation: HTMLElement;
     let contentHeight: number;
+    let toggleHeight: number;
     let view: View = View.NOTIFICATIONS;
 
     let following: Student["following"] = $students.find(user => user.id === $userID).following;
@@ -56,13 +57,13 @@
     <div class="content">
         <TopBar bind:node={header} state={"notifications"}/>
         <main style="max-height: {contentHeight}px;">
-            <div class="toggle">
+            <div bind:clientHeight={toggleHeight} class="toggle">
                 <button on:click={() => toggleView(View.NOTIFICATIONS)} class="{view === View.NOTIFICATIONS ? "active": ""}">Meldingen</button>
                 <button on:click={() => toggleView(View.MESSAGES)} class="{view === View.MESSAGES ? "active": ""}">Berichten</button>
             </div>
             {#if view === View.NOTIFICATIONS}
                 {#if notifications.length > 0}
-                <ul class="notifications">
+                <ul class="notifications" style="max-height: calc({contentHeight}px - {toggleHeight}px);">
                     {#each notifications as post}
                         <li>
                             <Notification {post}/>
@@ -86,6 +87,17 @@
 </div>
 
 <style>
+    .notifications {
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+    }
+
+    .notifications::-webkit-scrollbar {
+        display: none;
+    }
+
     .content,
     main {
         height: 100%;
@@ -95,7 +107,7 @@
         display: flex;
         flex-direction: row;
         margin: 0 0.75rem;
-        padding-top: 0.75rem;
+        padding: 0.75rem 0;
     }
 
     .toggle button {
@@ -116,6 +128,11 @@
     .toggle .active {
         background-color: white;
         background-color: var(--cmd-color-white);
+    }
+
+    .notifications {
+        margin: 0;
+        overflow-y: auto;
     }
 
     .notifications li {
