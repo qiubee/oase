@@ -90,7 +90,7 @@
     .categories {
         position: absolute;
         z-index: 1;
-        top: 2.1rem;
+        top: 2.05rem;
         left: -0.75rem;
         text-transform: capitalize;
         width: 100vw;
