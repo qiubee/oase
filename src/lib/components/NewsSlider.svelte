@@ -8,12 +8,15 @@
 </script>
 
 <div class="news">
-    <a href="/laatste-nieuws" use:link>
-        <span>Laatste nieuws</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 8 4.898" transform="rotate(270)">
-        <path id="Union_5" data-name="Union 5" d="M-386.25,3.834l-.163.167.163-.167L-390,0l3.75,3.834L-382.5,0l-3.75,3.834.163.167Z" transform="translate(390.357 0.35)" fill="none" stroke="#1f2121" stroke-width="1.5"/>
-      </svg>
-      </a>
+    <div>
+        <h2>Nieuws</h2>
+        <a href="/laatste-nieuws" use:link>
+            <span>Laatste nieuws</span>
+            <svg width="5" viewBox="0 0 4.8979999 8.2140001" xmlns="http://www.w3.org/2000/svg">
+                <path d="m 4.1832728,4.1069999 0.167,0.163 -0.167,-0.163 -3.83400005,3.75 3.83400005,-3.75 -3.83400005,-3.75 3.83400005,3.75 0.167,-0.163 z" fill="none"  stroke="#1f2121" stroke-width="1.5" />
+            </svg> 
+          </a>
+    </div>
     <ul>
         {#each $news as post, index}
             {#if index < maxPosts}
@@ -45,7 +48,17 @@
 
 <style>
     .news {
-        margin: 0.75rem 0 1.5rem 0;
+        margin: 1rem 0 1.5rem 0;
+    }
+
+    .news > div {
+        display: flex;
+        flex-direction: row;
+        margin: 0 0.75rem;
+    }
+
+    .news h2 {
+        margin: 0;
     }
 
     .news a {
