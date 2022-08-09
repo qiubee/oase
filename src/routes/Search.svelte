@@ -50,7 +50,9 @@
             <ul class="status">
                 {#each $statuses as status}
                     <li>
-                        <img src="{status.iconURL}" alt="{status.name}">
+                        <div class="icon">
+                            <img src="{status.iconURL}" alt="{status.name}">
+                        </div>
                     </li>
                 {/each}
             </ul>
@@ -58,8 +60,12 @@
             <ul class="councils">
                 {#each councils as council}
                 <li>
-                    <a href="/{council.replace(" ", "-").toLowerCase()}" use:link>{council}<svg width="6" viewBox="0 0 4.8979999 8.2140001" xmlns="http://www.w3.org/2000/svg">
-                        <path d="m 4.1832728,4.1069999 0.167,0.163 -0.167,-0.163 -3.83400005,3.75 3.83400005,-3.75 -3.83400005,-3.75 3.83400005,3.75 0.167,-0.163 z" fill="none"  stroke="#1f2121" stroke-width="1.25" /></svg></a></li>
+                    <a href="/{council.replace(" ", "-").toLowerCase()}" use:link>
+                        <span>{council}</span>
+                        <svg width="6" viewBox="0 0 4.8979999 8.2140001" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m 4.1832728,4.1069999 0.167,0.163 -0.167,-0.163 -3.83400005,3.75 3.83400005,-3.75 -3.83400005,-3.75 3.83400005,3.75 0.167,-0.163 z" fill="none" stroke="#1f2121" stroke-width="1.25" /></svg>
+                    </a>
+                </li>
                 {/each}
             </ul>
             <h2>Vertegenwoordigers</h2>
@@ -104,9 +110,21 @@
 </div>
 
 <style>
+    main,
+    .status {
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+    }
+
+    main::-webkit-scrollbar,
+    .status::-webkit-scrollbar {
+        display: none;
+    }
+
     main {
         overflow-y: auto;
-        scroll-behavior: smooth;
     }
 
     .content main > h2 {
@@ -118,50 +136,63 @@
     }
 
     .status {
+        box-sizing: border-box;
         display: flex;
         flex-direction: row;
         width: 100%;
         overflow-x: auto;
         margin: 0;
         padding-bottom: 0.75rem;
-        scroll-behavior: smooth;
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: none;
     }
 
-    .status::-webkit-scrollbar {
-        display: none;
-    }
-
-    .status li {
+    .status .icon {
+        box-sizing: border-box;
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 0 0.5rem;
         width: 4rem;
         height: 4rem;
-        padding: 0 1rem;
         background-color: white;
         background-color: var(--cmd-color-white);
     }
 
     .status li:first-child {
-        margin-left: 0.75rem;
+        padding-left: 0.75rem;
+    }
+
+    .status li:first-child .icon {
+        margin-left: 0;
     }
 
     .status li:last-child {
-        margin-right: 0.75rem;
+        padding-right: 0.75rem;
     }
 
-    .status li img {
+    .status li:last-child .icon {
+        margin-right: 0;
+    }
+
+    .status .icon img {
         width: 2rem;
         height: 2rem;
+    }
+
+    .councils {
+        display: block;
+        margin-bottom: 1.5rem;
+    }
+
+    .councils li {
+        box-sizing: border-box;
+        display: block;
+        max-height: 3.125rem;
     }
 
     .councils li a {
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
         background-color: white;
         background-color: var(--cmd-color-white);
@@ -170,6 +201,8 @@
         font-family: var(--font-pauschal);
         font-size: 0.9rem;
         margin-bottom: 0.5rem;
+        height: 100%;
+        max-height: 3.125rem;
     }
 
     .representatives li {
@@ -245,8 +278,5 @@
     .replies svg {
         margin-right: 0.25rem;
     }
-    
-    .councils {
-        margin-bottom: 1.5rem;
-    }
+
 </style>
