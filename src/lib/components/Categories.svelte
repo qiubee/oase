@@ -41,6 +41,11 @@
         margin-bottom: 0.75rem;
     }
 
+    .categories li * {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-family: var(--font-pauschal);
+    }
+
     @media (min-width: 22rem) {
         .categories {
             justify-content: space-around;

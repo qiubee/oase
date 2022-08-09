@@ -83,6 +83,11 @@
         font-family: var(--font-pauschal);
     }
 
+    li .info * {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-family: var(--font-pauschal);
+    }
+
     li .category {
         text-transform: capitalize;
     }
