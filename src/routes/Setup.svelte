@@ -207,6 +207,17 @@
 </div>
 
 <style>
+    main {
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+    }
+
+    main::-webkit-scrollbar {
+        display: none;
+    }
+
     .setup {
         background: url("./../assets/sand.svg") center bottom #fbf0bc;
         height: 100%;
@@ -243,7 +254,6 @@
 
     main {
         overflow-y: auto;
-        scroll-behavior: smooth;
     }
 
     main h1 {
@@ -390,6 +400,7 @@
     }
 
     .preview .status {
+        display: inline-block;
         position: absolute;
         bottom: -0.5rem;
         background-color: white;
@@ -400,6 +411,7 @@
         padding: 0.1rem 0.75rem;
         font-weight: bold;
         font-size: 0.5rem;
+        white-space: nowrap;
     }
 
     .settings {
@@ -423,7 +435,7 @@
     }
 
     .settings .image span {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         color: #a093e5;
@@ -448,14 +460,15 @@
     }
 
     .settings .status li {
-        min-width: 4rem;
+        min-width: 4.5rem;
         border: 2px solid #a093e5;
         border-color: var(--std-active-color);
         border-radius: 1rem;
-        padding: 0.2rem 0.25rem;
+        padding: 0.2rem 0.5rem;
         text-align: center;
-        font-size: 0.6rem;
+        font-size: 0.7rem;
         margin-bottom: 0.5rem;
+        white-space: nowrap;
     }
 
     .settings .status li:not(:first-child) {
@@ -467,7 +480,6 @@
         background-color: var(--std-active-color);
         color: white;
         color: var(--cmd-color-white);
-        font-weight: bold;
     }
 
     .options {
@@ -475,7 +487,7 @@
     }
 
     .options * {
-        font-size: 0.75rem;
+        font-size: 0.9rem;
         font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
