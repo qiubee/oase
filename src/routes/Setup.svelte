@@ -12,6 +12,7 @@
 
     let headerHeight: number;
     let contentHeight: number;
+    let view: HTMLElement;
 
     const currentStep: Writable<number> = writable(1);
     setContext("step", {
@@ -30,7 +31,7 @@
     function setTheme(e: Event): void {
         const el = <HTMLElement>e.target;
         currentTheme.update(() => el.dataset.theme);
-        currentStep.update((n) => ++n);
+        goToNext();
     }
 
     function updateStatus(option: Student["status"]["text"]): void {
@@ -74,6 +75,14 @@
         replace("/");
     }
 
+    function goToNext(): void {
+        currentStep.update((n) => n + 1);
+        view.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
     onMount(function () {
         const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
         contentHeight = windowHeight - headerHeight;
@@ -101,7 +110,7 @@
         </div>
         {/if}
     </header>
-    <main style="max-height: {contentHeight}px;">
+    <main bind:this={view} style="max-height: {contentHeight}px;">
         <h1>{title[$currentStep-1]}</h1>
         {#if $currentStep === 1}
             <ul class="themes">
@@ -183,15 +192,17 @@
                 </ol>
             </div>
         {/if}
-        <div>
-            {#if $currentStep === 4}
-            <Button shape={"rectangle"} text={"Ik ga akkoord"} action={goHome}/>
-            {:else if $currentStep === 3}
-            <Button shape={"rectangle"} text={"Opslaan"}/>
-            {:else if $currentStep > 1}
-            <Button shape={"rectangle"} icon={"next"}/>
-            {/if}
-        </div>
+        {#if $currentStep > 1}
+            <div>
+                {#if $currentStep === 4}
+                <Button shape={"rectangle"} text={"Ik ga akkoord"} action={goHome}/>
+                {:else if $currentStep === 3}
+                <Button shape={"rectangle"} text={"Opslaan"} action={goToNext}/>
+                {:else}
+                <Button shape={"rectangle"} icon={"next"} action={goToNext}/>
+                {/if}
+            </div>
+        {/if}
     </main>
 </div>
 
@@ -210,16 +221,14 @@
     h1 {
         font-size: 1.5rem;
         text-align: center;
+        font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-family: var(--font-kotori-rose);
     }
 
     header {
         display: flex;
         align-items: center;
         padding: 1rem 1rem;
-    }
-
-    header.step-2 {
-        margin-bottom: 2.5rem;
     }
 
     header > div {
@@ -234,6 +243,7 @@
 
     main {
         overflow-y: auto;
+        scroll-behavior: smooth;
     }
 
     main h1 {
@@ -248,6 +258,10 @@
         display: flex;
         justify-content: center;
         margin: 2.5rem 0 1rem 0;
+    }
+
+    .themes {
+        padding-bottom: 0.75rem;
     }
 
     .themes li {
@@ -489,7 +503,7 @@
     }
 
     .step-4 ~ main > div:last-of-type {
-        margin: 2rem auto 0 auto;
+        margin: 2rem auto 1rem auto;
     }
 
     .tos {
