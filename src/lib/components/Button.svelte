@@ -88,7 +88,10 @@
     }
 
     .rectangle {
-        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.25rem;
         background-color: black;
         background-color: var(--cmd-color-black);
         color: white;
@@ -107,9 +110,10 @@
     button span {
         font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
+        font-size: 1rem;
     }
 
     .next {
-        margin-left: 0.5rem;
+        margin-left: 0.75rem;
     }
 </style>
