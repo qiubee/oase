@@ -14,13 +14,15 @@ const monthNames = [
   "December",
 ];
 
-export function calcContentView(hd: HTMLElement, nv: HTMLElement): number {
+export function calcContentView(hd: HTMLElement, nv?: HTMLElement): number {
+  const windowHeight =
+    "innerHeight" in window
+      ? window.innerHeight
+      : document.documentElement.offsetHeight;
   if (hd && nv) {
-    const windowHeight =
-      "innerHeight" in window
-        ? window.innerHeight
-        : document.documentElement.offsetHeight;
     return windowHeight - (hd.offsetHeight + nv.offsetHeight);
+  } else if (hd) {
+    return windowHeight - hd.offsetHeight;
   } else {
     return 0;
   }
