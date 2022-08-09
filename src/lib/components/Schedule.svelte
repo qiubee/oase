@@ -85,14 +85,14 @@
             <span class="month">{monthName} {year}</span>
             <div class="navigation">
                 <button class="left" on:click={() => changeMonth("previous")}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 8 4.898" transform="rotate(90)">
-                        <path id="Union_5" data-name="Union 5" d="M-386.25,3.834l-.163.167.163-.167L-390,0l3.75,3.834L-382.5,0l-3.75,3.834.163.167Z" transform="translate(390.357 0.35)" fill="none" stroke="#1f2121" stroke-width="1.5"/>
+                    <svg width="7" viewBox="0 0 4.8979999 8.2140001"  xmlns="http://www.w3.org/2000/svg">
+                        <path d="m 0.71472698,4.1069999 -0.167,-0.163 0.167,0.163 L 4.548727,0.35699988 0.71472698,4.1069999 l 3.83400002,3.75 -3.83400002,-3.75 -0.167,0.163 z" fill="none" stroke="#1f2121" stroke-width="1" />
                     </svg>
                 </button>
                 <button class="right" on:click={() => changeMonth("next")}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 8 4.898" transform="rotate(270)">
-                        <path id="Union_5" data-name="Union 5" d="M-386.25,3.834l-.163.167.163-.167L-390,0l3.75,3.834L-382.5,0l-3.75,3.834.163.167Z" transform="translate(390.357 0.35)" fill="none" stroke="#1f2121" stroke-width="1.5"/>
-                    </svg>
+                    <svg width="7" viewBox="0 0 4.8979999 8.2140001" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m 4.1832728,4.1069999 0.167,0.163 -0.167,-0.163 -3.83400005,3.75 3.83400005,-3.75 -3.83400005,-3.75 3.83400005,3.75 0.167,-0.163 z" fill="none"  stroke="#1f2121" stroke-width="1" />
+                    </svg>                      
                 </button>
             </div>
         </div>
@@ -225,6 +225,11 @@
         font-family: var(--font-pauschal);
     }
 
+    .days li * {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-family: var(--font-pauschal);
+    }
+
     .now {
         background-color: black;
         background-color: var(--cmd-color-black);
@@ -245,6 +250,7 @@
         display: block;
         width: 3px;
         height: 3px;
+        left: 1rem;
         bottom: 0.35rem;
         background-color: black;
         background-color: var(--cmd-color-black);
@@ -270,6 +276,11 @@
         font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
         margin: 0.25rem 0;
+    }
+
+    .lessons li * {
+        font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-family: var(--font-pauschal);
     }
 
     .lessons .place-time {

@@ -80,7 +80,7 @@
         <div>
             <button on:click={toggleDropdown}>
                 <span>{dropdownOptions[sortIndex]}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 8.214 4.898">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="18" viewBox="0 0 8.214 4.898">
                     <path id="Union_5" data-name="Union 5" d="M-386.25,3.834l-.163.167.163-.167L-390,0l3.75,3.834L-382.5,0l-3.75,3.834.163.167Z" transform="translate(390.357 0.35)" fill="none" stroke="#1f2121" stroke-width="1"/>
                 </svg>
             </button>

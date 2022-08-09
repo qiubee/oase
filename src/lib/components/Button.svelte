@@ -30,7 +30,7 @@
         </button>
         {:else}
         <button class="round" on:click={previous}>
-            <svg class="back" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="14" viewBox="0 0 17 14" transform="translate(0 1)">
+            <svg class="back" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" viewBox="0 0 17 14">
                 <defs>
                 <clipPath id="clip-path">
                     <path id="Path_8" data-name="Path 8" d="M.2,12.918a.6.6,0,0,0,0,.891.666.666,0,0,0,.933,0L7.8,7.445a.6.6,0,0,0,0-.891L1.133.191A.666.666,0,0,0,.2.191a.6.6,0,0,0,0,.891L6.4,7,.2,12.918Z" fill="#fff"/>
@@ -48,20 +48,26 @@
 {:else if shape === "rectangle"}
     <button class="rectangle" on:click={action}>
         <span>{text}</span>
-        {#if icon === "next"}    
-            <svg class="backtranslate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="14" viewBox="0 0 17 14" transform="translate(0 2) rotate(180) scale(0.75)">
-                <defs>
-                <clipPath id="clip-path">
-                    <path id="Path_8" data-name="Path 8" d="M.2,12.918a.6.6,0,0,0,0,.891.666.666,0,0,0,.933,0L7.8,7.445a.6.6,0,0,0,0-.891L1.133.191A.666.666,0,0,0,.2.191a.6.6,0,0,0,0,.891L6.4,7,.2,12.918Z" fill="#fff"/>
-                </clipPath>
-                </defs>
-                <g id="ico" transform="translate(0 0)">
-                <g id="arr" transform="translate(8 14) rotate(180)" clip-path="url(#clip-path)">
-                    <rect id="Rectangle_12" data-name="Rectangle 12" width="11.333" height="17.182" transform="translate(-1.667 -1.591)" fill="#fff"/>
+        {#if icon === "next"}
+        <svg class="next" width="14" viewBox="0 0 17 14" xmlns="http://www.w3.org/2000/svg">
+            <defs class="s-5xw9RGpuDz7F" id="defs4">
+              <clipPath id="clip-path" class="s-5xw9RGpuDz7F">
+                <path id="Path_8" data-name="Path 8"
+                  d="M.2,12.918a.6.6,0,0,0,0,.891.666.666,0,0,0,.933,0L7.8,7.445a.6.6,0,0,0,0-.891L1.133.191A.666.666,0,0,0,.2.191a.6.6,0,0,0,0,.891L6.4,7,.2,12.918Z"
+                  fill="#fff" class="s-5xw9RGpuDz7F" />
+              </clipPath>
+            </defs>
+            <g id="ico" transform="translate(0 0)" class="s-5xw9RGpuDz7F">
+              <g id="g175" transform="rotate(180,8.5004769,7)">
+                <g id="arr" transform="rotate(180,4,7)" clip-path="url(#clip-path)" class="s-5xw9RGpuDz7F">
+                  <rect id="Rectangle_12" data-name="Rectangle 12" width="11.333" height="17.181999"
+                    transform="translate(-1.667,-1.591)" fill="#ffffff" class="s-5xw9RGpuDz7F" x="0" y="0" />
                 </g>
-                <rect id="line" width="16" height="1.2" rx="0.6" transform="translate(1 6.4)" fill="#fff"/>
-                </g>
-            </svg>          
+                <rect id="line" width="16" height="1.2" rx="0.60000002" transform="translate(1,6.4)" fill="#ffffff"
+                  class="s-5xw9RGpuDz7F" x="0" y="0" />
+              </g>
+            </g>
+        </svg>
         {/if}
     </button>
 {/if}
@@ -76,6 +82,9 @@
         background-color: var(--std-btn-bg-color);
         border: none;
         border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .rectangle {
@@ -95,12 +104,12 @@
         cursor: pointer;
     }
 
-    .logout-icon {
-        transform: translate(0.5px, 1px);
-    }
-
     button span {
         font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
+    }
+
+    .next {
+        margin-left: 0.5rem;
     }
 </style>
