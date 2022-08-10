@@ -145,24 +145,26 @@
                     <Sort post={post} type={"comments"} position={"right"}/>
                 </div>
             {/if}
-            <div class="comments {post.comments.length > 0 ? "": "empty"}">
-                {#if post.comments.length > 0}
-                <ul>
-                    {#if post.comments.length === 1}
-                        <li class="comment">
-                            <Comment comment={post.comments[0]} />
-                        </li>
-                    {:else}
-                        {#each $sorted.comments as comment}
+            <div>
+                <div class="comments {post.comments.length > 0 ? "": "empty"}">
+                    {#if post.comments.length > 0}
+                    <ul>
+                        {#if post.comments.length === 1}
                             <li class="comment">
-                                <Comment comment={comment} />
+                                <Comment comment={post.comments[0]} />
                             </li>
-                        {/each}
+                        {:else}
+                            {#each $sorted.comments as comment}
+                                <li class="comment">
+                                    <Comment comment={comment} />
+                                </li>
+                            {/each}
+                        {/if}
+                    </ul>
+                    {:else}
+                        <p>Er zijn nog geen reacties.</p>
                     {/if}
-                </ul>
-                {:else}
-                    <p>Er zijn nog geen reacties.</p>
-                {/if}
+                </div>
             </div>
         </div>
     </div>
@@ -389,6 +391,10 @@
         background-color: var(--cmd-color-white);
         padding: 0 0.75rem;
         padding-bottom: 0.75rem;
+    }
+
+    .comments ul {
+        margin-top: 0;
     }
 
     .comments.empty {
