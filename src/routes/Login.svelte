@@ -571,9 +571,7 @@
   }
 
   input:not([type="submit"]):focus {
-    outline: 2px solid black;
-    outline-color: var(--cmd-color-black);
-    border-radius: 4rem;
+    outline: none;
   }
 
   input[type="submit"] {
