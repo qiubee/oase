@@ -67,13 +67,15 @@
                 {@const endMinutes = new Date(parseInt(lesson.time.end)).getMinutes()}
                 {@const endHours = new Date(parseInt(lesson.time.end)).getHours()}
                 <li bind:offsetWidth={cardOffsetWidth} style="background-color: {lesson.image};">
-                    <div class="subject">
-                        <h3>{lesson.name}</h3>
-                        <span class="room">{lesson.room}</span>
-                    </div>
-                    <div class="time">
-                        <span class="start">{startHours}:{startMinutes < 10 ? `${startMinutes}0` : startMinutes} - </span>
-                        <span class="end">{endHours}:{endMinutes < 10 ? `${endMinutes}0` : endMinutes}</span>
+                    <div class="card">
+                        <div class="subject">
+                            <h3>{lesson.name}</h3>
+                            <span class="room">{lesson.room}</span>
+                        </div>
+                        <div class="time">
+                            <span class="start">{startHours}:{startMinutes < 10 ? `${startMinutes}0` : startMinutes} - </span>
+                            <span class="end">{endHours}:{endMinutes < 10 ? `${endMinutes}0` : endMinutes}</span>
+                        </div>
                     </div>
                 </li>
                 {/each}
@@ -117,12 +119,17 @@
 
     ul li {
         display: flex;
+        justify-content: stretch;
+    }
+
+    .card {
+        display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
         background-color: white;
         background-color: var(--cmd-color-white);
-        min-width: calc(100% - 4rem);
+        min-width: calc(100vw - 4rem);
         padding: 1.25rem;
         margin: 0 0.75rem;
         border-radius: 0.5rem;
