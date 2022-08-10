@@ -123,7 +123,8 @@
                 {/each}
             </ul>
             {:else if $currentStep === 2}
-                <ul class="categories">
+            <div class="categories">
+                <ul>
                     {#each $categories as category}
                         {#if user.following.categories.includes(category.id)}
                             <li data-id={category.id} on:click={() => follow(category, $userID)} class="selected">
@@ -136,6 +137,7 @@
                         {/if}
                     {/each}
                 </ul>
+            </div>
             {:else if $currentStep === 3}
             <div class="preview">
                 <div class="photo">
@@ -308,12 +310,14 @@
         cursor: pointer;
     }
 
-    .categories {
+    .categories ul {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         column-gap: 1rem;
         row-gap: 1.5rem;
         margin: 0.5rem;
+        width: 100%;
+        max-width: 30rem;
     }
 
     .categories li {
