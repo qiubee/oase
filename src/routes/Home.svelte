@@ -19,9 +19,9 @@
 
     let hideSortOptions: boolean = false;
     let sortOption: Sort;
-    let sortedPosts = $posts;
     let contentHeight: number;
 
+    $: sortedPosts = $posts;
     $: filteredPosts = sortedPosts.filter(function (post) {
         hideSortOptions = false;
         if ($currentCategory === "Alles") {
@@ -40,23 +40,40 @@
             return;
         }
         sortOption = option;
-        sortedPosts = $posts.sort(function (a, b) {
-            if (option === Sort.NEW) {
+        if (option === Sort.NEW) {
+            sortedPosts = $posts.sort(function (a, b) {
                 if (a.timestamp < b.timestamp) {
                     return 1;
+                } else if (a.timestamp > b.timestamp) {
+                    return -1;
+                } else {
+                    return 0;
                 }
-            }
-            if (option === Sort.TRENDING) {
+            });
+        }
+        if (option === Sort.TRENDING) {
+            sortedPosts = $posts.sort(function (a, b) {
                 if (a.upvotes.length < b.upvotes.length || a.comments.length < b.comments.length && a.timestamp < b.timestamp) {
                     return 1;
+                } else if (a.upvotes.length > b.upvotes.length || a.comments.length > b.comments.length && a.timestamp > b.timestamp) {
+                    return -1;
+                } else {
+                    return 0;
                 }
-            }
-            if (option === Sort.TOP) {
+            });
+        }
+        if (option === Sort.TOP) {
+            sortedPosts = $posts.sort(function (a, b) {
                 if (a.upvotes.length < b.upvotes.length) {
                     return 1;
+                } else if (a.upvotes.length > b.upvotes.length) {
+                    return -1;
+                } else {
+                    0
                 }
-            }
-        });
+            });
+        }
+        sortedPosts = sortedPosts;
     }
 
     sortPosts(Sort.NEW);

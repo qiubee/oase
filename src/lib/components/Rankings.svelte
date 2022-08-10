@@ -5,9 +5,7 @@
 
     const user = $students.find(user => user.id === $userID);
     $: sortedCategories = $categories.sort(function (a, b) {
-        if (a.followers.length < b.followers.length) {
-            return 1;
-        }
+        return (a.followers.length < b.followers.length) ? 1 : (a.followers.length > b.followers.length) ? -1 : 0;
     });
 </script>
 

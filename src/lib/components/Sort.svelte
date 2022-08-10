@@ -34,35 +34,61 @@
     function sort(type: SortTypes, option: SortComments | SortPosts): void {
         sortIndex = option;
         if (type === "posts") {
-            $sorted.posts = <Sorted["posts"]>$posts.sort(function (a, b) {
-                if (option === SortPosts.NEW) {
+            if (option === SortPosts.NEW) {
+                $sorted.posts = <Sorted["posts"]>$posts.sort(function (a, b) {
                     if (a.timestamp < b.timestamp) {
                         return 1;
+                    } else if (a.timestamp > b.timestamp) {
+                        return -1;
+                    } else {
+                        return 0;
                     }
-                }
-                if (option === SortPosts.TRENDING) {
+                });
+            }
+            if (option === SortPosts.TRENDING) {
+                $sorted.posts = <Sorted["posts"]>$posts.sort(function (a, b) {
                     if (a.upvotes.length < b.upvotes.length || a.comments.length < b.comments.length && a.timestamp < b.timestamp) {
                         return 1;
+                    } else if (a.upvotes.length > b.upvotes.length || a.comments.length > b.comments.length && a.timestamp > b.timestamp) {
+                        return -1;
+                    } else {
+                        return 0;
                     }
-                }
-                if (option === SortPosts.TOP) {
+                });
+            }
+            if (option === SortPosts.TOP) {
+                $sorted.posts = <Sorted["posts"]>$posts.sort(function (a, b) {
                     if (a.upvotes.length < b.upvotes.length) {
                         return 1;
+                    } else if (a.upvotes.length > b.upvotes.length) {
+                        return -1;
+                    } else {
+                        0
                     }
-                }
-            });
+                });
+            }
         } else if (type === "comments" && post) {
-            $sorted.comments = post.comments.sort(function (a, b) {
-                if (option === SortComments.NEW) {
+            if (option === SortComments.NEW) {
+                $sorted.comments = post.comments.sort(function (a, b) {
                     if (parseInt(a.timestamp) < parseInt(b.timestamp)) {
                         return 1;
+                    } else if (parseInt(a.timestamp) > parseInt(b.timestamp)) {
+                        return -1;
+                    } else {
+                        return 0;
                     }
-                } else {
+                });
+            } else {
+                $sorted.comments = post.comments.sort(function (a, b) {
                     if (parseInt(a.timestamp) > parseInt(b.timestamp)) {
                         return 1;
+                    } else if (parseInt(a.timestamp) < parseInt(b.timestamp)) {
+                        return -1;
+                    } else {
+                        return 0;
                     }
-                }
-            });
+                });
+            }
         }
         dropdownHidden = true;
     }
@@ -184,6 +210,7 @@
         border-radius: 0.5rem;
         font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
+        font-weight: bold;
     }
 
     .comments .options {
@@ -217,6 +244,8 @@
 
     .comments .options.hidden {
         display: none;
+        visibility: hidden;
+        filter: none;
     }
 
     .comments .options li.selected {
