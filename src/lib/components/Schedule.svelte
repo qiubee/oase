@@ -296,6 +296,7 @@
         font-size: 0.75rem;
         color: #7e7e7e;
         color: var(--cmd-color-gray);
+        max-width: 10rem;
     }
 
     .lessons .time {
