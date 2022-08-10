@@ -20,20 +20,11 @@
     },
     "lessons": [
       {
-        "name": "Vormgeving",
-        "room": "TTH 02B09",
+        "name": "Project team 2",
+        "room": "TTH 02B03 Visual Interface Design Lab",
         "time": {
-          "start": "1658300400000",
-          "end": "1658305800000"
-        },
-        "image": ""
-      },
-      {
-        "name": "Ontwerpgeschiedenis",
-        "room": "TTH 02B21",
-        "time": {
-          "start": "1658328000000",
-          "end": "1658331000000"
+          "start": "1661949000000",
+          "end": "1661954400000"
         },
         "image": ""
       },
@@ -41,8 +32,44 @@
         "name": "User Centered Design",
         "room": "TTH 02B21",
         "time": {
-          "start": "1658480400000",
-          "end": "1658486400000"
+          "start": "1661940000000",
+          "end": "1661946000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Content",
+        "room": "TTH 02B10",
+        "time": {
+          "start": "1661927400000",
+          "end": "1661936400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Project team 2",
+        "room": "TTH 02B03 Visual Interface Design Lab",
+        "time": {
+          "start": "1660134600000",
+          "end": "1660140000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "TTH 02B21",
+        "time": {
+          "start": "1660125600000",
+          "end": "1660131600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Content",
+        "room": "TTH 02B10",
+        "time": {
+          "start": "1660113000000",
+          "end": "1660122000000"
         },
         "image": ""
       }
