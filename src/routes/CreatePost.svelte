@@ -144,9 +144,11 @@
                     </div>
                     <div class="{error.details === true ? "error" : ""}">
                         <h2>Details</h2>
-                        <textarea on:input={() => removeError("details")} name="details" cols="30" rows="15"></textarea>
+                        <textarea on:input={() => removeError("details")} name="details" cols="30" rows="8"></textarea>
                     </div>
-                    <input type="submit" value="{type.charAt(0).toUpperCase() + type.slice(1)} plaatsen"/>
+                    <div>
+                        <input type="submit" value="{type.charAt(0).toUpperCase() + type.slice(1)} plaatsen"/>
+                    </div>
                 </form>
             </div>
         </div>
@@ -201,6 +203,17 @@
 </div>
 
 <style>
+    .new-post {
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+    }
+
+    .new-post::-webkit-scrollbar {
+        display: none;
+    }
+
     li:hover {
         cursor: pointer;    
     }
@@ -221,7 +234,6 @@
     .new-post {
         height: calc(100% - 66px);
         overflow-y: auto;
-        scroll-behavior: smooth;
     }
 
     .content {
@@ -266,6 +278,11 @@
         color: var(--cmd-color-black);
         padding: 0.75rem 0.5rem;
         font-size: 1rem;
+    }
+
+    input[name="title"]::placeholder {
+        color: var(--cmd-color-black);
+        opacity: 0.75;
     }
 
     form ul {
@@ -328,6 +345,7 @@
         color: var(--cmd-color-black);
         font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
+        font-weight: bold;
         background-color: white;
         background-color: var(--cmd-color-white);
         padding: 0.75rem 1.25rem;
