@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import type { Lesson, Student } from "src/@types/main";
     import { students, userID } from "../../store";
     const user = $students.find(user => user.id === $userID);
@@ -11,21 +12,65 @@
     })
 
     let scrollPosition: number = 0;
+    let cardOffsetWidth: number;
+    let slider: HTMLElement;
+    let cardPositions: number[] = [];
+    let timer: number;
+
+    function updateScrollPosition(): void {
+        for (let i = 0; i < cardPositions.length; i++) {
+            if ((slider.scrollLeft + (cardOffsetWidth / 2)) < (cardPositions[i])) {
+                scrollPosition = i;
+                return;
+            }
+        }
+    }
+
+    function stopAutoScroll(): void {
+        clearTimeout(timer);
+    }
+
+    function autoScroll(): void {
+        let id = 0;
+        timer = window.setTimeout(scrollCard, 0);
+        function scrollCard() {
+            if (slider) {
+                if (id >= slider.children.length) {
+                    id = 0;
+                }
+                slider.scrollTo({
+                    behavior: "smooth",
+                    left: cardOffsetWidth * id,
+                });
+                id++;
+                timer = window.setTimeout(scrollCard, 7500);
+            }
+        }
+    }
+
+    onMount(function () {
+        autoScroll();
+        [...slider.children].forEach(function (_, index) {
+            cardPositions.push(cardOffsetWidth * (index + 1))
+        })
+    })
 </script>
 
 {#if lessonsToday.length > 0}
     <div class="lessons">
         <h2>Vandaag</h2>
         <div>
-            <ul>
+            <ul bind:this={slider} on:scroll={updateScrollPosition} on:pointerdown|once={stopAutoScroll}>
                 {#each lessonsToday as lesson}
                 {@const startMinutes = new Date(parseInt(lesson.time.start)).getMinutes()}
                 {@const startHours = new Date(parseInt(lesson.time.start)).getHours()}
                 {@const endMinutes = new Date(parseInt(lesson.time.end)).getMinutes()}
                 {@const endHours = new Date(parseInt(lesson.time.end)).getHours()}
-                <li style="background-color: {lesson.image};">
-                    <h3>{lesson.name}</h3>
-                    <span class="room">{lesson.room}</span>
+                <li bind:offsetWidth={cardOffsetWidth} style="background-color: {lesson.image};">
+                    <div class="subject">
+                        <h3>{lesson.name}</h3>
+                        <span class="room">{lesson.room}</span>
+                    </div>
                     <div class="time">
                         <span class="start">{startHours}:{startMinutes < 10 ? `${startMinutes}0` : startMinutes} - </span>
                         <span class="end">{endHours}:{endMinutes < 10 ? `${endMinutes}0` : endMinutes}</span>
@@ -37,7 +82,7 @@
                 <div class="scroll-position">
                     {#each lessonsToday as _, index}
                         {#if index < lessonsToday.length}
-                            <div class="point {scrollPosition ===  index ? "active": ""}"></div>
+                            <div class="point {scrollPosition === index ? "active": ""}"></div>
                         {/if}
                     {/each}
                 </div>
@@ -71,7 +116,10 @@
     }
 
     ul li {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
         background-color: white;
         background-color: var(--cmd-color-white);
         min-width: calc(100% - 4rem);
@@ -94,6 +142,8 @@
     }
 
     .room {
+        display: inline-block;
+        max-width: 10rem;
         font-size: 0.8rem;
         color: #7e7e7e;
         color: var(--cmd-color-gray);
@@ -101,10 +151,8 @@
 
     .time {
         font-size: 1rem;
-    }
-
-    li > div {
-        margin: 2rem auto 0.5rem auto;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
     }
 
     .lessons > div {
@@ -125,8 +173,8 @@
     .scroll-position .point {
         width: 0.2rem;
         height: 0.2rem;
-        background-color: #FFF021;
-        background-color: var(--cmd-color-main);
+        background-color: white;
+        background-color: var(--cmd-color-white);
         border: 2px solid black;
         border-color: var(--cmd-color-black);
         border-radius: 0.125rem;

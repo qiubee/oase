@@ -1,10 +1,53 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import { link } from "svelte-spa-router";
     import { news } from "../../store";
     import { timeDiff } from "../../utils/utils";
 
-    let scrollPosition: number = 0;
     const maxPosts: number = 7;
+    let scrollPosition: number = 0;
+    let cardOffsetWidth: number;
+    let slider: HTMLElement;
+    let cardPositions: number[] = [];
+    let timer: number;
+
+    function updateScrollPosition(): void {
+        for (let i = 0; i < cardPositions.length; i++) {
+            if ((slider.scrollLeft + (cardOffsetWidth / 2)) < (cardPositions[i])) {
+                scrollPosition = i;
+                return;
+            }
+        }
+    }
+
+    function stopAutoScroll(): void {
+        clearTimeout(timer);
+    }
+
+    function autoScroll(): void {
+        let id = 0;
+        timer = window.setTimeout(scrollCard, 0);
+        function scrollCard() {
+            if (slider) {
+                if (id >= slider.children.length) {
+                    id = 0;
+                }
+                slider.scrollTo({
+                    behavior: "smooth",
+                    left: cardOffsetWidth * id,
+                });
+                id++;
+                timer = window.setTimeout(scrollCard, 7500);
+            }
+        }
+    }
+
+    onMount(function () {
+        autoScroll();
+        [...slider.children].forEach(function (_, index) {
+            cardPositions.push(cardOffsetWidth * (index + 1))
+        })
+    })
 </script>
 
 <div class="news">
@@ -17,10 +60,10 @@
             </svg> 
           </a>
     </div>
-    <ul>
+    <ul bind:this={slider} on:scroll={updateScrollPosition} on:pointerdown|once={stopAutoScroll}>
         {#each $news as post, index}
             {#if index < maxPosts}
-                <li>
+                <li bind:offsetWidth={cardOffsetWidth}>
                     <div class="card">     
                         <div>
                             <div>
