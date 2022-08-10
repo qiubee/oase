@@ -19,7 +19,7 @@
     let view: View = View.NOTIFICATIONS;
 
     let following: Student["following"] = $students.find(user => user.id === $userID).following;
-    let notifications = $posts.filter(function (post) {
+    let notifications = <Post[]>$posts.filter(function (post) {
         if (post.author === $userID) {
             return post;
         }
@@ -73,7 +73,7 @@
                 {:else}
                 <div class="empty">
                     <p>Geen meldingen.</p>
-                    <p>Volg onderwerpen of posts om meldingen te krijgen.</p>
+                    <p>Volg onderwerpen of discussies om meldingen te krijgen.</p>
                 </div>
                 {/if}
             {:else if view === View.MESSAGES}
