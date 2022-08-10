@@ -129,7 +129,8 @@
         align-items: flex-start;
         background-color: white;
         background-color: var(--cmd-color-white);
-        min-width: calc(100vw - 4rem);
+        width: calc(100vw - 4rem);
+        max-width: calc(30rem - 4rem);
         padding: 1.25rem;
         margin: 0 0.75rem;
         border-radius: 0.5rem;
