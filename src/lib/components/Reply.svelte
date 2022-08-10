@@ -31,13 +31,16 @@
     }
 </script>
 
-<div class="reply">
-    <input bind:value={message} type="text" name="reply" placeholder="Reageer">
-    <button on:click={reply}>Plaatsen</button>
+<div>
+    <div class="reply">
+        <input bind:value={message} type="text" name="reply" placeholder="Reageer">
+        <button on:click={reply}>Plaatsen</button>
+    </div>
 </div>
 
 <style>
     .reply {
+        box-sizing: border-box;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -45,6 +48,7 @@
         position: relative;
         z-index: 1;
         width: 100%;
+        height: 100%;
         bottom: 0;
         padding: 1rem 0;
         background-color: #FFF021;
@@ -69,7 +73,7 @@
         background-color: var(--cmd-color-main);
         margin-right: 0.75rem;
         border-radius: 0.25rem;
-        padding: 0 0.5rem;
+        padding: 0.45rem 0.5rem;
         height: 100%;
         color: initial;
         border: 2px solid black;
