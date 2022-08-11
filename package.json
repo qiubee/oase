@@ -11,6 +11,7 @@
     "dev": "vite",
     "predev": "npm run lint && npm run format",
     "build": "vite build",
+    "prebuild": "eslint --ignore-path .eslintignore --ext .js,.ts,.svelte .",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "lint": "eslint --fix --ignore-path .eslintignore --ext .js,.ts,.svelte .",
