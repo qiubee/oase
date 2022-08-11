@@ -50,9 +50,9 @@
 
     onMount(function () {
         autoScroll();
-        [...slider.children].forEach(function (_, index) {
-            cardPositions.push(cardOffsetWidth * (index + 1))
-        })
+        for (let i = 0; i < lessonsToday.length; i++) {
+            cardPositions.push(cardOffsetWidth * (i + 1))
+        }
     })
 </script>
 

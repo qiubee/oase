@@ -44,8 +44,10 @@
 
     onMount(function () {
         autoScroll();
-        [...slider.children].forEach(function (_, index) {
-            cardPositions.push(cardOffsetWidth * (index + 1))
+        $news.forEach(function (_, index) {
+            if (index < maxPosts) {
+                cardPositions.push(cardOffsetWidth * (index + 1))
+            }
         })
     })
 </script>
