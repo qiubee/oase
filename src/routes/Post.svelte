@@ -151,7 +151,7 @@
                     {#if post.comments.length > 0}
                     <ul>
                         {#if post.comments.length === 1}
-                            <li class="comment">
+                            <li class="comment single">
                                 <Comment comment={post.comments[0]} />
                             </li>
                         {:else}
@@ -418,6 +418,10 @@
 
     .comment {
         position: relative;
+    }
+
+    .comment.single {
+        padding-top: 0.75rem;
     }
 
     .comment:not(:last-of-type) {
