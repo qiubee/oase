@@ -1,27 +1,10 @@
 <script lang="ts">
-    import type { Post, Sorted } from "src/@types/main";
-    import { sorted, posts } from "../../store";
-
-    enum SortComments {
-        NEW,
-        OLD,
-    }
-
-    enum SortPosts {
-        NEW,
-        TRENDING,
-        TOP,
-    }
-
-    const types = [
-        "posts",
-        "comments"
-    ] as const;
-
-    type SortTypes = typeof types[number];
+    import { Post, SortComments, SortPosts, SortTypes } from "../../@types/main";
+    import { currentSorting } from "../../store";
+    import { sort } from "../../actions";
 
     let sortIndex: SortComments | SortPosts = 0;
-    const dropdownOptions: string[] = ["Nieuw", "Oud"];
+    const dropdownOptions: string[] = ["Nieuw - Oud", "Oud - Nieuw"];
     let dropdownHidden = true;
     export let position: "left" | "right" = "left";
     export let type: SortTypes = "posts";
@@ -31,72 +14,17 @@
         dropdownHidden = dropdownHidden === true ? false : true;
     }
 
-    function sort(type: SortTypes, option: SortComments | SortPosts): void {
+    function doSort(type: SortTypes, option: SortComments | SortPosts) {
         sortIndex = option;
-        if (type === "posts") {
-            if (option === SortPosts.NEW) {
-                $sorted.posts = <Sorted["posts"]>$posts.sort(function (a, b) {
-                    if (a.timestamp < b.timestamp) {
-                        return 1;
-                    } else if (a.timestamp > b.timestamp) {
-                        return -1;
-                    } else {
-                        return 0;
-                    }
-                });
-            }
-            if (option === SortPosts.TRENDING) {
-                $sorted.posts = <Sorted["posts"]>$posts.sort(function (a, b) {
-                    if (a.upvotes.length < b.upvotes.length || a.comments.length < b.comments.length && a.timestamp < b.timestamp) {
-                        return 1;
-                    } else if (a.upvotes.length > b.upvotes.length || a.comments.length > b.comments.length && a.timestamp > b.timestamp) {
-                        return -1;
-                    } else {
-                        return 0;
-                    }
-                });
-            }
-            if (option === SortPosts.TOP) {
-                $sorted.posts = <Sorted["posts"]>$posts.sort(function (a, b) {
-                    if (a.upvotes.length < b.upvotes.length) {
-                        return 1;
-                    } else if (a.upvotes.length > b.upvotes.length) {
-                        return -1;
-                    } else {
-                        0
-                    }
-                });
-            }
-        } else if (type === "comments" && post) {
-            if (option === SortComments.NEW) {
-                $sorted.comments = post.comments.sort(function (a, b) {
-                    if (parseInt(a.timestamp) < parseInt(b.timestamp)) {
-                        return 1;
-                    } else if (parseInt(a.timestamp) > parseInt(b.timestamp)) {
-                        return -1;
-                    } else {
-                        return 0;
-                    }
-                });
-            } else {
-                $sorted.comments = post.comments.sort(function (a, b) {
-                    if (parseInt(a.timestamp) > parseInt(b.timestamp)) {
-                        return 1;
-                    } else if (parseInt(a.timestamp) < parseInt(b.timestamp)) {
-                        return -1;
-                    } else {
-                        return 0;
-                    }
-                });
-            }
-        }
+        $currentSorting = sortIndex;
+        sort(type, option, post);
         dropdownHidden = true;
     }
 
     if (type === "posts") {
-        sort("posts", SortPosts.NEW);
+        doSort("posts", SortPosts.NEW);
     } else if (type === "comments") {
-        sort("comments", SortComments.NEW);
+        doSort("comments", SortComments.NEW);
     }
 </script>
 
@@ -112,17 +40,17 @@
             </button>
             <ul class="options {dropdownHidden ? "hidden" : ""}">
                 {#each dropdownOptions as option, index}
-                    <li on:click={() => sort("comments", index)} class="{dropdownOptions[sortIndex] === option ? "selected" :""}">{option}</li>
+                    <li on:click={() => doSort("comments", index)} class="{dropdownOptions[sortIndex] === option ? "selected" :""}">{option}</li>
                 {/each}
             </ul>
         </div>
     {:else if type === "posts"}
         <ul>
-            <li on:click={() => sort("posts", SortPosts.NEW)} class="{sortIndex === SortPosts.NEW ? "selected": ""}"><svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 41 41"><path d="M20.313,40.625a8.554,8.554,0,0,1-6.936-3.56,8.546,8.546,0,0,1-9.816-9.814,8.541,8.541,0,0,1,0-13.875,8.542,8.542,0,0,1,9.814-9.815,8.542,8.542,0,0,1,13.876,0,8.541,8.541,0,0,1,9.814,9.814,8.544,8.544,0,0,1,0,13.875,8.541,8.541,0,0,1-9.813,9.815A8.558,8.558,0,0,1,20.313,40.625Zm-5.7-9.043a2.5,2.5,0,0,1,2.359,1.675,3.575,3.575,0,0,0,.84,1.328,3.509,3.509,0,0,0,2.5,1.04,3.55,3.55,0,0,0,3.345-2.371A2.5,2.5,0,0,1,27.1,31.83a3.625,3.625,0,0,0,4.041-.69,3.548,3.548,0,0,0,.687-4.04,2.5,2.5,0,0,1,1.428-3.443,3.563,3.563,0,0,0,1.329-.84l0,0a3.508,3.508,0,0,0,1.036-2.5,3.551,3.551,0,0,0-2.372-3.345,2.5,2.5,0,0,1-1.422-3.446A3.544,3.544,0,0,0,27.1,8.8a2.5,2.5,0,0,1-3.444-1.43,3.544,3.544,0,0,0-6.687.006,2.5,2.5,0,0,1-3.447,1.421,3.631,3.631,0,0,0-4.036.69A3.551,3.551,0,0,0,8.8,13.526a2.5,2.5,0,0,1-1.43,3.443,3.544,3.544,0,0,0,.006,6.688A2.5,2.5,0,0,1,8.794,27.1a3.545,3.545,0,0,0,4.732,4.727A2.5,2.5,0,0,1,14.609,31.582Z"/></svg>Nieuw</li>
-            <li on:click={() => sort("posts", SortPosts.TRENDING)} class="{sortIndex === SortPosts.TRENDING ? "selected": ""}"><svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 10.5 13">
+            <li on:click={() => doSort("posts", SortPosts.NEW)} class="{sortIndex === SortPosts.NEW ? "selected": ""}"><svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 41 41"><path d="M20.313,40.625a8.554,8.554,0,0,1-6.936-3.56,8.546,8.546,0,0,1-9.816-9.814,8.541,8.541,0,0,1,0-13.875,8.542,8.542,0,0,1,9.814-9.815,8.542,8.542,0,0,1,13.876,0,8.541,8.541,0,0,1,9.814,9.814,8.544,8.544,0,0,1,0,13.875,8.541,8.541,0,0,1-9.813,9.815A8.558,8.558,0,0,1,20.313,40.625Zm-5.7-9.043a2.5,2.5,0,0,1,2.359,1.675,3.575,3.575,0,0,0,.84,1.328,3.509,3.509,0,0,0,2.5,1.04,3.55,3.55,0,0,0,3.345-2.371A2.5,2.5,0,0,1,27.1,31.83a3.625,3.625,0,0,0,4.041-.69,3.548,3.548,0,0,0,.687-4.04,2.5,2.5,0,0,1,1.428-3.443,3.563,3.563,0,0,0,1.329-.84l0,0a3.508,3.508,0,0,0,1.036-2.5,3.551,3.551,0,0,0-2.372-3.345,2.5,2.5,0,0,1-1.422-3.446A3.544,3.544,0,0,0,27.1,8.8a2.5,2.5,0,0,1-3.444-1.43,3.544,3.544,0,0,0-6.687.006,2.5,2.5,0,0,1-3.447,1.421,3.631,3.631,0,0,0-4.036.69A3.551,3.551,0,0,0,8.8,13.526a2.5,2.5,0,0,1-1.43,3.443,3.544,3.544,0,0,0,.006,6.688A2.5,2.5,0,0,1,8.794,27.1a3.545,3.545,0,0,0,4.732,4.727A2.5,2.5,0,0,1,14.609,31.582Z"/></svg>Nieuw</li>
+            <li on:click={() => doSort("posts", SortPosts.TRENDING)} class="{sortIndex === SortPosts.TRENDING ? "selected": ""}"><svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 10.5 13">
                 <path id="Path_430" data-name="Path 430" d="M206.937,79.692a4.385,4.385,0,1,1-8.77,0c0-1.572,1.2-3.793,2.105-3.793.7,0,.766,2.575,1.357,2.836,1.114.492.539-5.568,1.862-5.568C205.684,73.167,206.937,77.27,206.937,79.692Z" transform="translate(-197.417 -72.417)" fill="none" stroke="#000" stroke-width="1.5"/>
             </svg>Trending</li>
-            <li on:click={() => sort("posts", SortPosts.TOP)} class="{sortIndex === SortPosts.TOP ? "selected": ""}"><svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 10.5 12">
+            <li on:click={() => doSort("posts", SortPosts.TOP)} class="{sortIndex === SortPosts.TOP ? "selected": ""}"><svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 10.5 12">
                 <g id="Group_768" data-name="Group 768" transform="translate(-323.542 -83.375)">
                 <rect id="Rectangle_1827" data-name="Rectangle 1827" width="2.746" height="4.393" rx="0.5" transform="translate(330.419 89.844)" fill="none" stroke="#000" stroke-width="1.25"/>
                 <rect id="Rectangle_1828" data-name="Rectangle 1828" width="2.746" height="10.237" rx="0.5" transform="translate(324.167 84)" fill="none" stroke="#000" stroke-width="1.25"/>
@@ -201,7 +129,8 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 8rem;
+        min-width: 8rem;
+        width: 100%;
         color: black;
         color: var(--cmd-color-black);
         background-color: #FFF021;
@@ -211,6 +140,10 @@
         font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-weight: bold;
+    }
+
+    .comments button span {
+        margin-right: 0.5rem;
     }
 
     .comments .options {

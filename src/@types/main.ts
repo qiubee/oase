@@ -35,10 +35,13 @@ const allRouteNames = [
   "profile",
 ] as const;
 
+const types = ["posts", "comments"] as const;
+
 export type Categories = typeof allCategories[number];
 export type StatusOptions = typeof allStatusOptions[number];
 export type PostStatuses = typeof allPostStatus[number];
 export type RouteNames = typeof allRouteNames[number];
+export type SortTypes = typeof types[number];
 
 export enum PostStatus {
   DISCUSSION,
@@ -47,6 +50,17 @@ export enum PostStatus {
   EXECUTING,
   COMPLETE,
   DISMISSED,
+}
+
+export enum SortComments {
+  NEW,
+  OLD,
+}
+
+export enum SortPosts {
+  NEW,
+  TRENDING,
+  TOP,
 }
 
 export type Status = {

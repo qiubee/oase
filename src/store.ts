@@ -1,5 +1,12 @@
 import { readable, writable } from "svelte/store";
-import type { Theme, NewsPost, Sorted, Category } from "src/@types/main";
+import type {
+  Theme,
+  NewsPost,
+  Sorted,
+  Category,
+  SortPosts,
+  SortComments,
+} from "src/@types/main";
 import { allStatusOptions } from "./@types/main";
 import allStudents from "./db/students.json";
 import allRepresentatives from "./db/representatives.json";
@@ -25,3 +32,4 @@ export const representatives = writable(allRepresentatives);
 export const news = readable<NewsPost[]>(allNews);
 export const sorted = writable<Sorted>({ posts: [], comments: [] });
 export const statuses = readable(allPostStatus);
+export const currentSorting = writable<SortComments | SortPosts>(0);
