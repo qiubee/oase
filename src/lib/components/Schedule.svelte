@@ -250,7 +250,7 @@
         display: block;
         width: 3px;
         height: 3px;
-        left: 1rem;
+        left: calc(50% - 1px);
         bottom: 0.35rem;
         background-color: black;
         background-color: var(--cmd-color-black);
