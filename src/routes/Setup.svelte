@@ -187,11 +187,11 @@
                 <ol>
                     <li>Ga respectvol met elkaar om.</li>
                     <li>Bedreiging, discriminitie en intimidatie zijn absoluut verboden.</li>
-                    <li>Gebruik geen obscene, stuitende of overmatig gewelddadige taal.</li>
+                    <li>Gebruik geen obscene, stuitende of gewelddadige taal.</li>
                     <li>Blijf bij het onderwerp en ga niet off-topic.</li>
                     <li>Plaats je bericht maar één keer.</li>
                     <li>Plaats geen gevoelige informatie (van anderen).</li>
-                    <li>Niet lastigvallen, beledigen, bespotten, uitlokken, vernederen of persoonlijke aanvallen van andere studenten. Wees vriendelijk, ook als anderen dat niet zijn.</li>
+                    <li>Niet lastigvallen, beledigen, bespotten, uitlokken, vernederen van andere studenten. Wees vriendelijk, ook als anderen dat niet zijn.</li>
                 </ol>
             </div>
         {/if}
