@@ -9,6 +9,7 @@
     import { posts, students, userID, statuses, sorted } from "../store";
     import { timeDiff } from "./../utils/utils";
     import { beforeUpdate, setContext } from "svelte";
+    import brokenSVG from "./../assets/broken.svg";
 
     type Params = {
         id?: string
@@ -65,7 +66,7 @@
                 <header>
                     <div class="metadata">
                         <div class="photo">
-                            <img src="{author.photoURL}" alt="Profiel foto {author.firstName} {author.lastNameVisible ? author.lastName : ""}">
+                            <img src="{author.photoURL ? author.photoURL : brokenSVG}" alt="Profiel foto {author.firstName} {author.lastNameVisible ? author.lastName : ""}">
                         </div>
                         <span class="name">{author.firstName} {author.lastNameVisible ? author.lastName : ""}</span>
                         <span class="time">{timeDiff(new Date(parseInt(post.timestamp)), new Date())}</span>
@@ -232,6 +233,9 @@
         width: 100%;
         height: 100%;
         border-radius: 3.5rem;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     article .metadata .photo img::before,

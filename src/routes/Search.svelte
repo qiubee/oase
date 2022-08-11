@@ -7,6 +7,7 @@
     import Categories from "../lib/components/Categories.svelte";
     import { calcContentView } from "../utils/utils"
     import { statuses, representatives, posts } from "../store";
+    import brokenSVG from "./../assets/broken.svg";
 
     type ActiveRepresentatives = {
         replies: number;
@@ -75,7 +76,7 @@
                         <li>
                             <div class="metadata">
                                 <div class="photo">
-                                    <img src="{rep.photoURL}" alt="Profiel foto {rep.firstName} {rep.lastName}">
+                                    <img src="{rep.photoURL ? rep.photoURL : brokenSVG}" alt="Profiel foto {rep.firstName} {rep.lastName}">
                                 </div>
                                 <div>
                                     <div class="name">
@@ -239,6 +240,9 @@
         width: 100%;
         height: 100%;
         border-radius: 3.5rem;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     .metadata .photo img::before {

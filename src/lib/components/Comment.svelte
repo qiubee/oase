@@ -2,7 +2,8 @@
     import type { Comment } from "src/@types/main";
     import { students, representatives, userID } from "../../store";
     import { timeDiff } from "../../utils/utils";
- 
+    import brokenSVG from "./../../assets/broken.svg";
+
     export let comment: Comment = null;
 
 </script>
@@ -13,14 +14,14 @@
             {#if comment.userType === "student"}
             {@const student = $students.find((student) => student.id === comment.userID)}
                 <div class="photo">
-                    <img src="{student.photoURL}" alt="Profielfoto {student.firstName} {student.lastNameVisible ? student.lastName : ""}">
+                    <img src="{student.photoURL ? student.photoURL : brokenSVG}" alt="Profielfoto {student.firstName} {student.lastNameVisible ? student.lastName : ""}">
                 </div>
                 <span class="name">{student.firstName} {student.lastNameVisible ? student.lastName : ""}</span>
             {:else if comment.userType === "representative"}
             {@const representative = $representatives.find((rep) => rep.id === comment.userID)}
                 <div class="representative">
                     <div class="photo">
-                        <img src="{representative.photoURL}" alt="Profielfoto {representative.firstName} {representative.lastName}">
+                        <img src="{representative.photoURL ? representative.photoURL : brokenSVG}" alt="Profielfoto {representative.firstName} {representative.lastName}">
                     </div>
                     <span class="name">{representative.firstName} {representative.lastName}</span>
                     <svg width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 118"><polygon points="85.34 44.501 56.35 73.501 49.98 79.861 32.66 62.541 39.02 56.171 49.99 67.141 78.98 38.141 85.34 44.501"/><circle cx="38.333" cy="86.334" r="3.333"/><circle cx="51.667" cy="99.667" r="3.333"/><circle cx="11.333" cy="59.334" r="3.333"/><circle cx="24.667" cy="59.334" r="3.333"/><circle cx="24.667" cy="72.667" r="3.333"/><circle cx="24.667" cy="86.334" r="3.333"/><path d="M118,59a22.028,22.028,0,0,0-11.86-19.52,22.285,22.285,0,0,0,1.02-6.64A22,22,0,0,0,78.52,11.86a22.129,22.129,0,0,0-3.97-5.41A21.8,21.8,0,0,0,59,0,22.028,22.028,0,0,0,39.48,11.86a22.285,22.285,0,0,0-6.64-1.02A22,22,0,0,0,11.86,39.48a22.129,22.129,0,0,0-5.41,3.97A21.8,21.8,0,0,0,0,59,22.055,22.055,0,0,0,11.86,78.53a22.171,22.171,0,0,0-1.02,6.63,22,22,0,0,0,28.64,20.98,22.129,22.129,0,0,0,3.97,5.41A21.8,21.8,0,0,0,59,118a22.028,22.028,0,0,0,19.52-11.86,22.283,22.283,0,0,0,6.64,1.02,22,22,0,0,0,20.98-28.64A22.046,22.046,0,0,0,118,59ZM107.31,70.31a16.06,16.06,0,0,1-6.01,3.79,2.994,2.994,0,0,0-1.71,4.13A16.015,16.015,0,0,1,78.23,99.59a3,3,0,0,0-4.13,1.71,16,16,0,0,1-7.48,8.76,3.284,3.284,0,0,0-1.62-.42,3.336,3.336,0,0,0-3.09,2.09A15.6,15.6,0,0,1,59,112a15.781,15.781,0,0,1-5.14-.84A3.331,3.331,0,0,0,51.33,110h-.08a15.594,15.594,0,0,1-3.56-2.69,16.06,16.06,0,0,1-3.79-6.01,2.983,2.983,0,0,0-1.68-1.78,3.74,3.74,0,0,0-.57-.17,3.332,3.332,0,0,0-6.65.32,3.2,3.2,0,0,0,.27,1.31,16.041,16.041,0,0,1-7.35-.59,3.38,3.38,0,0,0,.08-.72,3.324,3.324,0,0,0-5.63-2.41c-.29-.24-.57-.5-.85-.78a16.048,16.048,0,0,1-3.11-18.25A2.994,2.994,0,0,0,16.7,74.1a14.879,14.879,0,0,1-2.08-.91,2.24,2.24,0,0,0,.05-.52,3.327,3.327,0,0,0-4.64-3.07,15.96,15.96,0,0,1-.1-21.09A3.331,3.331,0,0,0,15,45.67a3.187,3.187,0,0,0-.15-.98,14.291,14.291,0,0,1,1.85-.79,2.994,2.994,0,0,0,1.71-4.13A16.015,16.015,0,0,1,39.77,18.41,3,3,0,0,0,43.9,16.7a16.01,16.01,0,0,1,30.2,0,2.994,2.994,0,0,0,4.13,1.71A16.015,16.015,0,0,1,99.59,39.77a2.991,2.991,0,0,0-.07,2.45,2.956,2.956,0,0,0,1.78,1.68,15.973,15.973,0,0,1,6.01,26.41Z"/>
@@ -98,6 +99,9 @@
         width: 100%;
         height: 100%;
         border-radius: 3.5rem;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     .comment .metadata .photo img::before {

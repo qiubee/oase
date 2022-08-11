@@ -9,6 +9,7 @@
     import { categories, currentTheme, themes, students, userID, statusOptions, onboard } from "../store";
     import { openUploadDialog } from "../utils/utils";
     import { follow } from "../actions";
+    import brokenSVG from "../assets/broken.svg";
 
     let headerHeight: number;
     let contentHeight: number;
@@ -141,7 +142,7 @@
             {:else if $currentStep === 3}
             <div class="preview">
                 <div class="photo">
-                    <img src="{user.photoURL}" alt="Profiel foto">
+                    <img src="{user.photoURL ? user.photoURL : brokenSVG}" alt="Profiel foto">
                 </div>
                 <span class="name">{user.firstName} {user.lastNameVisible ? user.lastName : ""}</span>
                 <span class="study">#{user.study.abbreviation}</span>
@@ -152,7 +153,7 @@
             <div class="settings">
                 <div class="image" on:click={openUploadDialog}>
                     <div class="photo">
-                        <img src="{user.photoURL}" alt="Profiel foto">
+                        <img src="{user.photoURL ? user.photoURL : brokenSVG}" alt="Profiel foto">
                     </div>
                     <span>wijzig profielfoto</span>
                     <input type="file" accept="image/png, image/jpeg" name="avatar" hidden on:change={uploadImage}>
@@ -380,6 +381,9 @@
         width: 100%;
         height: 100%;
         border-radius: 3.5rem;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     .photo img::before {

@@ -1,5 +1,6 @@
 <script lang="ts">
     import { students, userID } from "../../../store";
+    import brokenSVG from "./../../../assets/broken.svg";
 
     let user = $students.find(user => user.id === $userID);
 
@@ -9,7 +10,7 @@
 
 <button class="settings" on:click={updateSettings}>
     <div class="photo">
-        <img src="{user.photoURL}" alt="Profiel foto {user.firstName} user.lastName}">
+        <img src="{user.photoURL ? user.photoURL : brokenSVG}" alt="Profiel foto {user.firstName} {user.lastName}">
     </div>
     {#if user.status.visible}
         <span class="status">{user.status.text}</span>
@@ -41,6 +42,9 @@
         width: 100%;
         height: 100%;
         border-radius: 3.5rem;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     .photo img::before {

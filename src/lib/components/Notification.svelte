@@ -3,6 +3,7 @@
     import type { Post } from "src/@types/main"
     import { students, representatives } from "../../store"
     import { timeDiff } from "../../utils/utils";
+    import brokenSVG from "./../../assets/broken.svg";
 
     enum Notification {
         UPVOTES,
@@ -68,7 +69,7 @@
                 {#if comment.userType === "student"}
                 {@const student = $students.find((student) => student.id === comment.userID)}
                     <div class="photo">
-                        <img src="{student.photoURL}" alt="Profielfoto {student.firstName} {student.lastNameVisible ? student.lastName : ""}">
+                        <img src="{student.photoURL ? student.photoURL : brokenSVG}" alt="Profielfoto {student.firstName} {student.lastNameVisible ? student.lastName : ""}">
                     </div>
                     <span class="name">{student.firstName} {student.lastNameVisible ? student.lastName : ""}</span>
                 {:else if comment.userType === "representative"}
@@ -235,6 +236,9 @@
         width: 100%;
         height: 100%;
         border-radius: 3.5rem;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     .embed .photo img::before {

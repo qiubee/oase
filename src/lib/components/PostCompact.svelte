@@ -3,6 +3,7 @@
     import { push } from "svelte-spa-router";
     import { students, posts, userID, statuses } from "../../store";
     import { timeDiff } from "../../utils/utils";
+    import brokenSVG from "./../../assets/broken.svg";
 
     export let postID: number;
     let voted: boolean = false;
@@ -50,7 +51,7 @@
         <header>
             <div class="metadata">
                 <div class="photo">
-                    <img src="{author.photoURL}" alt="Profiel foto {author.firstName} {author.lastNameVisible ? author.lastName : ""}">
+                    <img src="{author.photoURL ? author.photoURL : brokenSVG}" alt="Profiel foto {author.firstName} {author.lastNameVisible ? author.lastName : ""}">
                 </div>
                 <span class="name">{author.firstName} {author.lastNameVisible ? author.lastName : ""}</span>
                 <span class="time">{timeDiff(new Date(parseInt(post.timestamp)), new Date())}</span>
