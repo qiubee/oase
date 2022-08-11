@@ -168,7 +168,7 @@
     }
 
     .comment:first-child .timeline {
-        top: -75%;
+        top: -60%;
         height: 75%;
     }
 </style>
