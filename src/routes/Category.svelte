@@ -1,8 +1,9 @@
 <script lang="ts">
+    import type { Post } from "src/@types/main";
     import { setContext, onMount } from "svelte";
     import TopBar from "../lib/components/TopBar.svelte";
     import PostCompact from "../lib/components/PostCompact.svelte";
-    import { categories, sorted } from "../store";
+    import { categories, sorted, posts} from "../store";
     import Sort from "../lib/components/Sort.svelte";
     import { calcContentView } from "../utils/utils";
 
@@ -14,12 +15,13 @@
     let header: HTMLElement;
     let contentHeight: number;
 
+    $sorted.posts = <Post[]>$posts;
+
     setContext("categoryID", $categories.find((cat) => cat.name === params.category).id)
 
     $: filteredPosts = $sorted.posts.filter(function (post) {
         return post.category === params.category;
     });
-
 
     onMount(function () {
         contentHeight = calcContentView(header);
@@ -30,10 +32,22 @@
     <div class="content">
         <TopBar bind:node={header} category={params.category}/>
         <main style="max-height: {contentHeight}px;">
-            <Sort type={"posts"}/>
-            {#each filteredPosts as post (post.id)}
-            <PostCompact postID={post.id} />
-            {/each}
+            {#if filteredPosts.length > 0}
+                {#if filteredPosts.length > 1}
+                    <Sort type={"posts"}/>
+                {/if}
+                {#each filteredPosts as post (post.id)}
+                    {#if filteredPosts.length === 1}
+                        <div class="single">
+                            <PostCompact postID={post.id} />
+                        </div>
+                    {:else}
+                    <PostCompact postID={post.id} />
+                    {/if}
+                {/each}
+            {:else}
+                <p>Er zijn geen discussies over dit onderwerp.</p>
+            {/if}
         </main>
     </div>
 </div>
@@ -49,6 +63,16 @@
 
     main::-webkit-scrollbar {
         display: none;
+    }
+
+    p {
+        margin: 0 0.75rem;
+        padding-top: 2.5rem;
+        text-align: center;
+    }
+
+    .single {
+        margin-top: 1rem;
     }
 
     @media (hover) {
