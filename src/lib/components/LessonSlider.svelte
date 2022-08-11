@@ -12,6 +12,7 @@
     })
 
     let scrollPosition = 0;
+    let cardID = 0;
     let cardOffsetWidth: number;
     let slider: HTMLElement;
     let cardPositions: number[] = [];
@@ -26,23 +27,25 @@
         }
     }
 
-    function stopAutoScroll(): void {
+    function pauzeAutoScroll(): void {
         clearTimeout(timer);
+        window.setTimeout(function () {
+            autoScroll();
+        }, 15000);
     }
 
     function autoScroll(): void {
-        let id = 0;
         timer = window.setTimeout(scrollCard, 0);
         function scrollCard() {
             if (slider) {
-                if (id >= slider.children.length) {
-                    id = 0;
+                if (cardID >= slider.children.length) {
+                    cardID = 0;
                 }
                 slider.scrollTo({
                     behavior: "smooth",
-                    left: cardOffsetWidth * id,
+                    left: cardOffsetWidth * cardID,
                 });
-                id++;
+                cardID++;
                 timer = window.setTimeout(scrollCard, 7500);
             }
         }
@@ -60,7 +63,7 @@
     <div class="lessons">
         <h2>Vandaag</h2>
         <div>
-            <ul bind:this={slider} on:scroll={updateScrollPosition} on:pointerdown|once={stopAutoScroll}>
+            <ul bind:this={slider} on:scroll={updateScrollPosition} on:pointerdown={pauzeAutoScroll}>
                 {#each lessonsToday as lesson}
                 {@const startMinutes = new Date(parseInt(lesson.time.start)).getMinutes()}
                 {@const startHours = new Date(parseInt(lesson.time.start)).getHours()}
