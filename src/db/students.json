@@ -20,11 +20,11 @@
     },
     "lessons": [
       {
-        "name": "Project team 2",
-        "room": "TTH 02B03 Visual Interface Design Lab",
+        "name": "Content",
+        "room": "TTH 02B10",
         "time": {
-          "start": "1661949000000",
-          "end": "1661954400000"
+          "start": "1661927400000",
+          "end": "1661936400000"
         },
         "image": ""
       },
@@ -38,38 +38,1163 @@
         "image": ""
       },
       {
-        "name": "Content",
-        "room": "TTH 02B10",
+        "name": "Project team 2",
+        "room": "TTH 02B03 Visual Interface Design Lab",
         "time": {
-          "start": "1661927400000",
-          "end": "1661936400000"
+          "start": "1661949000000",
+          "end": "1661954400000"
         },
         "image": ""
       },
       {
-        "name": "Project team 2",
+        "name": "Content",
+        "room": "Online",
+        "time": {
+          "start": "1662366000000",
+          "end": "1662369000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden",
+        "room": "Online",
+        "time": {
+          "start": "1662369000000",
+          "end": "1662372000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Vormgeving",
+        "room": "Online",
+        "time": {
+          "start": "1662372000000",
+          "end": "1662375000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden",
+        "room": "TTH 02B21",
+        "time": {
+          "start": "1662464400000",
+          "end": "1662470400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Content",
+        "room": "TTH 02B10",
+        "time": {
+          "start": "1662532200000",
+          "end": "1662541200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "SLB jaar 1",
+        "room": "TTH 02B06 Robotica Lab",
+        "time": {
+          "start": "1662544800000",
+          "end": "1662550800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Vormgeving",
+        "room": "TTH 01B36",
+        "time": {
+          "start": "1662553800000",
+          "end": "1662562800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Vormgeving",
+        "room": "Online",
+        "time": {
+          "start": "1662631200000",
+          "end": "1662637200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden",
+        "room": "TTH 01B36",
+        "time": {
+          "start": "1662643200000",
+          "end": "1662649200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden",
+        "room": "Online",
+        "time": {
+          "start": "1662970800000",
+          "end": "1662976800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden",
+        "room": "Online",
+        "time": {
+          "start": "1662970800000",
+          "end": "1662976800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Coachingsgesprekken",
+        "room": "Online",
+        "time": {
+          "start": "1662976800000",
+          "end": "1662982800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Vormgeving",
+        "room": "TTH 02B06 Robotica Lab",
+        "time": {
+          "start": "1663063200000",
+          "end": "1663072200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Content",
+        "room": "TTH 02B06 Robotica Lab",
+        "time": {
+          "start": "1663075200000",
+          "end": "1663084200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Content",
+        "room": "TTH 02B23 Design Lab",
+        "time": {
+          "start": "1663239000000",
+          "end": "1663248000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Vormgeving",
+        "room": "Online",
+        "time": {
+          "start": "1663254000000",
+          "end": "1663260000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden",
+        "room": "TTH 02B06 Robotica Lab",
+        "time": {
+          "start": "1663328400000",
+          "end": "1663334400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Kennismakingsgesprek",
+        "room": "TTH 03B25",
+        "time": {
+          "start": "1663334400000",
+          "end": "1663343400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden",
+        "room": "Online",
+        "time": {
+          "start": "1663575600000",
+          "end": "1663581600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden",
+        "room": "TTH 02B06 Robotica Lab",
+        "time": {
+          "start": "1663593600000",
+          "end": "1663602600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Vormgeving",
+        "room": "TTH 02B06 Robotica Lab",
+        "time": {
+          "start": "1663668000000",
+          "end": "1663677000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Content",
+        "room": "TTH 02B12",
+        "time": {
+          "start": "1663680000000",
+          "end": "1663689000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Kennismakingsgesprek",
+        "room": "TTH 03B25",
+        "time": {
+          "start": "1663748400000",
+          "end": "1663757400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "SLB jaar 1",
+        "room": "TTH 02B09",
+        "time": {
+          "start": "1663763400000",
+          "end": "1663769400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Coachingsgesprekken",
+        "room": "Online",
+        "time": {
+          "start": "1663828200000",
+          "end": "1663834200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Vormgeving",
+        "room": "Online",
+        "time": {
+          "start": "1663834800000",
+          "end": "1663840800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Content",
+        "room": "Online",
+        "time": {
+          "start": "1663858800000",
+          "end": "1663864800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "SLB jaar 1 - social hour",
+        "room": "TTH 02B23 Design Lab",
+        "time": {
+          "start": "1663936200000",
+          "end": "1663942200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden",
+        "room": "TTH 02B08 Design Lab",
+        "time": {
+          "start": "1664183400000",
+          "end": "1664189400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden herkansing",
+        "room": "TTH 02B09",
+        "time": {
+          "start": "1664207400000",
+          "end": "1664213400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Kennismakingsgesprek",
+        "room": "TTH 03B25",
+        "time": {
+          "start": "1664275800000",
+          "end": "1664284800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Content",
+        "room": "TTH 02B12",
+        "time": {
+          "start": "1664284800000",
+          "end": "1664293800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Vormgeving",
+        "room": "Online",
+        "time": {
+          "start": "1664349600000",
+          "end": "1664379600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Coachingsgesprekken",
+        "room": "Online",
+        "time": {
+          "start": "1664448600000",
+          "end": "1664454600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden",
+        "room": "Online",
+        "time": {
+          "start": "1664454600000",
+          "end": "1664460600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Content",
+        "room": "Online",
+        "time": {
+          "start": "1664463600000",
+          "end": "1664469600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden",
+        "room": "TTH 02B06 Robotica Lab",
+        "time": {
+          "start": "1664538000000",
+          "end": "1664544000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Vormgeving",
+        "room": "TTH 02B06 Robotica Lab",
+        "time": {
+          "start": "1664877600000",
+          "end": "1664886600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden",
+        "room": "TTH 02B10",
+        "time": {
+          "start": "1664889600000",
+          "end": "1664895600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "SLB jaar 1",
+        "room": "TTH 02B06 Robotica Lab",
+        "time": {
+          "start": "1664958000000",
+          "end": "1664964000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Vormgeving",
+        "room": "Online",
+        "time": {
+          "start": "1665044400000",
+          "end": "1665050400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Content",
+        "room": "Online",
+        "time": {
+          "start": "1665053400000",
+          "end": "1665071400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden",
+        "room": "Online",
+        "time": {
+          "start": "1665124200000",
+          "end": "1665133200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden",
+        "room": "Online",
+        "time": {
+          "start": "1665136800000",
+          "end": "1665142800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Coachingsgesprekken",
+        "room": "Online",
+        "time": {
+          "start": "1665142800000",
+          "end": "1665148800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden Mondeling",
+        "room": "TTH 04B01",
+        "time": {
+          "start": "1665383400000",
+          "end": "1665398400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Internetstandaarden Mondeling",
+        "room": "TTH 04B01",
+        "time": {
+          "start": "1665402000000",
+          "end": "1665417000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Coachingsgesprekken",
+        "room": "Online",
+        "time": {
+          "start": "1665482400000",
+          "end": "1665488400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Content Mondeling",
+        "room": "Online",
+        "time": {
+          "start": "1665556200000",
+          "end": "1665574200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Content Mondeling",
+        "room": "Online",
+        "time": {
+          "start": "1665574800000",
+          "end": "1665592800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Vormgeving Mondeling",
+        "room": "Online",
+        "time": {
+          "start": "1665645600000",
+          "end": "1665675600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Herfstvakantie",
+        "room": "",
+        "time": {
+          "start": "1665988200000",
+          "end": "1666021200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Herfstvakantie",
+        "room": "",
+        "time": {
+          "start": "1666074600000",
+          "end": "1666107600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Herfstvakantie",
+        "room": "",
+        "time": {
+          "start": "1666161000000",
+          "end": "1666194000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Herfstvakantie",
+        "room": "",
+        "time": {
+          "start": "1666247400000",
+          "end": "1666280400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Herfstvakantie",
+        "room": "",
+        "time": {
+          "start": "1666333800000",
+          "end": "1666366800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Kick off week 1",
+        "room": "Online",
+        "time": {
+          "start": "1666596000000",
+          "end": "1666602000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Project individueel 1",
+        "room": "TTH 06B13",
+        "time": {
+          "start": "1666617600000",
+          "end": "1666626600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Project individueel 1",
+        "room": "Online",
+        "time": {
+          "start": "1666784400000",
+          "end": "1666790400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Project individueel 1",
         "room": "TTH 02B03 Visual Interface Design Lab",
         "time": {
-          "start": "1660134600000",
-          "end": "1660140000000"
+          "start": "1666957200000",
+          "end": "1666969200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Kick off week 2",
+        "room": "Online",
+        "time": {
+          "start": "1667204400000",
+          "end": "1667210400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Project individueel 1",
+        "room": "TTH 02B21",
+        "time": {
+          "start": "1667226000000",
+          "end": "1667235000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Project individueel 1",
+        "room": "Online",
+        "time": {
+          "start": "1667392800000",
+          "end": "1667398800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Project individueel 1",
+        "room": "TTH 02B06 Robotica Lab",
+        "time": {
+          "start": "1667562600000",
+          "end": "1667574600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Kick off week 3",
+        "room": "Online",
+        "time": {
+          "start": "1667809200000",
+          "end": "1667815200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Project individueel 1",
+        "room": "TTH 02B09",
+        "time": {
+          "start": "1667905200000",
+          "end": "1667917200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Project individueel 1",
+        "room": "Online",
+        "time": {
+          "start": "1667997600000",
+          "end": "1667997600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Project individueel 1",
+        "room": "TTH 02B06 Robotica Lab",
+        "time": {
+          "start": "1668154800000",
+          "end": "1668160800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Ontwerpgeschiedenis",
+        "room": "Online",
+        "time": {
+          "start": "1668414000000",
+          "end": "1668417000000"
         },
         "image": ""
       },
       {
         "name": "User Centered Design",
-        "room": "TTH 02B21",
+        "room": "Online",
         "time": {
-          "start": "1660125600000",
-          "end": "1660131600000"
+          "start": "1668417600000",
+          "end": "1668420600000"
         },
         "image": ""
       },
       {
-        "name": "Content",
-        "room": "TTH 02B10",
+        "name": "SLB jaar 1",
+        "room": "Online",
         "time": {
-          "start": "1660113000000",
-          "end": "1660122000000"
+          "start": "1668420600000",
+          "end": "1668426600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "TTH 02B23 Design Lab",
+        "time": {
+          "start": "1668432600000",
+          "end": "1668438600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Ontwerpgeschiedenis",
+        "room": "Teylers Museum, Haarlem",
+        "time": {
+          "start": "1668513000000",
+          "end": "1668531000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "SLB jaar 1",
+        "room": "TTH 02B12",
+        "time": {
+          "start": "1668583800000",
+          "end": "1668589800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Human Computer Interaction",
+        "room": "TTH 02B12",
+        "time": {
+          "start": "1668590400000",
+          "end": "1668599400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "TTH 02B12",
+        "time": {
+          "start": "1668602400000",
+          "end": "1668611400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Human Computer Interaction",
+        "room": "TTH 02B03 Visual Interface Design Lab",
+        "time": {
+          "start": "1668763200000",
+          "end": "1668772200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Ontwerpgeschiedenis",
+        "room": "TTH 02B06 Robotica Lab",
+        "time": {
+          "start": "1668775200000",
+          "end": "1668784200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Ontwerpgeschiedenis",
+        "room": "Online",
+        "time": {
+          "start": "1669018800000",
+          "end": "1669021800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "Online",
+        "time": {
+          "start": "1669022400000",
+          "end": "1669025400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "Online",
+        "time": {
+          "start": "1669031400000",
+          "end": "1669034400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Coachingsgesprek",
+        "room": "Online",
+        "time": {
+          "start": "1669040400000",
+          "end": "1669046400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Human Computer Interaction",
+        "room": "TTH 02B12",
+        "time": {
+          "start": "1669195200000",
+          "end": "1669204200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "TTH 02B12",
+        "time": {
+          "start": "1669207200000",
+          "end": "1669216200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Human Computer Interaction",
+        "room": "TTH 02B03 Visual Interface Design Lab",
+        "time": {
+          "start": "1669368000000",
+          "end": "1669377000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Ontwerpgeschiedenis",
+        "room": "TTH 02B06 Robotica Lab",
+        "time": {
+          "start": "1669380000000",
+          "end": "1669389000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Ontwerpgeschiedenis",
+        "room": "Online",
+        "time": {
+          "start": "1669623600000",
+          "end": "1669626600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "Online",
+        "time": {
+          "start": "1669627200000",
+          "end": "1669630200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "Online",
+        "time": {
+          "start": "1669636200000",
+          "end": "1669639200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Human Computer Interaction",
+        "room": "Online",
+        "time": {
+          "start": "1669639200000",
+          "end": "1669645200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Human Computer Interaction",
+        "room": "TTH 02B12",
+        "time": {
+          "start": "1669800000000",
+          "end": "1669809000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "TTH 02B12",
+        "time": {
+          "start": "1669812000000",
+          "end": "1669821000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "SLB Social hour",
+        "room": "TTH 02B09",
+        "time": {
+          "start": "1669821000000",
+          "end": "1669824000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Coachingsgesprek",
+        "room": "Online",
+        "time": {
+          "start": "1669904400000",
+          "end": "1669910400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Human Computer Interaction",
+        "room": "TTH 02B03 Visual Interface Design Lab",
+        "time": {
+          "start": "1669972800000",
+          "end": "1669981800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Ontwerpgeschiedenis",
+        "room": "TTH 02B06 Robotica Lab",
+        "time": {
+          "start": "1669984800000",
+          "end": "1669993800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Ontwerpgeschiedenis",
+        "room": "Online",
+        "time": {
+          "start": "1670228400000",
+          "end": "1670231400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "Online",
+        "time": {
+          "start": "1670232000000",
+          "end": "1670235000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "Online",
+        "time": {
+          "start": "1670241000000",
+          "end": "1670244000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Human Computer Interaction",
+        "room": "Online",
+        "time": {
+          "start": "1670244000000",
+          "end": "1670250000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Coachingsgesprek",
+        "room": "Online",
+        "time": {
+          "start": "1670250000000",
+          "end": "1670256000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Ontwerpgeschiedenis",
+        "room": "Museumplein, Amsterdam",
+        "time": {
+          "start": "1670327400000",
+          "end": "1670348400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "SLB functioneringsgesprek",
+        "room": "TTH 03B23",
+        "time": {
+          "start": "1670419800000",
+          "end": "1670428800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "TTH 02B03 Visual Interface Design Lab",
+        "time": {
+          "start": "1670500200000",
+          "end": "1670509200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "SLB functioneringsgesprek",
+        "room": "TTH 03B23",
+        "time": {
+          "start": "1670509200000",
+          "end": "1670518200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "SLB functioneringsgesprek",
+        "room": "TTH 04B01",
+        "time": {
+          "start": "1670574000000",
+          "end": "1670583000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Ontwerpgeschiedenis",
+        "room": "TTH 02B03 Visual Interface Design Lab",
+        "time": {
+          "start": "1670586600000",
+          "end": "1670595600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Human Computer Interaction",
+        "room": "Online",
+        "time": {
+          "start": "1670598600000",
+          "end": "1670601600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Human Computer Interaction - Toets Schriftelijk",
+        "room": "IWO Zaal Geel",
+        "time": {
+          "start": "1670846400000",
+          "end": "1670852400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "TTH 02B23 Design Lab",
+        "time": {
+          "start": "1670941200000",
+          "end": "1670950200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Coachingsgesprek",
+        "room": "Online",
+        "time": {
+          "start": "1671012600000",
+          "end": "1671018600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "Online",
+        "time": {
+          "start": "1671024600000",
+          "end": "1671036600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design",
+        "room": "Online",
+        "time": {
+          "start": "1671102000000",
+          "end": "1671120000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Ontwerpgeschiedenis",
+        "room": "Online",
+        "time": {
+          "start": "1671175800000",
+          "end": "1671205200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Human Computer Interaction",
+        "room": "Online",
+        "time": {
+          "start": "1671175800000",
+          "end": "1671208800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Ontwerpgeschiedenis tm",
+        "room": "TTH 03B23",
+        "time": {
+          "start": "1671435000000",
+          "end": "1671453000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Ontwerpgeschiedenis tm",
+        "room": "TTH 03B23",
+        "time": {
+          "start": "1671453600000",
+          "end": "1671471600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design - Mondeling",
+        "room": "Online",
+        "time": {
+          "start": "1671607800000",
+          "end": "1671622800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "User Centered Design - Mondeling",
+        "room": "Online",
+        "time": {
+          "start": "1671626400000",
+          "end": "1671641400000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Human Computer Interaction - Mondeling",
+        "room": "TTH 02B03 Visual Interface Design Lab",
+        "time": {
+          "start": "1671694200000",
+          "end": "1671727200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Coachingsgesprek",
+        "room": "Online",
+        "time": {
+          "start": "1671783600000",
+          "end": "1671789600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Project team 1",
+        "room": "Online",
+        "time": {
+          "start": "1671790200000",
+          "end": "1671796200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Project team 1",
+        "room": "Online",
+        "time": {
+          "start": "1671796200000",
+          "end": "1671799200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Kerstvakantie",
+        "room": "",
+        "time": {
+          "start": "1672039800000",
+          "end": "1672072800000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Kerstvakantie",
+        "room": "",
+        "time": {
+          "start": "1672126200000",
+          "end": "1672159200000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Kerstvakantie",
+        "room": "",
+        "time": {
+          "start": "1672212600000",
+          "end": "1672245600000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Kerstvakantie",
+        "room": "",
+        "time": {
+          "start": "1672299000000",
+          "end": "1672332000000"
+        },
+        "image": ""
+      },
+      {
+        "name": "Kerstvakantie",
+        "room": "",
+        "time": {
+          "start": "1672385400000",
+          "end": "1672418400000"
         },
         "image": ""
       }
