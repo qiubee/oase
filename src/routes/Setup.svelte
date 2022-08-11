@@ -545,4 +545,34 @@
         margin: 0 0.5rem;
         margin-left: 1.5rem;
     }
+
+    @media (hover) {
+        main,
+        .settings .options .status {
+            scrollbar-width: initial;
+            -ms-overflow-style: initial;
+            -webkit-overflow-scrolling: initial;
+        }
+
+        main::-webkit-scrollbar {
+            display: block;
+            width: 0.5rem;
+        }
+
+        .settings .options .status::-webkit-scrollbar {
+            display: block;
+            height: 0.4rem;
+        }
+
+        main::-webkit-scrollbar-thumb,
+        .settings .options .status::-webkit-scrollbar-thumb {
+            background-color: #707070;
+            border-radius: 100rem;
+        }
+
+        main::-webkit-scrollbar-button,
+        .settings .options .status::-webkit-scrollbar-button {
+            display: none;
+        }
+    }
 </style>

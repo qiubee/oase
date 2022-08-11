@@ -165,4 +165,26 @@
         font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
+
+    @media (hover) {
+        .notifications {
+            scrollbar-width: initial;
+            -ms-overflow-style: initial;
+            -webkit-overflow-scrolling: initial;
+        }
+
+        .notifications::-webkit-scrollbar {
+            display: block;
+            width: 0.5rem;
+        }
+
+        .notifications::-webkit-scrollbar-thumb {
+            background-color: #707070;
+            border-radius: 100rem;
+        }
+
+        .notifications::-webkit-scrollbar-button {
+            display: none;
+        }
+    }
 </style>

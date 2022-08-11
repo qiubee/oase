@@ -229,4 +229,26 @@
         background-color: black;
         background-color: var(--cmd-color-black);
     }
+
+    @media (hover) {
+        ul {
+            scrollbar-width: initial;
+            -ms-overflow-style: initial;
+            -webkit-overflow-scrolling: initial;
+        }
+
+        ul::-webkit-scrollbar {
+            display: block;
+            height: 0.4rem;
+        }
+
+        ul::-webkit-scrollbar-thumb {
+            background-color: #707070;
+            border-radius: 100rem;
+        }
+
+        ul::-webkit-scrollbar-button {
+            display: none;
+        }
+    }
 </style>

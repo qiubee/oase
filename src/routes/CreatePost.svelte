@@ -484,4 +484,34 @@
             justify-content: center;
         }
     }
+
+    @media (hover) {
+        form ul,
+        .new-post {
+            scrollbar-width: initial;
+            -ms-overflow-style: initial;
+            -webkit-overflow-scrolling: initial;
+        }
+
+        .new-post::-webkit-scrollbar {
+            display: block;
+            width: 0.5rem;
+        }
+
+        form ul::-webkit-scrollbar {
+            display: block;
+            height: 0.4rem;
+        }
+
+        .new-post::-webkit-scrollbar-thumb,
+        form ul::-webkit-scrollbar-thumb {
+            background-color: #707070;
+            border-radius: 100rem;
+        }
+
+        .new-post::-webkit-scrollbar-button,
+        form ul::-webkit-scrollbar-button {
+            display: none;
+        }
+    }
 </style>

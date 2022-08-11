@@ -420,4 +420,26 @@
         margin-bottom: 1rem;
     }
 
+    @media (hover) {
+        .post {
+            scrollbar-width: initial;
+            -ms-overflow-style: initial;
+            -webkit-overflow-scrolling: initial;
+        }
+
+        .post::-webkit-scrollbar {
+            display: block;
+            width: 0.5rem;
+        }
+
+        .post::-webkit-scrollbar-thumb {
+            background-color: #707070;
+            border-radius: 100rem;
+        }
+
+        .post::-webkit-scrollbar-button {
+            display: none;
+        }
+    }
+
 </style>

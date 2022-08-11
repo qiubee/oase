@@ -279,4 +279,34 @@
         margin-right: 0.25rem;
     }
 
+    @media (hover) {
+        main,
+        .status {
+            scrollbar-width: initial;
+            -ms-overflow-style: initial;
+            -webkit-overflow-scrolling: initial;
+        }
+
+        main::-webkit-scrollbar {
+            display: block;
+            width: 0.5rem;
+        }
+
+        .status::-webkit-scrollbar {
+            display: block;
+            height: 0.4rem;
+        }
+
+        main::-webkit-scrollbar-thumb,
+        .status::-webkit-scrollbar-thumb {
+            background-color: #707070;
+            border-radius: 100rem;
+        }
+
+        main::-webkit-scrollbar-button,
+        .status::-webkit-scrollbar-button {
+            display: none;
+        }
+
+    }
 </style>

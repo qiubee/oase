@@ -160,4 +160,26 @@
         text-align: center;
         margin: 0 0.75rem;
     }
+
+    @media (hover) {
+        main {
+            scrollbar-width: initial;
+            -ms-overflow-style: initial;
+            -webkit-overflow-scrolling: initial;
+        }
+
+        main::-webkit-scrollbar {
+            display: block;
+            width: 0.5rem;
+        }
+
+        main::-webkit-scrollbar-thumb {
+            background-color: #707070;
+            border-radius: 100rem;
+        }
+
+        main::-webkit-scrollbar-button {
+            display: none;
+        }
+    }
 </style>
