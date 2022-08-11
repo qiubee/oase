@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { afterUpdate, onMount } from "svelte";
+    import { onMount } from "svelte";
     import type { Post, Student } from "src/@types/main";
     import TopBar from "../lib/components/TopBar.svelte";
     import NavBar from "../lib/components/NavBar.svelte";
