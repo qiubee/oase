@@ -43,11 +43,6 @@
         }
     }
 
-    afterUpdate(function () {
-        if (view === View.NOTIFICATIONS) {
-        }
-    })
-
     onMount(function () {
         contentHeight = calcContentView(header, navigation);
     })

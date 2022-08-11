@@ -11,7 +11,7 @@
             && date.getFullYear() === now.getFullYear();
     })
 
-    let scrollPosition: number = 0;
+    let scrollPosition = 0;
     let cardOffsetWidth: number;
     let slider: HTMLElement;
     let cardPositions: number[] = [];

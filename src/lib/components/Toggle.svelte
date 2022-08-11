@@ -1,7 +1,6 @@
 <script lang="ts">
-    export let active: boolean = false;
-    export let action: Function = function () {
-    };
+    export let active = false;
+    export let action;
 
     function toggle(): void {
         active = !active ? true : false; 

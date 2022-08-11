@@ -6,7 +6,7 @@
     import brokenSVG from "./../../assets/broken.svg";
 
     export let postID: number;
-    let voted: boolean = false;
+    let voted = false;
     let post = $posts.find(post => post.id === postID);
     const author = $students.find(user => user.id === post.author);
     const user = $students.find(user => user.id === $userID);

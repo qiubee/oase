@@ -2,7 +2,7 @@
     import { setContext, onMount } from "svelte";
     import TopBar from "../lib/components/TopBar.svelte";
     import PostCompact from "../lib/components/PostCompact.svelte";
-    import { categories, posts, sorted } from "../store";
+    import { categories, sorted } from "../store";
     import Sort from "../lib/components/Sort.svelte";
     import { calcContentView } from "../utils/utils";
 

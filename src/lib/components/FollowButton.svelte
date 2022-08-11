@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let followed: boolean = false;
+    export let followed = false;
 </script>
 
 <button class="{followed ? "unfollow" : ""}">

@@ -1,11 +1,9 @@
 <script lang="ts">
-import Button from "../lib/components/Button.svelte";
-
     import { link } from "svelte-spa-router";
     import { students, userID } from "../store";
 
-    let firstName: string = "";
-    let lastName: string = "";
+    let firstName = "";
+    let lastName = "";
 
     function updateUserName(): void {
         if (firstName && lastName) {

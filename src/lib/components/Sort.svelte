@@ -22,7 +22,7 @@
 
     let sortIndex: SortComments | SortPosts = 0;
     const dropdownOptions: string[] = ["Nieuw", "Oud"];
-    let dropdownHidden: boolean = true;
+    let dropdownHidden = true;
     export let position: "left" | "right" = "left";
     export let type: SortTypes = "posts";
     export let post: Post = null;

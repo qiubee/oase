@@ -9,7 +9,7 @@
     let categoryID: number;
     export let left: typeof icon[number] = icon[icon.length-1];
     export let right: typeof icon[number] = icon[icon.length-1];
-    export let category: string = "";
+    export let category = "";
     const user = $students.find(user => user.id === $userID);
     let type: "post" | "category" = "post";
     let subscribed: boolean;

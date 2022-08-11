@@ -10,7 +10,7 @@
         }
     }).filter((cat) => cat);
     let dropdownCategories: string[] = ["Alles", "Populair", ...userSubsribedCategories];
-    let dropdownHidden: boolean = true;
+    let dropdownHidden = true;
 
     function toggleCategoryDropdown(): void {
         dropdownHidden = dropdownHidden ? false : true;

@@ -17,7 +17,7 @@
         TOP,
     }
 
-    let hideSortOptions: boolean = false;
+    let hideSortOptions = false;
     let sortOption: Sort;
     let contentHeight: number;
 

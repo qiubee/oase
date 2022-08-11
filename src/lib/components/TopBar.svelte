@@ -10,11 +10,11 @@
     import ProfileSettings from "./topbar/ProfileSettings.svelte";
 
     export let state = <Route["name"]>$routes[0].name;
-    export let post: boolean = false;
+    export let post = false;
     export let node: HTMLElement = null;
-    export let hideBorder: boolean = false;
-    export let author: boolean = false;
-    export let category: string = "";
+    export let hideBorder = false;
+    export let author = false;
+    export let category = "";
 </script>
 
 <header bind:this={node} style="{hideBorder ? "border-color: var(--cmd-color-main)" :""}">

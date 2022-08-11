@@ -4,9 +4,9 @@
     import { getContext } from "svelte";
     const { previous, next } = getContext("step");
 
-    export let icon : string = "back";
-    export let shape : string = "round";
-    export let text : string = "Volgende";
+    export let icon = "back";
+    export let shape = "round";
+    export let text = "Volgende";
     export let action = function () {
         next();
     }

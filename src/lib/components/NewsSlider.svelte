@@ -4,8 +4,8 @@
     import { news } from "../../store";
     import { timeDiff } from "../../utils/utils";
 
-    const maxPosts: number = 7;
-    let scrollPosition: number = 0;
+    const maxPosts = 7;
+    let scrollPosition = 0;
     let cardOffsetWidth: number;
     let slider: HTMLElement;
     let cardPositions: number[] = [];
