@@ -645,7 +645,7 @@
         "room": "Online",
         "time": {
           "start": "1667997600000",
-          "end": "1667997600000"
+          "end": "1668003600000"
         },
         "image": ""
       },
@@ -1201,21 +1201,45 @@
     ],
     "grades": [
       {
-        "grade": 7.0,
-        "date": "1635980400000",
-        "course": "Project Individueel 1",
-        "points": 9
-      },
-      {
-        "grade": 6.7,
-        "date": "1635372000000",
+        "grade": 6.2,
+        "date": "1656933360000",
         "course": "Inleiding Programmeren",
         "points": 3
       },
       {
+        "grade": 7.2,
+        "date": "1656943800000",
+        "course": "Informatiearchitectuur",
+        "points": 3
+      },
+      {
+        "grade": 6.5,
+        "date": "1656835920000",
+        "course": "Maatschappij en interactie",
+        "points": 3
+      },
+      {
+        "grade": 7.9,
+        "date": "1650650280000",
+        "course": "Project team 1",
+        "points": 9
+      },
+      {
         "grade": 6.0,
-        "date": "1634680800000",
-        "course": "Human Computer Interaction",
+        "date": "1650551280000",
+        "course": "New Product Development",
+        "points": 3
+      },
+      {
+        "grade": 6.7,
+        "date": "1650559380000",
+        "course": "Visual Interface Design 1",
+        "points": 3
+      },
+      {
+        "grade": 7.0,
+        "date": "1650633420000",
+        "course": "Webapplicaties",
         "points": 3
       }
     ]
