@@ -1,8 +1,10 @@
 <script lang="ts">
     import type { Comment, Post, Sorted } from "src/@types/main";
-    import { posts, userID, sorted } from "../../store";
+    import { sort } from "../../actions";
+    import { posts, userID, sorted, currentSorting } from "../../store";
 
     export let postID: Post["id"];
+    let post = <Post>$posts.find(post => post.id === postID);
     let message: string;
 
     function reply(): void {
@@ -27,6 +29,7 @@
             }).comments;
             return sorted;
         })
+        sort("comments", $currentSorting, post);
         message = "";
     }
 </script>
