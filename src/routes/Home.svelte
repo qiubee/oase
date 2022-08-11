@@ -101,11 +101,19 @@
                   <rect id="Rectangle_1828" data-name="Rectangle 1828" width="2.746" height="10.237" rx="0.5" transform="translate(324.167 84)" fill="none" stroke="#000" stroke-width="1.25"/>
                   <rect id="Rectangle_1829" data-name="Rectangle 1829" width="2.746" height="6.759" rx="0.5" transform="translate(327.293 87.478)" fill="none" stroke="#000" stroke-width="1.25"/>
                 </g>
-              </svg>Top</li>
+            </svg>Top</li>
         </ul>
-        {#each filteredPosts as post (post.id)}
-            <PostCompact postID={post.id} />
-        {/each}
+        {#if filteredPosts.length > 0}  
+            {#each filteredPosts as post (post.id)}
+                <PostCompact postID={post.id} />
+            {/each}
+        {:else if ($currentCategory === "Alles")}
+            <p>Er zijn discussies op dit moment.</p>
+        {:else if ($currentCategory === "Populair")}
+            <p>Er zijn geen populaire discussies op dit moment.</p>
+        {:else}
+            <p>Er zijn nu geen discussies over dit onderwerp.</p>
+        {/if}
         </main>
         <NavBar bind:node={navigation}/>
     </div>
@@ -166,6 +174,12 @@
 
     .sort svg {
         margin-right: 0.5rem;
+    }
+
+    p {
+        margin: 0 0.75rem;
+        padding-top: 0.5rem;
+        text-align: center;
     }
 
     @media (hover) {
