@@ -26,6 +26,7 @@
         subscribed = user.following.categories.includes(categoryID);
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     function editPost(): void {
 
     }

@@ -4,7 +4,9 @@
 
     let user = $students.find(user => user.id === $userID);
 
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     function updateSettings(): void {
+        
     }
 </script>
 
