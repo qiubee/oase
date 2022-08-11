@@ -290,6 +290,7 @@
 
     .lessons .course {
         font-size: 1rem;
+        max-width: 10rem;
     }
 
     .lessons .room {
