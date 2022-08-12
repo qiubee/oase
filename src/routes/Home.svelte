@@ -1,11 +1,12 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { onMount, afterUpdate } from "svelte";
+    import type { Post } from "src/@types/main";
     import NavBar from "../lib/components/NavBar.svelte";
     import LessonSlider from "../lib/components/LessonSlider.svelte";
     import PostCompact from "../lib/components/PostCompact.svelte";
     import TopBar from "../lib/components/TopBar.svelte";
     import { students, userID, posts, currentCategory } from "../store";
-    import { calcContentView } from "../utils/utils";
+    import { calcContentView, getAverage } from "../utils/utils";
 
     const user = $students.find(user => user.id === $userID);
     let header: HTMLElement;
@@ -21,25 +22,29 @@
     let sortOption: Sort;
     let contentHeight: number;
 
-    $: sortedPosts = $posts;
-    $: filteredPosts = sortedPosts.filter(function (post) {
+    $: filteredPosts = $posts.filter(function (post) {
         hideSortOptions = false;
         if ($currentCategory === "Alles") {
             return post;
         }
         if ($currentCategory === "Populair") {
             hideSortOptions = true;
-            return post.upvotes.length > 100 || post.comments.length > 30;
+            const minUpvotes = getAverage(<Post[]>$posts, "upvotes");
+            const minComments = getAverage(<Post[]>$posts, "comments");
+            return post.upvotes.length >= minUpvotes && post.comments.length >= minComments;
         } else {
             return post.category === $currentCategory;
         }
-    })
+    });
+    $: sortedPosts = filteredPosts;
 
-    function sortPosts(option: Sort): void {
-        if (sortOption === option) {
+    function sortPosts(option: Sort, foreUpdate?: boolean): void {
+        if (sortOption === option && foreUpdate === false) {
             return;
         }
-        sortOption = option;
+        if ($currentCategory !== "Populair") {
+            sortOption = option;
+        }
         if (option === Sort.NEW) {
             sortedPosts = $posts.sort(function (a, b) {
                 if (a.timestamp < b.timestamp) {
@@ -81,6 +86,14 @@
     onMount(function () {
         contentHeight = calcContentView(header, navigation);
     })
+
+    afterUpdate(function () {
+        if ($currentCategory === "Populair") {
+            sortPosts(Sort.TOP);
+        } else {
+            sortPosts(sortOption, true);
+        }
+    })
 </script>
 
 <div class="view">
@@ -103,8 +116,8 @@
                 </g>
             </svg>Top</li>
         </ul>
-        {#if filteredPosts.length > 0}  
-            {#each filteredPosts as post (post.id)}
+        {#if sortedPosts.length > 0}  
+            {#each sortedPosts as post (post.id)}
                 <PostCompact postID={post.id} />
             {/each}
         {:else if ($currentCategory === "Alles")}

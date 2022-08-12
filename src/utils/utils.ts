@@ -86,3 +86,14 @@ export function getDaysInMonth(month: number, year: number): Date[] {
 export function getLongMonthName(month: number): string {
   return monthNames[month];
 }
+
+export function getAverage(
+  posts: Post[],
+  type: "comments" | "upvotes"
+): number {
+  return Math.floor(
+    posts.reduce(function (prev, curr) {
+      return prev + curr[type].length;
+    }, 0) / posts.length
+  );
+}
