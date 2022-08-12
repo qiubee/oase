@@ -144,7 +144,7 @@ export type Representative = {
   type: "representative";
   council: {
     type: "Opleidingscommissie" | "Faculteitsraad" | "Medezeggenschapsraad";
-    study: string;
+    department: string;
   };
 } & User;
 

@@ -34,7 +34,7 @@
                         <path id="Path_389" data-name="Path 389" d="M268.437,91.05a1.9,1.9,0,1,0,1.9,1.9A1.907,1.907,0,0,0,268.437,91.05Zm0,3.323a1.418,1.418,0,1,1,1.411-1.421A1.423,1.423,0,0,1,268.437,94.373Z" transform="translate(-5.915)" stroke="#000" stroke-width="0.25"/>
                         </g>
                     </svg>
-                    <span>{representative.council.study}</span>
+                    <span>{representative.council.department}</span>
                 </div>
             {/if}
         </div>
