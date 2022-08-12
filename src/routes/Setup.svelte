@@ -362,6 +362,7 @@
         height: 2rem;
         width: 2rem;
         font-size: 0.4rem;
+        margin-bottom: 0.25rem;
     }
 
     .photo {
