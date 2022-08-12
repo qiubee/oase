@@ -3,7 +3,7 @@
     import { push } from "svelte-spa-router";
     import type { Route } from "src/@types/main";
     import Subscriptions from "./topbar/Subscriptions.svelte";
-    import Category from "./topbar/Category.svelte";
+    import CategoryDropdown from "./topbar/CategoryDropdown.svelte";
     import Options from "./topbar/Options.svelte";
     import SearchBar from "./topbar/SearchBar.svelte";
     import NotificationSettings from "./topbar/NotificationSettings.svelte";
@@ -28,7 +28,7 @@
     <Options left={"arrow-left"} {category} right={"notification-bell"}/>
   {:else}
     {#if state === "home"}
-      <Category/>
+      <CategoryDropdown/>
     {:else if state === "forum"}
       <Subscriptions/>
     {:else if state === "search"}
