@@ -20,23 +20,35 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        background-color: #FFF021;
-        background-color: var(--cmd-color-main);
+        background-color: black;
+        background-color: var(--cmd-color-black);
         padding: 0.25rem 0.6rem;
         border-radius: 0.25rem;
-        border: 2px solid #FFF021;
-        border-color: var(--cmd-color-main);
-        color: black;
-        color: var(--cmd-color-black);
+        border: 2px solid black;
+        border-color: var(--cmd-color-black);
+        color: white;
+        color: var(--cmd-color-white);
         font-size: 0.8rem;
     }
 
     button svg {
         margin-right: 0.25rem;
+        fill: white;
+        fill: var(--cmd-color-white);
+    }
+
+    .unfollow {
+        background-color: #FFF021;
+        background-color: var(--cmd-color-main);
+        border-color: black;
+        border-color: var(--cmd-color-black);
+        color: black;
+        color: var(--cmd-color-black);
     }
 
     .unfollow svg {
         margin-right: 0.5rem;
+        fill: black;
+        fill: var(--cmd-color-black);
     }
-
 </style>
