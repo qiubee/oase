@@ -6,8 +6,8 @@
     import brokenSVG from "./../../assets/broken.svg";
 
     export let postID: number;
-    let voted = false;
     let post = $posts.find(post => post.id === postID);
+    let voted = post.upvotes.includes($userID);
     const author = $students.find(user => user.id === post.author);
     const user = $students.find(user => user.id === $userID);
     const status = $statuses.find((status) => status.id === post.status);
