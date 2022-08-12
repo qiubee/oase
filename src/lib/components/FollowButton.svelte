@@ -1,8 +1,9 @@
 <script lang="ts">
     export let followed = false;
+    export let alt = false;
 </script>
 
-<button class="{followed ? "unfollow" : ""}">
+<button class="{followed ? "unfollow" : ""} {alt ? "alt" : ""}">
     {#if followed}
         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 180 180"><path d="M25,110a20,20,0,0,1,0-40H155a20,20,0,0,1,0,40Z"/><path d="M155,75a15,15,0,0,1,0,30H25a15,15,0,0,1,0-30H155m0-10H25a25,25,0,0,0,0,50H155a25,25,0,0,0,0-50Z"/>
         </svg>
@@ -40,10 +41,15 @@
     .unfollow {
         background-color: #FFF021;
         background-color: var(--cmd-color-main);
-        border-color: black;
-        border-color: var(--cmd-color-black);
+        border-color: #FFF021;
+        border-color: var(--cmd-color-main);
         color: black;
         color: var(--cmd-color-black);
+    }
+
+    .unfollow.alt {
+        border-color: black;
+        border-color: var(--cmd-color-black);
     }
 
     .unfollow svg {

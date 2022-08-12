@@ -121,9 +121,9 @@
         {:else if right === "follow"}
         <div on:click={() => toggleFollow(type)}>
             {#if subscribed}
-                <FollowButton followed={true} />
+                <FollowButton alt={true} followed={true} />
             {:else}
-                <FollowButton/>
+                <FollowButton alt={true}/>
             {/if}
         </div>
         {:else if right === "edit"}
