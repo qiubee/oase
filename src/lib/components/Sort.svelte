@@ -143,7 +143,9 @@
     }
 
     .comments button span {
+        margin: auto;
         margin-right: 0.5rem;
+        margin-left: 0;
     }
 
     .comments .options {
