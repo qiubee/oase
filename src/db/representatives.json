@@ -15,7 +15,178 @@
     },
     "council": {
       "type": "Opleidingscommissie",
-      "study": "CMD"
+      "department": "CMD"
+    }
+  },
+  {
+    "id": 1,
+    "type": "representative",
+    "firstName": "Lisa",
+    "lastName": "van Veul",
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "council": {
+      "type": "Faculteitsraad",
+      "department": "FDMCI"
+    }
+  },
+  {
+    "id": 2,
+    "type": "representative",
+    "firstName": "Phillip",
+    "lastName": "Elfring",
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "council": {
+      "type": "Medezeggenschapsraad",
+      "department": "CMR"
+    }
+  },
+  {
+    "id": 3,
+    "type": "representative",
+    "firstName": "Madeleine",
+    "lastName": "Span",
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "council": {
+      "type": "Opleidingscommissie",
+      "department": "CMD"
+    }
+  },
+  {
+    "id": 4,
+    "type": "representative",
+    "firstName": "Romie",
+    "lastName": "Elsendoorn",
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "council": {
+      "type": "Opleidingscommissie",
+      "department": "CMD"
+    }
+  },
+  {
+    "id": 5,
+    "type": "representative",
+    "firstName": "Melroy",
+    "lastName": "Tebu",
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "council": {
+      "type": "Faculteitsraad",
+      "department": "FDMCI"
+    }
+  },
+  {
+    "id": 6,
+    "type": "representative",
+    "firstName": "Lyna",
+    "lastName": "Bosman",
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communication & Multimedia Design",
+      "abbreviation": "CMD"
+    },
+    "council": {
+      "type": "Opleidingscommissie",
+      "department": "CMD"
+    }
+  },
+  {
+    "id": 7,
+    "type": "representative",
+    "firstName": "Thijs",
+    "lastName": "Ferwerda",
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Creative Business",
+      "abbreviation": "CB"
+    },
+    "council": {
+      "type": "Faculteitsraad",
+      "department": "FDMCI"
+    }
+  },
+  {
+    "id": 8,
+    "type": "representative",
+    "firstName": "Senna",
+    "lastName": "Yvez",
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "Communicatie",
+      "abbreviation": "CO"
+    },
+    "council": {
+      "type": "Faculteitsraad",
+      "department": "FDMCI"
+    }
+  },
+  {
+    "id": 8,
+    "type": "representative",
+    "firstName": "Willem",
+    "lastName": "Cuin",
+    "photoURL": "",
+    "status": {
+      "text": "Online",
+      "visible": true
+    },
+    "study": {
+      "name": "HBO-ICT",
+      "abbreviation": "HBO-ICT"
+    },
+    "council": {
+      "type": "Faculteitsraad",
+      "department": "FDMCI"
     }
   }
 ]
