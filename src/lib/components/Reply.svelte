@@ -35,10 +35,10 @@
 </script>
 
 <div>
-    <div class="reply">
+    <form on:submit|preventDefault={reply} class="reply">
         <input bind:value={message} type="text" name="reply" placeholder="Reageer">
-        <button on:click={reply}>Plaatsen</button>
-    </div>
+        <button>Plaatsen</button>
+    </form>
 </div>
 
 <style>
