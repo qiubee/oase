@@ -35,7 +35,7 @@
 </div>
 
 <style>
-    .rankings{
+    .rankings {
         margin: 1.5rem 0;
     }
 
