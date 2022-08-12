@@ -6,6 +6,7 @@ import type {
   Category,
   SortPosts,
   SortComments,
+  Student,
 } from "src/@types/main";
 import { allStatusOptions } from "./@types/main";
 import allStudents from "./db/students.json";
@@ -16,11 +17,14 @@ import allThemes from "./db/themes.json";
 import allNews from "./db/news.json";
 import allCategories from "./db/categories.json";
 import allPostStatus from "./db/post-status.json";
+import { calculateFollowers } from "./utils/utils";
 
 export const loggedIn = writable<boolean>(false);
 export const onboard = writable<boolean>(true);
 export const currentTheme = writable<string>("Oase");
-export const categories = writable(<Category[]>allCategories);
+export const categories = writable(
+  calculateFollowers(<Student[]>allStudents, <Category[]>allCategories)
+);
 export const statusOptions = readable(allStatusOptions);
 export const userID = readable<number>(0);
 export const currentCategory = writable<string>("Alles");

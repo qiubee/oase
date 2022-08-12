@@ -1,4 +1,4 @@
-import type { Post } from "src/@types/main";
+import type { Category, Post, Student } from "src/@types/main";
 const monthNames = [
   "Januari",
   "Februari",
@@ -96,4 +96,20 @@ export function getAverage(
       return prev + curr[type].length;
     }, 0) / posts.length
   );
+}
+
+export function calculateFollowers(
+  students: Student[],
+  categories: Category[]
+) {
+  return categories.map(function (category) {
+    const list: Student["id"][] = [];
+    for (const student of students) {
+      if (student.following.categories.includes(category.id)) {
+        list.push(student.id);
+      }
+    }
+    category.followers = list;
+    return category;
+  });
 }
