@@ -25,7 +25,7 @@
       <Options left={"arrow-left"} right={"notification-bell"}/>
     {/if}
   {:else if category}
-    <Options left={"arrow-left"} {category} right={"notification-bell"}/>
+    <Options left={"arrow-left"} {category} right={"follow"}/>
   {:else}
     {#if state === "home"}
       <CategoryDropdown/>

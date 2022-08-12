@@ -1,12 +1,16 @@
 <script lang="ts">
     import { getContext } from "svelte";
     import { pop } from "svelte-spa-router";
-    import { students, userID } from "../../../store";
+    import type { Category } from "src/@types/main";
+    import { categories, students, userID } from "../../../store";
     import StatusProgress from "./StatusProgress.svelte";
+    import FollowButton from "../FollowButton.svelte";
 
-    const icon = ["edit", "arrow-left", "notification-bell", "close", "none"] as const;
+    const icon = ["follow", "edit", "arrow-left", "notification-bell", "close", "none"] as const;
     let postID: number;
     let categoryID: number;
+    let selectedCategory: Category;
+
     export let left: typeof icon[number] = icon[icon.length-1];
     export let right: typeof icon[number] = icon[icon.length-1];
     export let category = "";
@@ -16,14 +20,16 @@
 
     if (category) {
         type = "category";
+
     }
 
     if (type === "post") {
         postID = getContext("postID");
         subscribed = user.following.posts.includes(postID);
-    } else {
+    } else if (type === "category"){
         categoryID = getContext("categoryID");
         subscribed = user.following.categories.includes(categoryID);
+        selectedCategory = $categories.find((category) => category.id === categoryID)
     }
 
     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -112,6 +118,14 @@
                 </g>
               </svg>              
         </button>
+        {:else if right === "follow"}
+        <div on:click={() => toggleFollow(type)}>
+            {#if subscribed}
+                <FollowButton followed={true} />
+            {:else}
+                <FollowButton/>
+            {/if}
+        </div>
         {:else if right === "edit"}
         <button on:click={editPost}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 20 20"><path d="M4.906,14.83a1.381,1.381,0,0,0,1.216.382l1.81-.311a1.9,1.9,0,0,0,.983-.516L19.3,4a1.506,1.506,0,0,0-.007-2.128L17.853.44a1.5,1.5,0,0,0-2.121,0L5.352,10.82a1.823,1.823,0,0,0-.516.983l-.318,1.8A1.4,1.4,0,0,0,4.906,14.83ZM14.983,2.6l1.457-1.457a.5.5,0,0,1,.707,0l1.435,1.435a.5.5,0,0,1,.007.714L17.132,4.754ZM5.613,14.123a.385.385,0,0,1-.106-.347l.311-1.8a.836.836,0,0,1,.24-.453l8.217-8.217,2.15,2.15L8.209,13.677a.784.784,0,0,1-.445.233l-1.81.311A.356.356,0,0,1,5.613,14.123Z"/><path d="M19.5,18.749H.5a.5.5,0,0,1,0-1h19a.5.5,0,0,1,0,1Z"/></svg>
@@ -135,6 +149,7 @@
     }
 
     .category {
+        position: absolute;
         background-color: black;
         background-color: var(--cmd-color-black);
         color: white;
@@ -146,6 +161,8 @@
         font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-kotori-rose);
         font-weight: bold;
+        left: 50%;
+        transform: translate(-50%);
     }
     
     .notification-bell.default  .fill {
