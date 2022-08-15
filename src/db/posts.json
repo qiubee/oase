@@ -33,6 +33,25 @@
   {
     "id": 1,
     "type": "probleem",
+    "author": 16,
+    "title": "Te weinig koffieautomaten in de Medialounge",
+    "description": "Elke keer als ik studeer en in de Medialounge zit en koffie wil, moet ik helemaal aan het begin van de Medialounge lopen om mijn koffie te halen. Ik denk dat het beter is om aan beide einden een koffieautomaat te plaatsen, zodat het makkelijker is om koffie te halen.",
+    "timestamp": "1651750980000",
+    "category": "studieplekken",
+    "upvotes": [2, 3],
+    "status": 0,
+    "comments": [
+      {
+        "userID": 10,
+        "userType": "student",
+        "timestamp": "1651759320000",
+        "message": "Serieus? Lopen naar de automaat duurt nog geen minuut!"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "type": "probleem",
     "author": 3,
     "title": "Te weinig tijd voor opdracht HCI",
     "description": "Met het maken van de opdracht van HCI komen we tijd tekort. Ik hoor van andere in mijn klas dat ze graag nog een dag extra willen hebben voor de opdracht.",
@@ -62,15 +81,195 @@
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "type": "idee",
     "author": 6,
-    "title": "Oud studenten inzetten bij vak Programmeren hebben om tijd tekor bij studenten te verhelpen",
+    "title": "Oud studenten inzetten bij vak Programmeren hebben om tijd tekort bij studenten te verhelpen",
     "description": "Ik hoor van studenten in mijn klas dat ze te weinig tijd hebben om de opdracht voor het vak Programmeren af te maken. Nu zat ik te denken: zouden studenten die het vak al hebben gedaan kunnen helpen? Dus vroeg ik mij af of dit geregeld kan worden.",
     "timestamp": "1657807032156",
     "category": "studiedruk",
     "upvotes": [],
     "status": 0,
     "comments": []
+  },
+  {
+    "id": 4,
+    "type": "probleem",
+    "author": 9,
+    "title": "Er moet echt iets veranderen aan Blok Tech",
+    "description": "Zoals sommigen die dit blok volgen weten is de tijd die je hebt voor de vakken voor Project Tech veels te weinig voor wat je moet opleveren. Zou hier iets aan gedaan kunnen worden?",
+    "timestamp": "1647249300000",
+    "category": "studiedruk",
+    "upvotes": [1, 3, 4, 5, 6, 9, 10, 12, 13, 15, 19],
+    "status": 0,
+    "comments": [
+      {
+        "userID": 5,
+        "userType": "student",
+        "timestamp": "1647253680000",
+        "message": "Vind ik ook. Ik moet het vak Backend herkansen, omdat het zo veel tijd kost om het te maken."
+      },
+      {
+        "userID": 6,
+        "userType": "representative",
+        "timestamp": "1647260820000",
+        "message": "Oke, dat snap ik. Maar wat willen jullie dat er moet veranderen?"
+      },
+      {
+        "userID": 9,
+        "userType": "student",
+        "timestamp": "1647263100000",
+        "message": "Nou, meer tijd misschien? Of de opdracht moet iets simpeler."
+      },
+      {
+        "userID": 5,
+        "userType": "student",
+        "timestamp": "1647330780000",
+        "message": "Nou, bij Backend moet ik nu een hele server bouwen. Dit zou ook gewoon een simpele API kunnen zijn die je moet bouwen waar je informatie kan opslaan en kan ophalen, bijvoorbeeld. Dat zou veel tijd schelen."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "type": "idee",
+    "author": 13,
+    "title": "Zet de nieuwsbrief van CMD ook in DLO",
+    "description": "Soms als ik in mijn e-mail kijk, zie ik de nieuwsbrief van CMD. Alleen zou ik dit ook op DLO willen zien, zodat ik niet in mijn e-mail hoef in te loggen. De nieuwsbrief zou ook gewoon op de Homepagina kunnen van CMD.",
+    "timestamp": "1656236580000",
+    "category": "informatievoorziening",
+    "upvotes": [1, 3, 4, 5, 6, 9],
+    "status": 0,
+    "comments": [
+      {
+        "userID": 14,
+        "userType": "student",
+        "timestamp": "1656326220000",
+        "message": "Goed idee!"
+      },
+      {
+        "userID": 2,
+        "userType": "student",
+        "timestamp": "1656327000000",
+        "message": "Hoe hebben ze dit vergeten?"
+      },
+      {
+        "userID": 3,
+        "userType": "representative",
+        "timestamp": "1656328200000",
+        "message": "Hey Rose, goed opgemerkt! De nieuwsbrief is inderdaad niet te zien op DLO. Ik denk dat we dit gelijk kunnen doen. Ik zal het even doorgeven aan degene die de nieuwbrief maakt en online zet."
+      },
+      {
+        "userID": 13,
+        "userType": "student",
+        "timestamp": "1656400320000",
+        "message": "Oh, top! Dankjewel!"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "type": "idee",
+    "author": 4,
+    "title": "Meer coachingsgesprekken online",
+    "description": "Ik zou graag meer coachingsgesprekken willen met mijn SLB'er online. Nu zijn er soms in een blok een paar gesprekken, soms online en soms offline. Ik wil graag vaker, bijvoorbeeld om de twee weken, vaste tijdstippen waar ik met mijn SLB'er kan praten online.",
+    "timestamp": "1649666160000",
+    "category": "studiebegeleiding",
+    "upvotes": [1, 2, 5, 7, 8, 11, 12, 16, 18, 19],
+    "status": 0,
+    "comments": [
+      {
+        "userID": 11,
+        "userType": "student",
+        "timestamp": "1649758380000",
+        "message": "Ik zou dit ook graag willen, want ik heb vaker behoefte om met mijn SLB'er te praten dan alleen maar een of twee keer per blok."
+      },
+      {
+        "userID": 16,
+        "userType": "student",
+        "timestamp": "1649771580000",
+        "message": "Mee eens."
+      },
+      {
+        "userID": 5,
+        "userType": "student",
+        "timestamp": "1649832540000",
+        "message": "Kun je zelf niet gewoon je SLB'er een berichtje sturen om te praten?"
+      },
+      {
+        "userID": 4,
+        "userType": "representative",
+        "timestamp": "1649841120000",
+        "message": "Volgens mij maakt Mike en goed punt. Je kunt gewoon je eigen SLB'er een berichtje sturen via Teams om te praten. Maar we kunnen wel kijken of we vaker coachingsgesprekken in het rooster kunnen zetten."
+      },
+      {
+        "userID": 4,
+        "userType": "student",
+        "timestamp": "1649845200000",
+        "message": "Ja, dat is ook zo. Maar toch zou ik dit in het rooster willen zien. Dat maakt het makkelijker en dan hoef ik ook niet te wachten op een reactie van mijn SLB'er om een tijd in te plannen."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "type": "idee",
+    "author": 17,
+    "title": "Nieuw evenement voor afstudeerders om te netwerken",
+    "description": "Ik had een idee voor een event voor studenten die afstuderen om contact te leggen met het bedrijfsleven. Hiermee kunnen afstudeerders makkelijker bij bedrijven gaan werken en meer met het werkveld in contact komen en tegelijk laten showen wat ze aan het maken zijn. Het is nog niet helemaal uitgedacht. Maar wat vinden jullie?",
+    "timestamp": "1656250140000",
+    "category": "evenementen",
+    "upvotes": [3, 6],
+    "status": 0,
+    "comments": [
+      {
+        "userID": 15,
+        "userType": "student",
+        "timestamp": "1656325800000",
+        "message": "Tof idee! Ik ben nu ook aan het afstuderen en zou graag op het eind met mensen uit het werkveld willen praten."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "type": "probleem",
+    "author": 7,
+    "title": "Te weinig financiele middelen om evenementen te organiseren (IAM CORE)",
+    "description": "Hoi, ik ben lid van IAM CORE en we willen graag een evenement organiseren maar hebben te weinig geld voor de locatie waar we het willen houden. Zou er budget vrijgemaakt kunnen worden om dit toch door te laten gaan?",
+    "timestamp": "1652780940000",
+    "category": "studievereniging",
+    "upvotes": [1, 4, 6],
+    "status": 0,
+    "comments": [
+      {
+        "userID": 1,
+        "userType": "representative",
+        "timestamp": "1652799540000",
+        "message": "Hi Sarah, dit kun je het beste bespreken met de opleidingsmanager en de faculteitssecretaris. Zij gaan hier namelijk over. Wel zal ik het meenemen in de raadsvergadering. Mogelijk kan er iets aan het budget gedaan worden voor studieverenigingen."
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "type": "probleem",
+    "author": 3,
+    "title": "Een centrale plek op Teams voor onze klas om te praten",
+    "description": "Wij praten veel met mensen in onze klas (Geel) op Whatsapp en Teams, maar dit gaat nogal chaotisch. Is het mogelijk om voor bijvoorbeeld elke klas op Teams een kanaal aan te maken waar alleen wij toegang toe hebben en kunnen praten?",
+    "timestamp": "1645879020000",
+    "category": "online",
+    "upvotes": [5, 6, 9, 12, 13, 15, 16],
+    "status": 0,
+    "comments": [
+      {
+        "userID": 5,
+        "userType": "student",
+        "timestamp": "1645886820000",
+        "message": "Ja, dat zou wel nice zijn."
+      },
+      {
+        "userID": 12,
+        "userType": "student",
+        "timestamp": "1645953240000",
+        "message": "Dit hebben we heel hard nodig! Ik kan het echt niet meer te volgen, namelijk."
+      }
+    ]
   }
 ]
