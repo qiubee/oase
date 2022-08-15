@@ -201,7 +201,7 @@
         flex-direction: row;
         align-items: center;
         font-size: 0.8rem;
-        margin-top: 1rem;
+        margin-top: 1.25rem;
     }
 
     .metadata .photo,
@@ -239,6 +239,7 @@
     }
 
     .metadata .name {
+        max-width: 10rem;
         font-family: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-family: var(--font-pauschal);
     }
