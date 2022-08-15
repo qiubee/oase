@@ -8,7 +8,14 @@ import {
   Student,
 } from "./@types/main";
 import { get } from "svelte/store";
-import { categories, students, sorted, posts, statusOptions, userID } from "./store";
+import {
+  categories,
+  students,
+  sorted,
+  posts,
+  statusOptions,
+  userID,
+} from "./store";
 
 const categoriesItems = get(categories);
 const studentsItems = get(students);
@@ -19,36 +26,36 @@ const UID = get(userID);
 export function updateStatus(option: Student["status"]["text"]): void {
   const index = statusOptionsItems.indexOf(option);
   students.update(function (students) {
-      students[UID].status.text = statusOptionsItems[index];
-      return students;
-  })
+    students[UID].status.text = statusOptionsItems[index];
+    return students;
+  });
 }
 
 export function uploadImage(e: Event): void {
   const el = <HTMLInputElement>e.target;
   const files: FileList = el.files;
   students.update(function (students) {
-      students[UID].photoURL = URL.createObjectURL(files[0]);
-      return students;
-  })
+    students[UID].photoURL = URL.createObjectURL(files[0]);
+    return students;
+  });
 }
 
 export function toggleLastName(): void {
   const user = studentsItems.find((user) => user.id === UID);
   const visibility = user.lastNameVisible;
   students.update(function (students) {
-      students[UID].lastNameVisible = !visibility ? true : false;
-      return students;
-  })
+    students[UID].lastNameVisible = !visibility ? true : false;
+    return students;
+  });
 }
 
 export function toggleOnlineStatus(): void {
   const user = studentsItems.find((user) => user.id === UID);
   const visibility = user.status.visible;
   students.update(function (students) {
-      students[UID].status.visible = !visibility ? true : false;
-      return students;
-  })
+    students[UID].status.visible = !visibility ? true : false;
+    return students;
+  });
 }
 
 export function follow(category: Category, userID: number): void {
