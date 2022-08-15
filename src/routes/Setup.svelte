@@ -8,7 +8,7 @@
     import ProgressBar from "../lib/components/ProgressBar.svelte";
     import { categories, currentTheme, themes, students, userID, statusOptions, onboard } from "../store";
     import { openUploadDialog } from "../utils/utils";
-    import { follow } from "../actions";
+    import { follow, toggleLastName, toggleOnlineStatus, updateStatus, uploadImage } from "../actions";
     import brokenSVG from "../assets/broken.svg";
 
     let headerHeight: number;
@@ -33,39 +33,6 @@
         const el = <HTMLElement>e.target;
         currentTheme.update(() => el.dataset.theme);
         goToNext();
-    }
-
-    function updateStatus(option: Student["status"]["text"]): void {
-        const index = $statusOptions.indexOf(option);
-        students.update(function (students) {
-            students[$userID].status.text = $statusOptions[index];
-            return students;
-        })
-    }
-
-    function uploadImage(e: Event): void {
-        const el = <HTMLInputElement>e.target;
-        const files: FileList = el.files;
-        students.update(function (students) {
-            students[$userID].photoURL = URL.createObjectURL(files[0]);
-            return students;
-        })
-    }
-
-    function toggleLastName(): void {
-        const visibility = user.lastNameVisible;
-        students.update(function (students) {
-            students[$userID].lastNameVisible = !visibility ? true : false;
-            return students;
-        })
-    }
-
-    function toggleOnlineStatus(): void {
-        const visibility = user.status.visible;
-        students.update(function (students) {
-            students[$userID].status.visible = !visibility ? true : false;
-            return students;
-        })
     }
 
     function goHome(): void {

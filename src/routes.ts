@@ -10,6 +10,7 @@ import Post from "./routes/Post.svelte";
 import Category from "./routes/Category.svelte";
 import Setup from "./routes/Setup.svelte";
 import Test from "./routes/Test.svelte";
+import Settings from "./routes/Settings.svelte";
 
 export default {
   "/": Home,
@@ -21,6 +22,7 @@ export default {
   "/account-instellen": Setup,
   "/post-aanmaken": CreatePost,
   "/test": Test,
+  "/instellingen": Settings,
 
   "/post/:id": Post,
   "/categorie/:category": Category,

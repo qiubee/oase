@@ -20,7 +20,6 @@
 
     if (category) {
         type = "category";
-
     }
 
     if (type === "post") {

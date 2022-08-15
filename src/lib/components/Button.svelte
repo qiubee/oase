@@ -2,15 +2,27 @@
     import { loggedIn } from "../../store";
     import { replace } from "svelte-spa-router";
     import { getContext } from "svelte";
-    const { previous, next } = getContext("step");
 
+    let previous;
+    let next;
+
+    if (getContext("step")) {
+        const ctx = getContext("step");
+        previous = ctx["previous"];
+        next = ctx["next"];
+    }
+
+    
     export let icon = "back";
     export let shape = "round";
     export let text = "Volgende";
     export let action = function () {
-        next();
+        if (icon === "logout") {
+            logout();
+        } else {
+            next();
+        }
     }
-
 
     function logout():void {
         loggedIn.update(():boolean => false);
@@ -20,8 +32,8 @@
 
 {#if shape === "round"}
     {#if icon === "logout"}
-        <button class="round" on:click={logout}>
-            <svg class="logout-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+        <button class="round" on:click={action}>
+            <svg class="logout" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                 <g id="icon" transform="translate(-18 -673)">
                     <rect id="bg" width="20" height="20" transform="translate(18 673)" fill="rgba(255,96,96,0)"/>
                     <path id="path" d="M9.21,9.273l2.758-2.758A.727.727,0,1,0,10.94,5.486l-4,4a.727.727,0,0,0,0,1.029l4,4a.727.727,0,1,0,1.029-1.029L9.21,10.727h8.066a.727.727,0,0,0,0-1.455Zm1.517-5.818a.727.727,0,1,0,0-1.455H3.821A1.82,1.82,0,0,0,2,3.821V16.179A1.821,1.821,0,0,0,3.821,18h6.906a.727.727,0,1,0,0-1.455H3.821a.366.366,0,0,1-.367-.366V3.821a.366.366,0,0,1,.367-.366Z" transform="translate(17.901 673)" fill="#fff"/>
@@ -47,7 +59,9 @@
     {/if}
 {:else if shape === "rectangle"}
     <button class="rectangle" on:click={action}>
+        {#if icon !== "logout"}
         <span>{text}</span>
+        {/if}
         {#if icon === "next"}
         <svg class="next" width="14" viewBox="0 0 17 14" xmlns="http://www.w3.org/2000/svg">
             <defs class="s-5xw9RGpuDz7F" id="defs4">
@@ -68,6 +82,14 @@
               </g>
             </g>
         </svg>
+        {:else if icon === "logout"}
+        <svg class="logout" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+            <g id="icon" transform="translate(-18 -673)">
+                <rect id="bg" width="20" height="20" transform="translate(18 673)" fill="rgba(255,96,96,0)"/>
+                <path id="path" d="M9.21,9.273l2.758-2.758A.727.727,0,1,0,10.94,5.486l-4,4a.727.727,0,0,0,0,1.029l4,4a.727.727,0,1,0,1.029-1.029L9.21,10.727h8.066a.727.727,0,0,0,0-1.455Zm1.517-5.818a.727.727,0,1,0,0-1.455H3.821A1.82,1.82,0,0,0,2,3.821V16.179A1.821,1.821,0,0,0,3.821,18h6.906a.727.727,0,1,0,0-1.455H3.821a.366.366,0,0,1-.367-.366V3.821a.366.366,0,0,1,.367-.366Z" transform="translate(17.901 673)" fill="#fff"/>
+            </g>
+        </svg>
+        <span>{text}</span>
         {/if}
     </button>
 {/if}
@@ -101,6 +123,10 @@
         border-radius: 0.25rem;
         margin: 0.5rem 0;
         min-width: 6rem;
+    }
+
+    .rectangle .logout {
+        margin-right: 0.25rem;
     }
 
     button:hover {

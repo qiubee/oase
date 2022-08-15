@@ -1,16 +1,12 @@
 <script lang="ts">
+    import { push } from "svelte-spa-router";
     import { students, userID } from "../../../store";
     import brokenSVG from "./../../../assets/broken.svg";
 
     let user = $students.find(user => user.id === $userID);
-
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    function updateSettings(): void {
-        
-    }
 </script>
 
-<button class="settings" on:click={updateSettings}>
+<button class="settings" on:click={() => push("/instellingen")}>
     <div class="photo">
         <img src="{user.photoURL ? user.photoURL : brokenSVG}" alt="Profiel foto {user.firstName} {user.lastName}">
     </div>
