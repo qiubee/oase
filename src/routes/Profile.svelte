@@ -48,8 +48,8 @@
                         <h2>Cijfers</h2>
                         <a href="/cijfers" use:link>
                             <span>Cijferlijst</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 8 4.898" transform="rotate(270)">
-                            <path id="Union_5" data-name="Union 5" d="M-386.25,3.834l-.163.167.163-.167L-390,0l3.75,3.834L-382.5,0l-3.75,3.834.163.167Z" transform="translate(390.357 0.35)" fill="none" stroke="#1f2121" stroke-width="1.5"/>
+                            <svg width="5" viewBox="0 0 4.8979999 8.2140001" xmlns="http://www.w3.org/2000/svg">
+                                <path d="m 4.1832728,4.1069999 0.167,0.163 -0.167,-0.163 -3.83400005,3.75 3.83400005,-3.75 -3.83400005,-3.75 3.83400005,3.75 0.167,-0.163 z" fill="none"  stroke="#1f2121" stroke-width="1.5" />
                             </svg>
                         </a>
                     </div>
@@ -142,10 +142,6 @@
 
     a span {
         margin-right: 0.25rem;
-    }
-
-    a svg {
-        margin-top: 0.1rem;
     }
 
     .messages {
