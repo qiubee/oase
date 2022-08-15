@@ -2,7 +2,6 @@
     import { replace } from "svelte-spa-router";
     import { setContext, onMount, afterUpdate } from "svelte";
     import { Writable, writable } from "svelte/store";
-    import type { Student } from "src/@types/main";
     import Button from "../lib/components/Button.svelte";
     import Toggle from "../lib/components/Toggle.svelte";
     import ProgressBar from "../lib/components/ProgressBar.svelte";
