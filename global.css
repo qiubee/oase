@@ -1,0 +1,112 @@
+:root {
+    font-family: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background-color: #fefae2;
+    --font-kotori-rose: "Kotori Rose", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --font-pauschal: "Pauschal", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --std-bg-color: #fbf0bc;
+    --std-btn-bg-color: #a7aa85;
+    --std-active-color: #a093e5;
+    --std-gray: #b9b9b9;
+    --cmd-color-main: #FFF021;
+    --cmd-color-black: black;
+    --cmd-color-white: white;
+    --cmd-color-gray: #7e7e7e;
+    --gutter: 0 0.75rem; 
+}
+
+@font-face {
+    font-family: "Kotori Rose";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("./fonts/kotori-rose-regular.woff2") format("woff2"),
+        url("./fonts/kotori-rose-regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Kotori Rose";
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url("./fonts/kotori-rose-bold.woff2") format("woff2"),
+        url("./fonts/kotori-rose-bold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Pauschal";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("./fonts/pauschalVF.woff2") format("woff2"),
+        url("./fonts/pauschalVF.woff") format("woff");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+svg {
+    pointer-events: none;
+}
+
+ul, ol {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: transparent;
+	border: none;
+	cursor: pointer;
+    padding: 0;
+	outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+textarea {
+    resize: none;
+}
+
+*:focus-visible,
+*:focus {
+    outline: none;
+}
+
+.view {
+    height: 100%;
+    background-color: var(--cmd-color-main);
+}
+
+.content {
+    max-width: 30rem;
+    margin: auto;
+}
